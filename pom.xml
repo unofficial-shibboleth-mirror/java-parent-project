@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.shibboleth</groupId>
+    <artifactId>parent</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+
+    <name>Shibboleth Project Super POM</name>
+    <description>
+        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth projects.
+    </description>
+
+    <properties>
+        <!-- Projects which inherit this POM must set this property -->
+        <!-- <svn.relative.location /> -->
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+
+        <slf4j.groupId>org.slf4j</slf4j.groupId>
+        <slf4j.version>1.6.1</slf4j.version>
+        <spring.groupId>org.springframework</spring.groupId>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <xerces.groupId>org.apache.xerces</xerces.groupId>
+        <xerces.version>2.10.0</xerces.version>
+        <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
+        <xmlresolver.version>1.2</xmlresolver.version>
+        <xalan.groupId>xalan</xalan.groupId>
+        <xalan.version>2.7.1</xalan.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>shib-release</id>
+            <url>https://shibboleth.net/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>shib-snapshot</id>
+            <url>https://shibboleth.net/nexus/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <!-- Dependencies set for all projects. Be certain anything added here really should apply to every single project. -->
+    <dependencies>
+        <!-- Compile dependencies -->
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${slf4j.groupId}</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- Runtime dependencies -->
+
+        <!-- Provided dependencies -->
+        <dependency>
+            <groupId>net.jcip</groupId>
+            <artifactId>jcip-annotations</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>5.9</version>
+            <classifier>jdk15</classifier>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <!-- Dependencies with fixed versions and excludes that may be used by projects. -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Compile dependencies -->
+            <dependency>
+                <groupId>${spring.groupId}</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>${spring.groupId}</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.santuario</groupId>
+                <artifactId>xmlsec</artifactId>
+                <version>1.4.5</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>0.9.29</version>
+            </dependency>
+            <dependency>
+                <!-- needed for logback SMTP appender -->
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.1</version>
+            </dependency>
+            <dependency>
+                <!-- needed for logback SMTP appender -->
+                <groupId>janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>2.5.10</version>
+            </dependency>
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>1.6.2</version>
+            </dependency>
+
+            <!-- Provided dependencies -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Runtime dependencies -->
+            <dependency>
+                <groupId>${xerces.groupId}</groupId>
+                <artifactId>xml-apis</artifactId>
+                <version>${xerces.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>${xerces.groupId}</groupId>
+                <artifactId>xercesImpl</artifactId>
+                <version>${xerces.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>${xerces.groupId}</groupId>
+                <artifactId>serializer</artifactId>
+                <version>${xerces.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>xml-resolver</groupId>
+                <artifactId>xml-resolver</artifactId>
+                <version>${xmlresolver.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>${xalan.groupId}</groupId>
+                <artifactId>xalan</artifactId>
+                <version>${xalan.version}</version>
+                <scope>runtime</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>${xalan.groupId}</groupId>
+                        <artifactId>serializer</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>xmlunit</groupId>
+                <artifactId>xmlunit</artifactId>
+                <version>1.3</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>release</id>
+            <url>https://shibboleth.net/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshot</id>
+            <url>https://shibboleth.net/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>2.2</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/endorsed</outputDirectory>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>${xerces.groupId}</groupId>
+                                            <artifactId>xml-apis</artifactId>
+                                            <version>${xerces.version}</version>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>${xerces.groupId}</groupId>
+                                            <artifactId>xercesImpl</artifactId>
+                                            <version>${xerces.version}</version>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>${xerces.groupId}</groupId>
+                                            <artifactId>serializer</artifactId>
+                                            <version>${xerces.version}</version>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>${xmlresolver.groupId}</groupId>
+                                            <artifactId>xml-resolver</artifactId>
+                                            <version>${xmlresolver.version}</version>
+                                        </artifactItem>
+                                        <artifactItem>
+                                            <groupId>${xalan.groupId}</groupId>
+                                            <artifactId>xalan</artifactId>
+                                            <version>${xalan.version}</version>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <compilerArguments>
+                                <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
+                            </compilerArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.8</version>
+                        <configuration>
+                            <argLine>-Xmx256m</argLine>
+                            <systemProperties>
+                                <property>
+                                    <name>java.endorsed.dirs</name>
+                                    <value>${project.build.directory}/endorsed</value>
+                                </property>
+                            </systemProperties>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <configuration>
+                            <tarLongFileMode>gnu</tarLongFileMode>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>attached</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.1.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <links>
+                                <link>http://download.oracle.com/javase/6/docs/api</link>
+                                <link>http://joda-time.sourceforge.net/api-release/</link>
+                                <link>http://www.slf4j.org/apidocs/</link>
+                                <link>http://santuario.apache.org/Java/api/</link>
+                            </links>
+                            <quiet>true</quiet>
+                            <author>false</author>
+                            <version>true</version>
+                            <doctitle>${project.name} ${project.version} Java API</doctitle>
+                            <windowtitle>${project.name} ${project.version} Java API</windowtitle>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.2</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+    <!-- Project Metadata -->
+    <url>http://shibboleth.net/</url>
+
+    <inceptionYear>2009</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <mailingLists>
+        <mailingList>
+            <name>Shibboleth Announce</name>
+            <subscribe>mailto:announce-subscribe@shibboleth.net</subscribe>
+            <unsubscribe>mailto:announce-unsubscribe@shibboleth.net</unsubscribe>
+            <post>announce@shibboleth.net</post>
+        </mailingList>
+        <mailingList>
+            <name>Shibboleth Users</name>
+            <subscribe>mailto:users-subscribe@shibboleth.net</subscribe>
+            <unsubscribe>mailto:users-unsubscribe@shibboleth.net</unsubscribe>
+            <post>users@shibboleth.net</post>
+            <archive>http://marc.info/?l=shibboleth-users</archive>
+            <otherArchives>
+                <otherArchive>http://groups.google.com/group/shibboleth-users/topics</otherArchive>
+            </otherArchives>
+        </mailingList>
+        <mailingList>
+            <name>Shibboleth Development</name>
+            <subscribe>mailto:dev-subscribe@shibboleth.net</subscribe>
+            <unsubscribe>mailto:dev-unsubscribe@shibboleth.net</unsubscribe>
+            <post>dev@shibboleth.net</post>
+            <archive>http://marc.info/?l=shibboleth-dev</archive>
+            <otherArchives>
+                <otherArchive>http://groups.google.com/group/shibboleth-dev/topics</otherArchive>
+            </otherArchives>
+        </mailingList>
+    </mailingLists>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>http://issues.shibboleth.net/</url>
+    </issueManagement>
+
+    <scm>
+        <!-- The property svn.relative.location is set by the project that inherits from this super POM -->
+        <connection>scm:svn:https://svn.shibboleth.net/{$svn.relative.location}</connection>
+        <developerConnection>scm:svn:https://svn.shibboleth.net/{$svn.relative.location}
+		</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://svn.shibboleth.net/view/{$svn.relative.location}</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>halm</id>
+            <name>Halm Ruesser</name>
+            <organization>SWITCH</organization>
+            <organizationUrl>http://switch.ch</organizationUrl>
+            <timezone>+1</timezone>
+        </developer>
+        <developer>
+            <id>iay</id>
+            <name>Ian Young</name>
+            <organization>EDINA, University of Edinburgh</organization>
+            <organizationUrl>http://edina.ack.uk</organizationUrl>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <id>lajoie</id>
+            <name>Chad La Joie</name>
+            <organization>Itumi, LLC</organization>
+            <organizationUrl>http://itumi.biz</organizationUrl>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>putman</id>
+            <name>Brent Putman</name>
+            <organization>Georgetown University</organization>
+            <organizationUrl>http://www.georgetown.edu</organizationUrl>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>rdw</id>
+            <name>Rod Widdowson</name>
+            <organization>EDINA, University of Edinburgh</organization>
+            <organizationUrl>http://edina.ack.uk</organizationUrl>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <id>scantor</id>
+            <name>Scott Cantor</name>
+            <organization>The Ohio State University</organization>
+            <organizationUrl>http://www.osu.edu</organizationUrl>
+            <timezone>-5</timezone>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <name>Nathan Klingenstien</name>
+            <organization>Internet2</organization>
+            <organizationUrl>http://internet2.edu</organizationUrl>
+            <timezone>-7</timezone>
+        </contributor>
+    </contributors>
+
+</project>
