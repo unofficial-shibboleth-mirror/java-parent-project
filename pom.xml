@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>1</version>
+    <version>2</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project Super POM</name>
@@ -168,6 +168,12 @@
                 <version>2.5</version>
                 <scope>provided</scope>
             </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>2.1</version>
+                <scope>provided</scope>
+            </dependency>
 
             <!-- Runtime dependencies -->
             <dependency>
@@ -326,6 +332,27 @@
                                 <id>attach-sources</id>
                                 <goals>
                                     <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <!-- To depend on a test jar us something a dependency definition that looks like this
+                        <dependency>
+                            <groupId>GROUPID</groupId>
+                            <artifactId>ARTIFACTID</artifactId>
+                            <version>VERSION</version>
+                            <type>test-jar</type>
+                            <scope>test</scope>
+                        </dependency>
+                         -->
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.3.1</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>test-jar</goal>
                                 </goals>
                             </execution>
                         </executions>
