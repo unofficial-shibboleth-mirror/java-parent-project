@@ -27,7 +27,7 @@
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>3.0.5.RELEASE</spring.version>
         <xerces.groupId>org.apache.xerces</xerces.groupId>
-        <xerces.version>2.11.0</xerces.version>
+        <xerces.version>2.10.0</xerces.version>
         <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
         <xmlresolver.version>1.2</xmlresolver.version>
         <xalan.groupId>xalan</xalan.groupId>
@@ -130,7 +130,7 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>1.4.6</version>
+                <version>1.4.5</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
