@@ -23,11 +23,11 @@
         <maven.compiler.target>1.6</maven.compiler.target>
 
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.6.1</slf4j.version>
+        <slf4j.version>1.6.2</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>3.0.5.RELEASE</spring.version>
         <xerces.groupId>org.apache.xerces</xerces.groupId>
-        <xerces.version>2.10.0</xerces.version>
+        <xerces.version>2.11.0</xerces.version>
         <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
         <xmlresolver.version>1.2</xmlresolver.version>
         <xalan.groupId>xalan</xalan.groupId>
@@ -130,7 +130,7 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>1.4.5</version>
+                <version>1.4.6</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -297,7 +297,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>2.8</version>
                         <configuration>
-                            <argLine>-Xmx256m</argLine>
+                            <argLine>-Xmx512m</argLine>
                             <systemProperties>
                                 <property>
                                     <name>java.endorsed.dirs</name>
