@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>2</version>
+    <version>TRUNK-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project Super POM</name>
