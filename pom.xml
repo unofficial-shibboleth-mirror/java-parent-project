@@ -290,6 +290,8 @@
                             <compilerArguments>
                                 <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
                             </compilerArguments>
+                            <showDeprecation>true</showDeprecation>
+                            <showWarnings>true</showWarnings>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -312,6 +314,7 @@
                         <version>2.2.1</version>
                         <configuration>
                             <tarLongFileMode>gnu</tarLongFileMode>
+                            <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
                         </configuration>
                         <executions>
                             <execution>
@@ -378,6 +381,7 @@
                             </links>
                             <quiet>true</quiet>
                             <author>false</author>
+                            <show>private</show>
                             <version>true</version>
                             <doctitle>${project.name} ${project.version} Java API</doctitle>
                             <windowtitle>${project.name} ${project.version} Java API</windowtitle>
