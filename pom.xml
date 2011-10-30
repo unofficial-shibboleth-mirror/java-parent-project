@@ -482,7 +482,7 @@
             <id>iay</id>
             <name>Ian Young</name>
             <organization>EDINA, University of Edinburgh</organization>
-            <organizationUrl>http://edina.ack.uk</organizationUrl>
+            <organizationUrl>http://edina.ac.uk</organizationUrl>
             <timezone>0</timezone>
         </developer>
         <developer>
@@ -503,7 +503,7 @@
             <id>rdw</id>
             <name>Rod Widdowson</name>
             <organization>EDINA, University of Edinburgh</organization>
-            <organizationUrl>http://edina.ack.uk</organizationUrl>
+            <organizationUrl>http://edina.ac.uk</organizationUrl>
             <timezone>0</timezone>
         </developer>
         <developer>
@@ -517,7 +517,7 @@
 
     <contributors>
         <contributor>
-            <name>Nathan Klingenstien</name>
+            <name>Nathan Klingenstein</name>
             <organization>Internet2</organization>
             <organizationUrl>http://internet2.edu</organizationUrl>
             <timezone>-7</timezone>
