@@ -21,7 +21,7 @@ if [ -z "$MVN_GROUP_ID" ] ; then
     exit 1
 fi
 
-declare -rf PROJ_ID=${SVN_PROJ_URL##*/}
+declare -r PROJ_ID=${SVN_PROJ_URL##*/}
 
 # Check to make sure this command is going to write in to some existing directory
 declare -r SVN_PROJ_DIR="$TMPDIR/$PROJ_ID-project"
