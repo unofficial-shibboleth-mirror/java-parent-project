@@ -66,12 +66,16 @@ function expand_macro {
     check_retval $? "Unable to replace MVN_GROUP_ID macro in $1 with value $2"
 }
 
-# Creates the ./src directory structure within a given directory
+# Creates the ./src directory structure within a given directory and places a logback-text.xml
+# configuration file in the src/test/resources directory
 #
 # $1 directory within which the ./src directory structure will be created
 function create_src {
     $MKDIR -p "$1/src/main/java" "$1/src/main/resources" "$1/src/test/java" "$1/src/test/resources"
     check_retval $? "Unable to create Maven src directories"
+    
+    download_file "$PARENT_PROJ_URL/resources/logback/logback-test.xml" "$1/src/test/resources/logback-test.xml"
+    check_retval $? "Unable to download logback-text.xml into src/test/resources"
 }
 
 # Creates the src/main/assembly directory and places an initial assembly descriptor in it
@@ -127,7 +131,7 @@ function create_pom_file {
 # $2 URL of repository into which the project will be imported
 # $3 working directory into which the project will be checked out
 function import_checkout_svn_project {
-    $SVN import -q -m "Importing new project" "$1" "$2/$1"
+    $SVN import -q -m "Importing new project" "$1" "$2"
     check_retval $? "Unable to import $1 into SVN repository $2"
 
     $RM -rf $SVN_PROJ_DIR

@@ -5,7 +5,7 @@ LOCATION=${LOCATION%/*}
 
 source $LOCATION/create-project-common.sh
 
-$ECHO "This script will create a new monolothic project."
+$ECHO "This script will create a new monolithic project."
 $ECHO "Before you begin you must have already created an empty SVN repository that will recieve the project."
 $ECHO ""
 
@@ -22,12 +22,6 @@ if [ -z "$MVN_GROUP_ID" ] ; then
 fi
 
 declare -r MVN_ARTF_ID=${SVN_PROJ_URL##*/}
-
-#read -p "Please enter the maven artifact ID for the project: " MVN_ARTF_ID
-#if [ -z "$MVN_ARTF_ID" ] ; then
-#    $ECHO "Maven artifact ID can not be empty"
-#    exit 1
-#fi
 
 # Check to make sure this command is going to write in to some existing directory
 declare -r SVN_PROJ_DIR="$TMPDIR/$MVN_ARTF_ID-project"
