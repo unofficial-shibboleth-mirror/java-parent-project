@@ -70,7 +70,7 @@ function expand_macro {
 #
 # $1 directory within which the ./src directory structure will be created
 function create_src {
-    $MKDIR -p "$1/src/main/java" "$1/src/main/resources" "$1/src/test/java" "$1/src/test/resoruces"
+    $MKDIR -p "$1/src/main/java" "$1/src/main/resources" "$1/src/test/java" "$1/src/test/resources"
     check_retval $? "Unable to create Maven src directories"
 }
 
