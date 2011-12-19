@@ -385,8 +385,8 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jxr-plugin</artifactId>
-                    <version>2.3</version>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -402,11 +402,76 @@
         </pluginManagement>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.4</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>index</report>
+                            <report>license</report>   
+                            <report>distribution-management</report>             
+                            <report>mailing-list</report>
+                            <report>issue-tracking</report>
+                            <report>scm</report>
+                            <report>project-team</report>
+                            <report>dependencies</report>
+                            <report>dependency-management</report>
+                            <report>plugins</report>
+                            <report>plugin-management</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+    
     <profiles>
         <profile>
             <id>release</id>
             <build>
                 <plugins>
+                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <tarLongFileMode>gnu</tarLongFileMode>
+                            <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>make-assembly</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>attached</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                   <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration>
+                            <compilerArguments>
+                                <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
+                            </compilerArguments>
+                            <showDeprecation>true</showDeprecation>
+                            <showWarnings>true</showWarnings>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
@@ -446,59 +511,6 @@
                                         </artifactItem>
                                     </artifactItems>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <compilerArguments>
-                                <endorseddirs>${project.build.directory}/endorsed</endorseddirs>
-                            </compilerArguments>
-                            <showDeprecation>true</showDeprecation>
-                            <showWarnings>true</showWarnings>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <configuration>
-                            <argLine>-Xmx512m</argLine>
-                            <systemProperties>
-                                <property>
-                                    <name>java.endorsed.dirs</name>
-                                    <value>${project.build.directory}/endorsed</value>
-                                </property>
-                            </systemProperties>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-assembly-plugin</artifactId>
-                        <configuration>
-                            <tarLongFileMode>gnu</tarLongFileMode>
-                            <ignoreMissingDescriptor>true</ignoreMissingDescriptor>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>make-assembly</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>attached</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -549,8 +561,33 @@
                             <author>false</author>
                             <show>private</show>
                             <version>true</version>
-                            <doctitle>${project.name} ${project.version} Java API</doctitle>
-                            <windowtitle>${project.name} ${project.version} Java API</windowtitle>
+                            <doctitle>${project.name} ${project.version} API</doctitle>
+                            <windowtitle>${project.name} ${project.version} API</windowtitle>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <argLine>-Xmx512m</argLine>
+                            <systemProperties>
+                                <property>
+                                    <name>java.endorsed.dirs</name>
+                                    <value>${project.build.directory}/endorsed</value>
+                                </property>
+                            </systemProperties>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -597,7 +634,6 @@
             <name>Shibboleth Announce</name>
             <subscribe>mailto:announce-subscribe@shibboleth.net</subscribe>
             <unsubscribe>mailto:announce-unsubscribe@shibboleth.net</unsubscribe>
-            <post>announce@shibboleth.net</post>
         </mailingList>
         <mailingList>
             <name>Shibboleth Users</name>
@@ -628,11 +664,11 @@
 
     <scm>
         <!-- The property svn.relative.location is set by the project that inherits from this super POM -->
-        <connection>scm:svn:https://svn.shibboleth.net/{$svn.relative.location}</connection>
-        <developerConnection>scm:svn:https://svn.shibboleth.net/{$svn.relative.location}
+        <connection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}</connection>
+        <developerConnection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}
 		</developerConnection>
         <tag>HEAD</tag>
-        <url>http://svn.shibboleth.net/view/{$svn.relative.location}</url>
+        <url>http://svn.shibboleth.net/view/${svn.relative.location}</url>
     </scm>
 
     <developers>
