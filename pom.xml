@@ -25,7 +25,7 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.6.2</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>3.0.5.RELEASE</spring.version>
+        <spring.version>3.1.0.RELEASE</spring.version>
         <xalan.groupId>xalan</xalan.groupId>
         <xalan.version>2.7.1</xalan.version>
         <xerces.groupId>org.apache.xerces</xerces.groupId>
@@ -301,7 +301,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-all</artifactId>
-                <version>1.9.0-rc1</version>
+                <version>1.9.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -524,15 +524,26 @@
                                 <id>attach-javadocs</id>
                                 <goals>
                                     <goal>jar</goal>
+                                    <goal>test-jar</goal>
                                 </goals>
                             </execution>
                         </executions>
                         <configuration>
                             <links>
                                 <link>http://download.oracle.com/javase/6/docs/api</link>
-                                <link>http://joda-time.sourceforge.net/api-release/</link>
                                 <link>http://www.slf4j.org/apidocs/</link>
-                                <link>http://santuario.apache.org/Java/api/</link>
+                                <link>http://testng.org/javadocs</link>
+                                <link>http://xmlunit.sourceforge.net/api</link>
+                                <link>http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest</link>
+                                <link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs</link>
+                                <link>http://joda-time.sourceforge.net/api-release</link>
+                                <link>http://javamail.kenai.com/nonav/javadocs</link>
+                                <link>http://static.springsource.org/spring/docs/3.1.x/javadoc-api</link>
+                                <link>http://vt-middleware.googlecode.com/svn/vt-crypt/javadoc/vt-crypt-2.1.3</link>
+                                <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs</link>
+                                <link>http://santuario.apache.org/Java/api</link>
+                                <link>http://docs.oracle.com/javaee/5/api</link>
+                                <link>http://docs.mockito.googlecode.com/hg/latest/</link>
                             </links>
                             <quiet>true</quiet>
                             <author>false</author>
