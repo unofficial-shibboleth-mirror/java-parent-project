@@ -125,6 +125,17 @@ function create_pom_file {
     expand_macro $1/pom.xml "MVN_ARTF_ID" $4
 }
 
+# Creates the Maven site configuration
+#
+# $1 directory in which the site configuration will be placed
+function create_site_file {
+    $MKDIR -p "$1/src/site"
+    check_retval $? "Unable to create site source directory"
+
+    download_file "$PARENT_PROJ_URL/resources/maven/site.xml" "$1/src/site/site.xml"
+    check_retval $? "Unable to download site descriptor"
+}
+
 # Import a new project in to a repository
 #
 # $1 Project directory; removed once import is completed

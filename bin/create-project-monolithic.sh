@@ -36,6 +36,7 @@ create_assembly $PROJ_DIR
 create_doc $PROJ_DIR
 create_eclipse_files $PROJ_DIR $MVN_ARTF_ID
 create_pom_file $PROJ_DIR $PARENT_PROJ_URL/resources/maven/pom.xml.tmpl $MVN_GROUP_ID $MVN_ARTF_ID 
+create_site_file $PROJ_DIR
 
 $ECHO "Importing project structure into SVN repository $SVN_PROJ_URL and checking out working copy to ./$MVN_ARTF_ID"
 import_checkout_svn_project $SVN_PROJ_DIR $SVN_PROJ_URL $MVN_ARTF_ID
