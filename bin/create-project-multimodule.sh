@@ -36,12 +36,17 @@ $MKDIR $PROJ_PARENT_DIR
 check_retval $? "Unable to create project parent module directory"
 
 create_pom_file $PROJ_PARENT_DIR $PARENT_PROJ_URL/resources/maven/pom.xml.tmpl $MVN_GROUP_ID $PROJ_ID-parent
+
+download_file $PARENT_PROJ_URL/resources/eclipse/.parent-project.tmpl $PROJ_PARENT_DIR/.project
+expand_macro $PROJ_PARENT_DIR/.project "MVN_ARTF_ID" $PROJ_ID-parent
+
 create_site_file $PROJ_PARENT_DIR
 
 download_file $PARENT_PROJ_URL/resources/maven/module-pom.xml.tmpl $PROJ_PARENT_DIR/module-pom.xml.tmpl
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "MVN_GROUP_ID" $MVN_GROUP_ID
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "MVN_PARENT_ARTF_ID" $PROJ_ID-parent
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "PROJ_PARENT_DIR" ${PROJ_PARENT_DIR##*/}
+
 
 $ECHO "Importing project structure into SVN repository $SVN_PROJ_URL"
 import_checkout_svn_project $SVN_PROJ_DIR $SVN_PROJ_URL $PROJ_ID
