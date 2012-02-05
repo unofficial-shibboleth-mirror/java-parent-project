@@ -23,7 +23,7 @@
         <maven.compiler.target>1.6</maven.compiler.target>
 
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.6.2</slf4j.version>
+        <slf4j.version>1.6.4</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>3.1.0.RELEASE</spring.version>
         <xalan.groupId>xalan</xalan.groupId>
@@ -164,7 +164,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>11.0</version>
+                <version>11.0.1</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
