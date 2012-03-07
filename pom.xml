@@ -22,6 +22,8 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
 
+        <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
+        <httpclient.version>4.1.2</httpclient.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.6.4</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
@@ -167,15 +169,20 @@
                 <version>11.0.1</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
+                <groupId>${httpclient.groupId}</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.1.2</version>
+                <version>${httpclient.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
                         <artifactId>commons-logging</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>${httpclient.groupId}</groupId>
+                <artifactId>httpclient-cache</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
             <dependency>
                 <!-- needed for logback SMTP appender -->
@@ -428,7 +435,7 @@
                     <omitGplFiles>true</omitGplFiles>
                     <instrumentation>
                         <excludes>
-                            <exclude>net/**/*Exception.class</exclude>
+                            <exclude>**/*Exception.class</exclude>
                             <!-- 
                                 Exclude directive doesn't support \d so lets just assume no class 
                                 will have more than 9 anonymous inner classes 
@@ -615,6 +622,7 @@
                                 <link>http://xmlunit.sourceforge.net/api</link>
                                 <link>http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest</link>
                                 <link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs</link>
+                                <link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</link>
                                 <link>http://joda-time.sourceforge.net/api-release</link>
                                 <link>http://javamail.kenai.com/nonav/javadocs</link>
                                 <link>http://static.springsource.org/spring/docs/3.1.x/javadoc-api</link>
