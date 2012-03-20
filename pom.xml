@@ -750,13 +750,6 @@
 
     <developers>
         <developer>
-            <id>halm</id>
-            <name>Halm Ruesser</name>
-            <organization>SWITCH</organization>
-            <organizationUrl>http://switch.ch</organizationUrl>
-            <timezone>+1</timezone>
-        </developer>
-        <developer>
             <id>iay</id>
             <name>Ian Young</name>
             <organization>EDINA, University of Edinburgh</organization>
