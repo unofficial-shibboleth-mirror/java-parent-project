@@ -668,14 +668,9 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
-                          <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                            <argLine>-Xmx512m</argLine>
-                            <systemProperties>
-                                <property>
-                                    <name>java.endorsed.dirs</name>
-                                    <value>${project.build.directory}/endorsed</value>
-                                </property>
-                            </systemProperties>
+                            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                            <!-- TODO lessen the amount of memory needed by OpenSAML unit tests -->
+                            <argLine>-Xmx1g -Djava.endorsed.dirs=${project.build.directory}/endorsed</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
