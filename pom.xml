@@ -39,14 +39,14 @@
     <repositories>
         <repository>
             <id>shib-release</id>
-            <url>https://shibboleth.net/nexus/content/groups/public</url>
+            <url>https://build.shibboleth.net/nexus/content/groups/public</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
         </repository>
         <repository>
             <id>shib-snapshot</id>
-            <url>https://shibboleth.net/nexus/content/repositories/snapshots</url>
+            <url>https://build.shibboleth.net/nexus/content/repositories/snapshots</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -343,11 +343,11 @@
     <distributionManagement>
         <repository>
             <id>release</id>
-            <url>https://shibboleth.net/nexus/content/repositories/releases</url>
+            <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
             <id>snapshot</id>
-            <url>https://shibboleth.net/nexus/content/repositories/snapshots</url>
+            <url>https://build.shibboleth.net/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     
