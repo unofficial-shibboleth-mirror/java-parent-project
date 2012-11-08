@@ -12,7 +12,7 @@ function lock_externals {
     fi
 
     echo "Setting svn:externals property on directory $2"
-    $SVN --non-interactive --quiet propset svn:externals "/java-parent-project/tags/$1/resources/eclipse/.settings .settings" "$2"
+    $SVN --non-interactive --quiet propset svn:externals "/java-parent-projects/java-parent-project-v3/tags/$1/resources/eclipse/.settings .settings" "$2"
     RETVAL=$?
     if [ $RETVAL != 0 ] ; then
         echo "Setting the svn:externals property on directory $2 failed with a status code of $RETVAL"
@@ -45,7 +45,7 @@ function lock_checkstyle {
     fi
 
     echo "Setting the version of the checkstyle configuration located in $2/.checkstyle"
-    $SED "s/project\/trunk\/resources/project\/tags\/$1\/resources/1" "$2/.checkstyle" > "$2/.checkstyle.tmp"
+    $SED "s/java-parent-project-v3\/trunk\/resources/java-parent-project-v3\/tags\/$1\/resources/1" "$2/.checkstyle" > "$2/.checkstyle.tmp"
     RETVAL=$?
     if [ $RETVAL != 0 ] ; then
         echo "Setting the version of the checkstyle configuration located in $2/.checkstyle failed with a status code of $RETVAL"

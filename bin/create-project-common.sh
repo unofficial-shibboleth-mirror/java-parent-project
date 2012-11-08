@@ -15,7 +15,7 @@ declare -r TOUCH="/usr/bin/touch"
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
 # we do a release in order to lock this project to a specific parent project version
-declare -r PARENT_PROJ_URL="https://svn.shibboleth.net/java-parent-project/trunk"
+declare -r PARENT_PROJ_URL="https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk"
 
 # Checks that the given return value was 0 and, if not, prints a given error messages and exits
 #
