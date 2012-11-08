@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.shibboleth</groupId>
-    <artifactId>parent</artifactId>
+    <artifactId>parent-v3</artifactId>
     <version>TRUNK-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Shibboleth Project Super POM</name>
+    <name>Shibboleth Project V3 Super POM</name>
     <description>
-        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth projects.
+        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth V3 projects.
     </description>
 
     <properties>
