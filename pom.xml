@@ -445,15 +445,15 @@
                                 Exclude directive doesn't support \d so lets just assume no class 
                                 will have more than 9 anonymous inner classes 
                             -->
-                            <exclude>net/**/*$1.class</exclude>
-                            <exclude>net/**/*$2.class</exclude>
-                            <exclude>net/**/*$3.class</exclude>
-                            <exclude>net/**/*$4.class</exclude>
-                            <exclude>net/**/*$5.class</exclude>
-                            <exclude>net/**/*$6.class</exclude>
-                            <exclude>net/**/*$7.class</exclude>
-                            <exclude>net/**/*$8.class</exclude>
-                            <exclude>net/**/*$9.class</exclude>
+                            <exclude>**/*$1.class</exclude>
+                            <exclude>**/*$2.class</exclude>
+                            <exclude>**/*$3.class</exclude>
+                            <exclude>**/*$4.class</exclude>
+                            <exclude>**/*$5.class</exclude>
+                            <exclude>**/*$6.class</exclude>
+                            <exclude>**/*$7.class</exclude>
+                            <exclude>**/*$8.class</exclude>
+                            <exclude>**/*$9.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
