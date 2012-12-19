@@ -31,7 +31,7 @@
         <xalan.groupId>xalan</xalan.groupId>
         <xalan.version>2.7.1</xalan.version>
         <xerces.groupId>org.apache.xerces</xerces.groupId>
-        <xerces.version>2.10.0</xerces.version>
+        <xerces.version>2.11.0</xerces.version>
         <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
         <xmlresolver.version>1.2</xmlresolver.version>
     </properties>
