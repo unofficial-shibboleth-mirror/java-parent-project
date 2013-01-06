@@ -97,6 +97,7 @@
     <module name="TrailingComment"/>
     <module name="EqualsAvoidNull"/>
     <module name="ModifiedControlVariable"/>
+    <module name="FileContentsHolder"/>
   </module>
   <module name="FileTabCharacter"/>
   <module name="FileLength">
