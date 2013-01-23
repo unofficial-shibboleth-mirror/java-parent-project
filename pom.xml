@@ -662,8 +662,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                            <!-- TODO lessen the amount of memory needed by OpenSAML unit tests -->
-                            <argLine>-Xmx1g -Djava.endorsed.dirs=${project.build.directory}/endorsed</argLine>
+                            <argLine>-Djava.endorsed.dirs=${project.build.directory}/endorsed</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
