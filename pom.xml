@@ -739,10 +739,10 @@
 
     <scm>
         <!-- The property svn.relative.location is set by the project that inherits from this super POM -->
-        <connection>scm:svn:https://svn.shibboleth.net${svn.relative.location}</connection>
-        <developerConnection>scm:svn:https://svn.shibboleth.net${svn.relative.location}</developerConnection>
+        <connection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}</connection>
+        <developerConnection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}</developerConnection>
         <tag>HEAD</tag>
-        <url>http://svn.shibboleth.net/view${svn.relative.location}</url>
+        <url>http://svn.shibboleth.net/view/${svn.relative.location}</url>
     </scm>
 
     <developers>
