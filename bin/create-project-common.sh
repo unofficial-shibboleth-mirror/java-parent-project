@@ -3,14 +3,14 @@
 shopt -s -o nounset
 
 # Commands used herein
-declare -r CP="/bin/cp"
-declare -r CURL="/usr/bin/curl"
-declare -r ECHO="/bin/echo"
-declare -r MKDIR="/bin/mkdir"
-declare -r PERL="/usr/bin/perl"
-declare -r RM="/bin/rm"
-declare -r SVN="/usr/bin/svn"
-declare -r TOUCH="/usr/bin/touch"
+declare -r CP="cp"
+declare -r CURL="curl"
+declare -r ECHO="echo"
+declare -r MKDIR="mkdir"
+declare -r PERL="perl"
+declare -r RM="rm"
+declare -r SVN="svn"
+declare -r TOUCH="touch"
 
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
@@ -166,6 +166,9 @@ function set_svn_properties_commit_and_update {
     $SVN propset -q "svn:ignore" -F "$TMPDIR/ignore.svn" "$1"
     check_retval $? "Unable to set svn:ignore property on $1"
     $RM "$TMPDIR/ignore.svn"
+    
+    $SVN commit -q -m "Committing svn.externals and svn.ignore" "$1"
+    check_retval $? "Unable to commit svn:externals and svn:ignore of $1 failed."
 
     $SVN update -q $1
     check_retval $? "SVN udpate of $1 failed."
