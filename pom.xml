@@ -25,7 +25,7 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.2</httpclient.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.6.5</slf4j.version>
+        <slf4j.version>1.7.4</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>3.1.1.RELEASE</spring.version>
         <xalan.groupId>xalan</xalan.groupId>
@@ -105,7 +105,7 @@
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
-                <version>1.6</version>
+                <version>1.7</version>
             </dependency>
             <dependency>
                 <groupId>org.owasp.esapi</groupId>
@@ -178,9 +178,9 @@
             </dependency>
             <dependency>
                 <!-- needed for logback SMTP appender -->
-                <groupId>janino</groupId>
+                <groupId>org.codehaus.janino</groupId>
                 <artifactId>janino</artifactId>
-                <version>2.5.10</version>
+                <version>2.6.1</version>
             </dependency>
             <dependency>
                 <groupId>jargs</groupId>
@@ -190,18 +190,18 @@
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
-                <version>2.1</version>
+                <version>2.2</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.0.6</version>
+                <version>1.0.10</version>
             </dependency>
             <dependency>
                 <!-- needed for logback SMTP appender -->
                 <groupId>javax.mail</groupId>
                 <artifactId>mail</artifactId>
-                <version>1.4.1</version>
+                <version>1.4.7</version>
             </dependency>
             <dependency>
                 <groupId>net.shibboleth.utilities</groupId>
