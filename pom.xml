@@ -342,6 +342,11 @@
                 <artifactId>jcommander</artifactId>
                 <version>1.30</version>
             </dependency>
+            <dependency>
+                <groupId>jargs</groupId>
+                <artifactId>jargs</artifactId>
+                <version>1.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
