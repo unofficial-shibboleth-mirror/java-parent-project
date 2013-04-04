@@ -258,6 +258,16 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>com.beust</groupId>
+                <artifactId>jcommander</artifactId>
+                <version>1.30</version>
+            </dependency>
+            <dependency>
+                <groupId>jargs</groupId>
+                <artifactId>jargs</artifactId>
+                <version>1.0</version>
+            </dependency>
 
             <!-- Provided dependencies -->
             <dependency>
@@ -336,16 +346,6 @@
                         <artifactId>commons-logging</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>com.beust</groupId>
-                <artifactId>jcommander</artifactId>
-                <version>1.30</version>
-            </dependency>
-            <dependency>
-                <groupId>jargs</groupId>
-                <artifactId>jargs</artifactId>
-                <version>1.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -762,8 +762,6 @@
         <developer>
             <id>lajoie</id>
             <name>Chad La Joie</name>
-            <organization>Itumi, LLC</organization>
-            <organizationUrl>http://itumi.biz</organizationUrl>
             <timezone>-5</timezone>
         </developer>
         <developer>
@@ -785,6 +783,13 @@
             <name>Scott Cantor</name>
             <organization>The Ohio State University</organization>
             <organizationUrl>http://www.osu.edu</organizationUrl>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>dfisher</id>
+            <name>Daniel Fisher</name>
+            <organization>Virginia Tech</organization>
+            <organizationUrl>http://www.vt.edu</organizationUrl>
             <timezone>-5</timezone>
         </developer>
     </developers>
