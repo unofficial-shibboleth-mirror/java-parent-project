@@ -5,7 +5,7 @@
 # such that it points to static, tagged parent project information.
 
 if [ $# != 2 ] ; then
-    echo "Usage: multimodule-lock-version <VERSION> <DIRECTORY>"
+    echo "Usage: $(basename $0) <VERSION> <DIRECTORY>"
     echo "   VERSION - the numeric version number of the parent project that the given project should be locked to"
     echo "   DIRECTORY - path to the project"
     exit 1;
