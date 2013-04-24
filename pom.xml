@@ -645,12 +645,29 @@
                                 <link>http://docs.oracle.com/javaee/5/api</link>
                                 <link>http://docs.mockito.googlecode.com/hg/latest/</link>
                             </links>
-                            <quiet>true</quiet>
+                            <quiet>false</quiet>
                             <author>false</author>
                             <show>private</show>
                             <version>true</version>
                             <doctitle>${project.name} ${project.version} API</doctitle>
                             <windowtitle>${project.name} ${project.version} API</windowtitle>
+                            <tags>
+                                <tag>
+                                    <name>event</name>
+                                    <placement>t</placement>
+                                    <head>Event:</head>
+                                </tag>
+                                <tag>
+                                    <name>pre</name>
+                                    <placement>t</placement>
+                                    <head>Precondition:</head>
+                                </tag>
+                                <tag>
+                                    <name>post</name>
+                                    <placement>t</placement>
+                                    <head>Postcondition:</head>
+                                </tag>
+                            </tags>
                         </configuration>
                     </plugin>
                     <plugin>
