@@ -37,7 +37,7 @@
       <property name="max" value="120"/>
     </module>
     <module name="MethodLength">
-      <property name="max" value="50"/>
+      <property name="max" value="70"/>
     </module>
     <module name="ParameterNumber">
       <property name="max" value="5"/>
@@ -76,14 +76,13 @@
     <module name="DeclarationOrder"/>
     <module name="ExplicitInitialization"/>
     <module name="FallThrough"/>
-    <module name="IllegalCatch"/>
     <module name="IllegalThrows"/>
     <module name="JUnitTestCase"/>
     <module name="MultipleVariableDeclarations"/>
     <module name="PackageDeclaration"/>
     <module name="ParameterAssignment"/>
     <module name="ReturnCount">
-      <property name="max" value="4"/>
+      <property name="max" value="8"/>
     </module>
     <module name="StringLiteralEquality"/>
     <module name="SuperFinalize"/>
