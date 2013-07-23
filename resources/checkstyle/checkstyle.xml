@@ -16,7 +16,9 @@
       <property name="allowThrowsTagsForSubclasses" value="true"/>
       <property name="allowUndeclaredRTE" value="true"/>
     </module>
-    <module name="JavadocType"/>
+    <module name="JavadocType">
+        <property name="allowUnknownTags" value="true"/>
+    </module>
     <module name="JavadocVariable"/>
     <module name="JavadocStyle">
       <property name="checkEmptyJavadoc" value="true"/>
