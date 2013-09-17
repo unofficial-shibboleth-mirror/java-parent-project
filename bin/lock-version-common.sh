@@ -1,7 +1,7 @@
 #! /bin/bash
 
-declare -r SVN="/usr/bin/svn"
-declare -r SED="/usr/bin/sed"
+declare -r SVN=${SVN:-"/usr/bin/svn"}
+declare -r SED=${SED:-"/usr/bin/sed"}
 
 # $1 the version number to use
 # $2 the directory of the monolithic project or project module

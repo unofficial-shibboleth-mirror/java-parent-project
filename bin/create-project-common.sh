@@ -3,14 +3,14 @@
 shopt -s -o nounset
 
 # Commands used herein
-declare -r CP="cp"
-declare -r CURL="curl"
-declare -r ECHO="echo"
-declare -r MKDIR="mkdir"
-declare -r PERL="perl"
-declare -r RM="rm"
-declare -r SVN="svn"
-declare -r TOUCH="touch"
+declare -r CP=${CP:-"/bin/cp"}
+declare -r CURL=${CURL:-"/usr/bin/curl"}
+declare -r ECHO=${ECHO:-"/bin/echo"}
+declare -r MKDIR=${MKDIR:-"/bin/mkdir"}
+declare -r PERL=${PERL:-"/usr/bin/perl"}
+declare -r RM=${RM:-"/bin/rm"}
+declare -r SVN=${SVN:-"/usr/bin/svn"}
+declare -r TOUCH=${TOUCH:-"/usr/bin/touch"}
 
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
