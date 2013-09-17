@@ -218,6 +218,11 @@
                 <version>2.0-SNAPSHOT</version>
             </dependency>
             <dependency>
+                <groupId>net.shibboleth.ext</groupId>
+                <artifactId>spring-extensions</artifactId>
+                <version>1.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
@@ -351,6 +356,13 @@
                 <groupId>net.shibboleth.utilities</groupId>
                 <artifactId>java-support</artifactId>
                 <version>2.0-SNAPSHOT</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>net.shibboleth.ext</groupId>
+                <artifactId>spring-ext</artifactId>
+                <version>1.1-SNAPSHOT</version>
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
