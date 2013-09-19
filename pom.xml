@@ -388,7 +388,7 @@
             </dependency>
             <dependency>
                 <groupId>net.shibboleth.ext</groupId>
-                <artifactId>spring-ext</artifactId>
+                <artifactId>spring-extensions</artifactId>
                 <version>1.1-SNAPSHOT</version>
                 <type>test-jar</type>
                 <scope>test</scope>
