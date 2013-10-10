@@ -23,7 +23,7 @@
         <maven.compiler.target>1.7</maven.compiler.target>
 
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
-        <httpclient.version>4.2</httpclient.version>
+        <httpclient.version>4.3</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.0.3.v20130506</jetty.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
