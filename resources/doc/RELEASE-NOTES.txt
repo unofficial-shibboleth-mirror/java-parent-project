@@ -1,0 +1,26 @@
+Release Notes - Java Parent Project V3 - Version 1
+==================================================
+
+** Bug
+    * [JPAR-4] - create-common-project.sh set_svn_properties_commit_and_update does not commit ?
+    * [JPAR-13] - v3 parent project <scm> URL's omit the leading '/' on the path.
+    * [JPAR-28] - link to Javadoc for Spring is in error
+    * [JPAR-29] - managed dependency for spring-extensions test jar is in error
+
+
+** Improvement
+    * [JPAR-7] - Support generation of Checkstyle report
+    * [JPAR-15] - Bump guava version from 12.0 to 14.0
+    * [JPAR-16] - bump V3 parent Spring dependencies to 3.1.4 or 3.2.x
+    * [JPAR-19] - Adjust paths to commands in shell scripts
+    * [JPAR-20] - Work around Cobertura's Java 7 support when running 'mvn site'.
+    * [JPAR-21] - Update maven-plugin dependencies in parent poms.
+    * [JPAR-22] - support suppression of very selective Checkstyle tests in source
+    * [JPAR-26] - managed dependencies for spring-beans and spring-context
+    * [JPAR-33] - Skip creation of empty jar containing non-existent test classes.
+
+** New Feature
+    * [JPAR-14] - provide JCommander as a managed dependency
+
+** Task
+    * [JPAR-24] - release process for java-parent-project-v3 version 5
