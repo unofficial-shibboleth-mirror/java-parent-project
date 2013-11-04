@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent-v3</artifactId>
-    <version>TRUNK-SNAPSHOT</version>
+    <version>2</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project V3 Super POM</name>
@@ -26,8 +26,8 @@
         <httpclient.version>4.3.1</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.0.3.v20130506</jetty.version>
-        <shibboleth.java-support.version>2.0-SNAPSHOT</shibboleth.java-support.version>
-        <shibboleth.spring-extensions.version>1.1-SNAPSHOT</shibboleth.spring-extensions.version>
+        <shibboleth.java-support.version>2.0.1</shibboleth.java-support.version>
+        <shibboleth.spring-extensions.version>1.1.0</shibboleth.spring-extensions.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
@@ -43,7 +43,7 @@
         
         <checkstyle.version>2.10</checkstyle.version>
         <checkstyle.configLocation>
-            https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk/resources/checkstyle/checkstyle.xml
+            https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/tags/2/resources/checkstyle/checkstyle.xml
         </checkstyle.configLocation>
     </properties>
 
