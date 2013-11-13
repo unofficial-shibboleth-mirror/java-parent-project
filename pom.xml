@@ -96,7 +96,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8.1</version>
+            <version>6.8.7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -104,7 +104,7 @@
                 test classpath, even if it's not used, doesn't hurt anything. -->
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
-            <version>1.4</version>
+            <version>1.5</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
