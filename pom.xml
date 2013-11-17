@@ -26,6 +26,7 @@
         <httpclient.version>4.3.1</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.0.3.v20130506</jetty.version>
+        <logback.version>1.0.13</logback.version>
         <shibboleth.java-support.version>2.1-SNAPSHOT</shibboleth.java-support.version>
         <shibboleth.spring-extensions.version>1.2-SNAPSHOT</shibboleth.spring-extensions.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
@@ -201,7 +202,7 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.0.13</version>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <!-- needed for logback SMTP appender -->
@@ -379,6 +380,12 @@
                 <version>1.0.3</version>
                 <scope>runtime</scope>
             </dependency>
+	        <dependency>
+	            <groupId>ch.qos.logback</groupId>
+	            <artifactId>logback-core</artifactId>
+	            <version>${logback.version}</version>
+	            <scope>runtime</scope>
+	        </dependency>
 
             <!-- Test dependencies -->
             <dependency>
