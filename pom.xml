@@ -376,7 +376,7 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
+                <artifactId>json</artifactId>
                 <version>1.0.3</version>
                 <scope>runtime</scope>
             </dependency>
