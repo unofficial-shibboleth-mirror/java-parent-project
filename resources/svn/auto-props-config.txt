@@ -20,9 +20,11 @@ enable-auto-props = yes
 *.js = svn:eol-style=native
 *.jsp = svn:eol-style=native
 *.pdf = svn:mime-type=application/pdf
+*.pl = svn:eol-style=native
 *.png = svn:mime-type=image/png
 *.prefs = svn:eol-style=native
 *.properties = svn:eol-style=native
+*.py = svn:eol-style=native
 *.sh = svn:eol-style=native
 *.sql = svn:eol-style=native;svn:mime-type=text/x-sql
 *.svn = svn:eol-style=native
