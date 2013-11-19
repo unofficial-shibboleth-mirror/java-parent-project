@@ -1,3 +1,11 @@
+Release Notes - Java Parent Project V3 - Version 3
+==================================================
+
+** Improvement
+    * [JPAR-24] - move Eclipse Subversion auto-property file to parent projects
+
+
+
 Release Notes - Java Parent Project V3 - Version 1
 ==================================================
 
