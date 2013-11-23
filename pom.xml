@@ -32,7 +32,7 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>3.2.2.RELEASE</spring.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.3.2.RELEASE</spring-webflow.version>
         <xalan.groupId>xalan</xalan.groupId>
@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8.1</version>
+            <version>6.8.7</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -105,7 +105,7 @@
                 test classpath, even if it's not used, doesn't hurt anything. -->
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
-            <version>1.4</version>
+            <version>1.5</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -170,7 +170,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>14.0.1</version>
+                <version>15.0</version>
             </dependency>
             <dependency>
                 <groupId>${httpclient.groupId}</groupId>
@@ -377,7 +377,7 @@
             <dependency>
                 <groupId>org.glassfish</groupId>
                 <artifactId>javax.json</artifactId>
-                <version>1.0.3</version>
+                <version>1.0.4</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
@@ -411,7 +411,7 @@
             <dependency>
                 <groupId>com.unboundid</groupId>
                 <artifactId>unboundid-ldapsdk</artifactId>
-                <version>2.3.4</version>
+                <version>2.3.5</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
