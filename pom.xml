@@ -42,7 +42,7 @@
         <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
         <xmlresolver.version>1.2</xmlresolver.version>
         
-        <checkstyle.version>2.10</checkstyle.version>
+        <checkstyle.version>2.11</checkstyle.version>
         <checkstyle.configLocation>
             https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk/resources/checkstyle/checkstyle.xml
         </checkstyle.configLocation>
@@ -63,7 +63,38 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
+        <repository>
+            <id>central</id>
+            <url>http://repo1.maven.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>shib-release</id>
+            <url>https://build.shibboleth.net/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Plugin Repository</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
     <!-- Dependencies set for all projects. Be certain anything added here really should apply to every single project. -->
     <dependencies>
@@ -548,7 +579,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.5.2</version><!-- Upgrading to 2.6 will cause the 'site' target to fail fior java-support-->
+                <version>2.5.2</version><!-- Upgrading to 2.6 will cause the 'site' target to fail for java-support-->
                 <configuration>
                     <aggregate>true</aggregate>
                     <quiet>true</quiet>
