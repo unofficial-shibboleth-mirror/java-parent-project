@@ -247,16 +247,6 @@
                 <version>1.0</version>
             </dependency>
             <dependency>
-                <groupId>net.shibboleth.utilities</groupId>
-                <artifactId>java-support</artifactId>
-                <version>${shibboleth.java-support.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.shibboleth.ext</groupId>
-                <artifactId>spring-extensions</artifactId>
-                <version>${shibboleth.spring-extensions.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring.version}</version>
@@ -417,29 +407,14 @@
                 <scope>runtime</scope>
             </dependency>
             <dependency>
-	        <groupId>ch.qos.logback</groupId>
-	        <artifactId>logback-core</artifactId>
-	        <version>${logback.version}</version>
-	    </dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
 
             <!-- Test dependencies -->
             <dependency>
-                <groupId>net.shibboleth.utilities</groupId>
-                <artifactId>java-support</artifactId>
-                <version>${shibboleth.java-support.version}</version>
-                <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>net.shibboleth.ext</groupId>
-                <artifactId>spring-extensions</artifactId>
-                <version>${shibboleth.spring-extensions.version}</version>
-                <type>test-jar</type>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.mockito</groupId>
-
                 <artifactId>mockito-all</artifactId>
                 <version>1.9.5</version>
                 <scope>test</scope>
