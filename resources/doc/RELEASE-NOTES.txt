@@ -4,7 +4,6 @@ Release Notes - Java Parent Project V3 - Version 3
 ** Improvement
     * [JPAR-36] - move Eclipse Subversion auto-property file to parent projects
     * [JPAR-37] - add missing file types to subversion auto-properties configuration file
-    * [JPAR-41] - migrate to Spring 4.0.0.RELEASE
 
 
 
