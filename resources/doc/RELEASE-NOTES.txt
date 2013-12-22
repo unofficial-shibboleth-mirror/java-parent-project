@@ -5,6 +5,9 @@ Release Notes - Java Parent Project V3 - Version 3
     * [JPAR-36] - move Eclipse Subversion auto-property file to parent projects
     * [JPAR-37] - add missing file types to subversion auto-properties configuration file
 
+** Task
+    * [JPAR-46] - migrate to dependency on servlet 3.0.1
+
 
 
 Release Notes - Java Parent Project V3 - Version 1
