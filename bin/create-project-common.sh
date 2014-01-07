@@ -113,6 +113,26 @@ function create_eclipse_files {
     expand_macro $1/.project "MVN_ARTF_ID" $2
 }
 
+# Creates Eclipse .settings directory
+#
+# $1 directory in which the Eclipse .settings directory will be placed
+function create_eclipse_settings_files {
+    $MKDIR $1/.settings
+	check_retval $? "Unable to create project directory $1/.settings"
+    download_eclipse_settings_files $1
+}
+
+# Download Eclipse .settings files
+#
+# $1 directory in which the Eclipse settings files will be placed
+# $2 project/artifact ID
+function download_eclipse_settings_files {
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.ui.prefs" "$1/.settings/org.eclipse.jdt.ui.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
+}
+
 # Fetchs the template POM file and populates its macros.
 #
 # $1 directory in which the POM file will be placed
