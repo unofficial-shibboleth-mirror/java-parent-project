@@ -35,13 +35,14 @@ create_src $PROJ_DIR
 create_assembly $PROJ_DIR
 create_doc $PROJ_DIR
 create_eclipse_files $PROJ_DIR $MVN_ARTF_ID
+create_eclipse_settings_files $PROJ_DIR
 create_pom_file $PROJ_DIR $PARENT_PROJ_URL/resources/maven/pom.xml.tmpl $MVN_GROUP_ID $MVN_ARTF_ID 
 create_site_file $PROJ_DIR
 
 $ECHO "Importing project structure into SVN repository $SVN_PROJ_URL and checking out working copy to ./$MVN_ARTF_ID"
 import_checkout_svn_project $SVN_PROJ_DIR $SVN_PROJ_URL $MVN_ARTF_ID
 
-$ECHO "Setting SVN externals and ignore properties on ./$MVN_ARTF_ID"
+$ECHO "Setting SVN properties on ./$MVN_ARTF_ID"
 set_svn_properties_commit_and_update "$MVN_ARTF_ID"
 
 $ECHO "Creation of project $MVN_ARTF_ID completed.  Working copy is located at ./$MVN_ARTF_ID"

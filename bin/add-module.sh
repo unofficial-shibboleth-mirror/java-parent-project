@@ -21,6 +21,9 @@ check_retval $? "Unable to create module directory $MODULE_DIR"
 create_src $MODULE_DIR
 create_eclipse_files $MODULE_DIR $MVN_ARTF_ID
 
+$ECHO "Downloading Eclipse .settings files"
+create_eclipse_settings_files $MODULE_DIR
+
 $CP $PROJ_DIR/*-parent/module-pom.xml.tmpl "$MODULE_DIR/pom.xml"
 check_retval $? "Unable to copy module POM template to $MODULE_DIR"
 
@@ -33,7 +36,7 @@ check_retval $? "Error adding $MODULE_DIR to SVN control"
 $SVN commit -q -m "Add module $MVN_ARTF_ID to project" $MODULE_DIR
 check_retval $? "Unable to commit $MODULE_DIR"
 
-$ECHO "Setting SVN externals and ignore properties on $MODULE_DIR"
+$ECHO "Setting SVN properties on $MODULE_DIR"
 set_svn_properties_commit_and_update "$MODULE_DIR"
 
 $ECHO "Creation of module $MVN_ARTF_ID completed."

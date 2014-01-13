@@ -126,7 +126,6 @@ function create_eclipse_settings_files {
 # Download Eclipse .settings files
 #
 # $1 directory in which the Eclipse settings files will be placed
-# $2 project/artifact ID
 function download_eclipse_settings_files {
     download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
     download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
@@ -182,6 +181,6 @@ function set_svn_properties_commit_and_update {
     check_retval $? "Unable to set svn:ignore property on $1"
     $RM "$TMPDIR/ignore.svn"
     
-    $SVN commit -q -m "Committing svn.externals and svn.ignore" "$1"
+    $SVN commit -q -m "Committing svn.ignore" "$1"
     check_retval $? "Unable to commit svn:ignore of $1."
 }
