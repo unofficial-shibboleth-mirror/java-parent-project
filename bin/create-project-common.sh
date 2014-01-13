@@ -11,6 +11,7 @@ declare -r PERL=${PERL:-"/usr/bin/perl"}
 declare -r RM=${RM:-"/bin/rm"}
 declare -r SVN=${SVN:-"/usr/bin/svn"}
 declare -r TOUCH=${TOUCH:-"/usr/bin/touch"}
+declare -r FIND=${FIND:-"/usr/bin/find"}
 
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
@@ -172,24 +173,15 @@ function import_checkout_svn_project {
     check_retval $? "Unable to checkout $2/trunk into $3"
 }
 
-# Sets the SVN externals and ignore properties on a given directory, commits the change,
-# and performs and SVN update to pull in the externals
+# Sets the SVN ignore properties on a given directory, commits the change.
 #
 # $1 directory on which the SVN properties will be set
 function set_svn_properties_commit_and_update {
-    download_file "$PARENT_PROJ_URL/resources/svn/externals.svn" "$TMPDIR/externals.svn"
-    $SVN propset -q "svn:externals" -F "$TMPDIR/externals.svn" "$1"
-    check_retval $? "Unable to set svn:externals property on $1"
-    $RM "$TMPDIR/externals.svn"
-
     download_file "$PARENT_PROJ_URL/resources/svn/ignore.svn" "$TMPDIR/ignore.svn"
     $SVN propset -q "svn:ignore" -F "$TMPDIR/ignore.svn" "$1"
     check_retval $? "Unable to set svn:ignore property on $1"
     $RM "$TMPDIR/ignore.svn"
     
     $SVN commit -q -m "Committing svn.externals and svn.ignore" "$1"
-    check_retval $? "Unable to commit svn:externals and svn:ignore of $1 failed."
-
-    $SVN update -q $1
-    check_retval $? "SVN udpate of $1 failed."
+    check_retval $? "Unable to commit svn:ignore of $1."
 }
