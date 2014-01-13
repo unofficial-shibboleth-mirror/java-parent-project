@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Adjusts the reference to the eclipse settings, project POM, and project 
+# Adjusts the reference to the eclipse project POM, and project 
 # checkstyle configuration such that it points to static, tagged parent project
 # information.
 
@@ -16,6 +16,5 @@ LOCATION=${LOCATION%/*}
 
 source $LOCATION/lock-version-common.sh
 
-lock_externals $1 $2
 lock_pom $1 $2
 lock_checkstyle $1 $2

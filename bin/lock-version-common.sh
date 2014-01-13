@@ -5,23 +5,6 @@ declare -r SED=${SED:-"/usr/bin/sed"}
 
 # $1 the version number to use
 # $2 the directory of the monolithic project or project module
-function lock_externals {
-    CURRENT=`$SVN propget svn:externals "$2"`
-    if [ -z "$CURRENT" ] ; then
-        return
-    fi
-
-    echo "Setting svn:externals property on directory $2"
-    $SVN --non-interactive --quiet propset svn:externals "/java-parent-projects/java-parent-project-v3/tags/$1/resources/eclipse/.settings .settings" "$2"
-    RETVAL=$?
-    if [ $RETVAL != 0 ] ; then
-        echo "Setting the svn:externals property on directory $2 failed with a status code of $RETVAL"
-        exit 1;
-    fi
-}
-
-# $1 the version number to use
-# $2 the directory of the monolithic project or project module
 function lock_pom {
     if [ ! -f "$2/pom.xml" ] ; then
         return
