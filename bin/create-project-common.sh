@@ -133,6 +133,22 @@ function download_eclipse_settings_files {
     download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
 }
 
+# Creates Eclipse defaults in multi-module parent
+#
+# $1 location of parent module for project
+function create_eclipse_defaults {
+    $MKDIR $1/resources
+	check_retval $? "Unable to create project directory $1/resources"
+    $MKDIR $1/resources/eclipse
+	check_retval $? "Unable to create project directory $1/resources/eclipse"
+    $MKDIR $1/resources/eclipse/settings
+	check_retval $? "Unable to create project directory $1/resources/eclipse/settings"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.core.resources.prefs" "$1/resources/eclipse/settings/org.eclipse.core.resources.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.core.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.ui.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.ui.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.m2e.core.prefs" "$1/resources/eclipse/settings/org.eclipse.m2e.core.prefs"
+}
+
 # Fetchs the template POM file and populates its macros.
 #
 # $1 directory in which the POM file will be placed
