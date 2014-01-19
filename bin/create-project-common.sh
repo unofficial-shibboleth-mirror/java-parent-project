@@ -107,9 +107,9 @@ function create_doc {
 # $1 directory in which the Eclipse settings files will be placed
 # $2 project/artifact ID
 function create_eclipse_files {
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.checkstyle" "$1/.checkstyle"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.classpath" "$1/.classpath"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.project.tmpl" "$1/.project"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/checkstyle" "$1/.checkstyle"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/classpath" "$1/.classpath"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/project.tmpl" "$1/.project"
 
     expand_macro $1/.project "MVN_ARTF_ID" $2
 }
@@ -127,10 +127,10 @@ function create_eclipse_settings_files {
 #
 # $1 directory in which the Eclipse settings files will be placed
 function download_eclipse_settings_files {
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.ui.prefs" "$1/.settings/org.eclipse.jdt.ui.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/.settings/org.eclipse.jdt.ui.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
 }
 
 # Creates Eclipse defaults in multi-module parent
@@ -143,10 +143,10 @@ function create_eclipse_defaults {
 	check_retval $? "Unable to create project directory $1/resources/eclipse"
     $MKDIR $1/resources/eclipse/settings
 	check_retval $? "Unable to create project directory $1/resources/eclipse/settings"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.core.resources.prefs" "$1/resources/eclipse/settings/org.eclipse.core.resources.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.core.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.core.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.jdt.ui.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.ui.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/.settings/org.eclipse.m2e.core.prefs" "$1/resources/eclipse/settings/org.eclipse.m2e.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/resources/eclipse/settings/org.eclipse.core.resources.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.core.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.ui.prefs"
+    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/resources/eclipse/settings/org.eclipse.m2e.core.prefs"
 }
 
 # Fetchs the template POM file and populates its macros.
