@@ -39,7 +39,7 @@ create_eclipse_defaults $PROJ_PARENT_DIR
 
 create_pom_file $PROJ_PARENT_DIR $PARENT_PROJ_URL/resources/maven/pom.xml.tmpl $MVN_GROUP_ID $PROJ_ID-parent
 
-download_file $PARENT_PROJ_URL/resources/eclipse/.parent-project.tmpl $PROJ_PARENT_DIR/.project
+download_file $PARENT_PROJ_URL/resources/eclipse/parent-project.tmpl $PROJ_PARENT_DIR/.project
 expand_macro $PROJ_PARENT_DIR/.project "MVN_ARTF_ID" $PROJ_ID-parent
 
 create_site_file $PROJ_PARENT_DIR
