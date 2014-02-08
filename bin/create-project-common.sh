@@ -86,7 +86,7 @@ function create_assembly {
     $MKDIR -p "$1/src/main/assembly"
     check_retval $? "Unable to create src/main/assembly directory"
 
-    download_file "$PARENT_PROJ_URL/resource/maven/assembly-bin.xml" "$1/src/main/assembly/bin.xml"
+    download_file "$PARENT_PROJ_URL/resources/maven/assembly-bin.xml" "$1/src/main/assembly/bin.xml"
 }
 
 # Creates the doc directory with an empty RELEASE-NOTES.txt file and Apache 2 license
