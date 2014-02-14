@@ -39,11 +39,13 @@
         <xerces.version>2.11.0</xerces.version>
         <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
         <xmlresolver.version>1.2</xmlresolver.version>
-        
+
         <checkstyle.version>2.10</checkstyle.version>
         <checkstyle.configLocation>
             https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk/resources/checkstyle/checkstyle.xml
         </checkstyle.configLocation>
+
+        <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
     </properties>
 
     <repositories>
@@ -63,7 +65,7 @@
         </repository>
         <repository>
             <id>central</id>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>${maven.central.url}</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -84,7 +86,7 @@
         <pluginRepository>
             <id>central</id>
             <name>Maven Plugin Repository</name>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>${maven.central.url}</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -787,6 +789,30 @@
                     </plugin>
                 </plugins>
             </build>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>${maven.central.url}</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>${maven.central.url}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
         <profile>
             <id>endorsed</id>
