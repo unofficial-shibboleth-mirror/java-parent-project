@@ -794,30 +794,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <url>${maven.central.url}</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>central</id>
-                    <url>${maven.central.url}</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                </pluginRepository>
-            </pluginRepositories>
         </profile>
         <profile>
             <id>endorsed</id>
@@ -912,6 +888,33 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>central-disabled</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>${maven.central.url}</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>${maven.central.url}</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
     </profiles>
 
