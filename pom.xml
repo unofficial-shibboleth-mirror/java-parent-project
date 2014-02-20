@@ -30,9 +30,9 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.5</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>3.2.5.RELEASE</spring.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
-        <spring-webflow.version>2.3.2.RELEASE</spring-webflow.version>
+        <spring-webflow.version>2.3.3.RELEASE</spring-webflow.version>
         <xalan.groupId>xalan</xalan.groupId>
         <xalan.version>2.7.1</xalan.version>
         <xerces.groupId>org.apache.xerces</xerces.groupId>
