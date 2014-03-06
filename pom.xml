@@ -250,6 +250,7 @@
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${spring.version}</version>
+                <!-- Spring Framework's logging dependencies are centralised in spring-core. -->
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -266,45 +267,21 @@
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>edu.vt.middleware</groupId>
