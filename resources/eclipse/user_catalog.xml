@@ -2,20 +2,20 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <system systemId="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd" uri="platform:/resource/opensaml-xmlsec-api/src/main/resources/schema/xmldsig-core-schema.xsd"/>
   <system systemId="http://www.w3.org/TR/xmlenc-core/xenc-schema.xsd" uri="platform:/resource/opensaml-xmlsec-api/src/main/resources/schema/xenc-schema.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver.xsd" uri="platform:/resource/idp-attribute-resolver-spring/src/main/resources/schema/shibboleth-attribute-resolver.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-dc.xsd" uri="platform:/resource/idp-attribute-resolver-spring/src/main/resources/schema/shibboleth-attribute-resolver-dc.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-dc.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-dc.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-security.xsd" uri="platform:/resource/idp-core/src/main/resources/schema/shibboleth-security.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-ad.xsd" uri="platform:/resource/idp-attribute-resolver-spring/src/main/resources/schema/shibboleth-attribute-resolver-ad.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-pc.xsd" uri="platform:/resource/idp-attribute-resolver-spring/src/main/resources/schema/shibboleth-attribute-resolver-pc.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp.xsd" uri="platform:/resource/idp-attribute-filter-spring/src/main/resources/schema/shibboleth-afp.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp-mf-basic.xsd" uri="platform:/resource/idp-attribute-filter-spring/src/main/resources/schema/shibboleth-afp-mf-basic.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp-mf-saml.xsd" uri="platform:/resource/idp-attribute-filter-spring/src/main/resources/schema/shibboleth-afp-mf-saml.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-encoder.xsd" uri="platform:/resource/idp-attribute-resolver-spring/src/main/resources/schema/shibboleth-attribute-encoder.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-resource.xsd" uri="platform:/resource/idp-profile-spring/src/main/resources/schema/shibboleth-resource.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-security-policy-saml.xsd" uri="platform:/resource/idp-profile-spring/src/main/resources/schema/shibboleth-security-policy-saml.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-metadata.xsd" uri="platform:/resource/idp-profile-spring/src/main/resources/schema/shibboleth-metadata.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party.xsd" uri="platform:/resource/idp-profile-spring/src/main/resources/schema/shibboleth-relying-party.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party-saml.xsd" uri="platform:/resource/idp-profile-spring/src/main/resources/schema/shibboleth-relying-party-saml.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-ad.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-ad.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-pc.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-pc.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-afp.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp-mf-basic.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-afp-mf-basic.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp-mf-saml.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-afp-mf-saml.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-encoder.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-encoder.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-resource.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-resource.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-security-policy-saml.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-security-policy-saml.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-metadata.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-metadata.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-relying-party.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party-saml.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-relying-party-saml.xsd"/>
   <system systemId="http://www.oasis-open.org/committees/download.php/3408/oasis-sstc-saml-schema-assertion-1.1.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/cs-sstc-schema-assertion-1.1.xsd"/>
   <system systemId="http://docs.oasis-open.org/security/saml/v2.0/saml-schema-assertion-2.0.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/saml-schema-assertion-2.0.xsd"/>
   <system systemId="http://docs.oasis-open.org/security/saml/v2.0/saml-schema-protocol-2.0.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/saml-schema-protocol-2.0.xsd"/>
