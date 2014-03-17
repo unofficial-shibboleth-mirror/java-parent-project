@@ -481,7 +481,7 @@
                             <link>http://docs.oracle.com/javaee/5/api</link>
                             <link>http://docs.mockito.googlecode.com/hg/latest/</link>
                         </links>
-                        <quiet>false</quiet>
+                        <quiet>true</quiet>
                         <author>false</author>
                         <show>private</show>
                         <version>true</version>
