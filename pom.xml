@@ -289,6 +289,11 @@
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${spring.groupId}</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
