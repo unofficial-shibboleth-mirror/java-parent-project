@@ -4,7 +4,7 @@
   <system systemId="http://www.w3.org/TR/xmlenc-core/xenc-schema.xsd" uri="platform:/resource/opensaml-xmlsec-api/src/main/resources/schema/xenc-schema.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-dc.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-dc.xsd"/>
-  <system systemId="http://shibboleth.net/schema/idp/shibboleth-security.xsd" uri="platform:/resource/idp-core/src/main/resources/schema/shibboleth-security.xsd"/>
+  <system systemId="http://shibboleth.net/schema/idp/shibboleth-security.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-security.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-ad.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-ad.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-attribute-resolver-pc.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-attribute-resolver-pc.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-afp.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-afp.xsd"/>
