@@ -9,7 +9,7 @@ $ECHO "This script will create a new monolithic project."
 $ECHO "Before you begin you must have already created an empty SVN repository that will receive the project."
 $ECHO ""
 
-read -p "Please enter the SVN server URL, do not include the project name: " SVN_PROJ_URL
+read -p "Please enter the SVN server URL, include the project name: " SVN_PROJ_URL
 if [ -z "$SVN_PROJ_URL" ] ; then
     $ECHO "SVN repository URL can not be empty"
     exit 1
