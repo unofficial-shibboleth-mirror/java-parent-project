@@ -178,7 +178,7 @@ function create_site_file {
 # $2 URL of repository into which the project will be imported
 # $3 working directory into which the project will be checked out
 function import_checkout_svn_project {
-    $SVN import -q -m "Importing new project" "$1" "$2"
+    $SVN import -m "Importing new project" "$1" "$2"
     check_retval $? "Unable to import $1 into SVN repository $2"
 
     $RM -rf $SVN_PROJ_DIR
