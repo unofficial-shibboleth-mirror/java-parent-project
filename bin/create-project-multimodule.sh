@@ -6,7 +6,7 @@ LOCATION=${LOCATION%/*}
 source $LOCATION/create-project-common.sh
 
 $ECHO "This script will create a new multi-module project and set up the parent module for the project."
-$ECHO "Before you begin you must have already created an empty SVN repository that will recieve the project."
+$ECHO "Before you begin you must have already created an empty SVN repository that will receive the project."
 $ECHO ""
 
 read -p "Please enter the SVN server URL, do not include the project name: " SVN_PROJ_URL
