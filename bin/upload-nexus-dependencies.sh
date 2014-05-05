@@ -160,6 +160,13 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     fi
     $ECHO ""
     
+    ask y "Write files to upload to log file" LOG_UPLOADED_FILES
+    if [ $LOG_UPLOADED_FILES == "y" ] ; then
+         $ECHO "$FIND * -name '*.pom' -fprintf "uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n""
+         $FIND * -name '*.pom' -fprintf "uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n"
+    fi
+    $ECHO ""
+    
     ask $USER "Nexus username" USERNAME
     $ECHO ""
     
