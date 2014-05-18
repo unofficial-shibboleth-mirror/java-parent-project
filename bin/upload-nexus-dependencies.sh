@@ -12,8 +12,9 @@ $ECHO "This script is a work in progress, ymmv."
 $ECHO ""
 $ECHO "This script must be executed on the Nexus host to access the thirdparty repository."
 $ECHO ""
-$ECHO "Execute this script in a directory containing two files, pom.xml and pom.new.xml"
-$ECHO "Where pom.new.xml has the dependencies to be added."
+$ECHO "Execute this script in a project directory containing pom.xml".
+$ECHO ""
+$ECHO "If pom.new.xml is present it should contain the new dependencies to be added."
 $ECHO ""
 
 declare -r DIFF=${DIFF:-"/usr/bin/diff"}
@@ -55,16 +56,16 @@ $ECHO ""
 
 ask n "Delete repository directories from previous attempt" CLEANUP
 if [ $CLEANUP == "y" ] ; then
-    $RM -vrf "repository-old"
+    $RM -rf "repository-old"
     check_retval $? "Unable to delete repository-old"
     
-    $RM -vrf "repository-new"
+    $RM -rf "repository-new"
     check_retval $? "Unable to delete repository-new"
     
-    $RM -vrf "repository-diff"
+    $RM -rf "repository-diff"
     check_retval $? "Unable to delete repository-diff"
     
-    $RM -vrf "repository-test"
+    $RM -rf "repository-test"
     check_retval $? "Unable to delete repository-test"
 fi
 $ECHO ""
@@ -87,33 +88,39 @@ $ECHO ""
 
 ask y "Build with old pom" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
-    $ECHO "$MVN -Dmaven.repo.local=repository-old clean verify -Prelease -DskipTests"
-    $MVN -Dmaven.repo.local=repository-old clean verify -Prelease -DskipTests
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests
 fi
 $ECHO ""
 
-ask y "Copy repository-old to repository-new" COPY_REPO_OLD_TO_REPO_NEW
-if [ $COPY_REPO_OLD_TO_REPO_NEW == "y" ] ; then
-    $CP -vpr repository-old/* repository-new/
-fi
-$ECHO ""
+if [ -e pom.new.xml ] ; then
+    ask y "Copy repository-old to repository-new" COPY_REPO_OLD_TO_REPO_NEW
+    if [ $COPY_REPO_OLD_TO_REPO_NEW == "y" ] ; then
+        $CP -pr repository-old/* repository-new/
+    fi
+    $ECHO ""
 
-ask n "Diff repository-old to repository-new" DIFF_REPO_OLD_TO_REPO_NEW
-if [ $DIFF_REPO_OLD_TO_REPO_NEW == "y" ] ; then
-    $DIFF -r repository-old repository-new
-fi
-$ECHO ""
+    ask n "Diff repository-old to repository-new" DIFF_REPO_OLD_TO_REPO_NEW
+    if [ $DIFF_REPO_OLD_TO_REPO_NEW == "y" ] ; then
+        $DIFF -r repository-old repository-new
+    fi
+    $ECHO ""
 
-ask y "Build with new pom" BUILD_NEW_POM
-if [ $BUILD_NEW_POM == "y" ] ; then
-    $ECHO "$MVN -Dmaven.repo.local=repository-new verify -Prelease -DskipTests -f pom.new.xml"
-    $MVN -Dmaven.repo.local=repository-new verify -Prelease -DskipTests -f pom.new.xml
+    ask y "Build with new pom" BUILD_NEW_POM
+    if [ $BUILD_NEW_POM == "y" ] ; then
+        $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-new verify site -Prelease -DskipTests -f pom.new.xml"
+        $MVN --strict-checksums -Dmaven.repo.local=repository-new verify site -Prelease -DskipTests -f pom.new.xml
+    fi
 fi
 $ECHO ""
 
 ask y "Create repository-diff" CREATE_REPO_DIFF
 if [ $CREATE_REPO_DIFF == "y" ] ; then
-    $RSYNC -rcmv --include='*.jar' --include='*.pom' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
+    if [ -e pom.new.xml ] ; then
+        $RSYNC -rcmv --include='*.jar' --include='*.pom' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
+    else
+        $RSYNC -rcmv --include='*.jar' --include='*.pom' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
+    fi
 fi
 $ECHO ""
 
@@ -162,8 +169,8 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     
     ask y "Write files to upload to log file" LOG_UPLOADED_FILES
     if [ $LOG_UPLOADED_FILES == "y" ] ; then
-         $ECHO "$FIND * -name '*.pom' -fprintf "uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n""
-         $FIND * -name '*.pom' -fprintf "uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n"
+         $ECHO "$FIND * -name '*.pom' -fprintf "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n""
+         $FIND * -name '*.pom' -fprintf "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n"
     fi
     $ECHO ""
     
@@ -184,7 +191,9 @@ if [ $MODIFY_NEXUS == "y" ] ; then
         $ECHO "$FIND * -name '*.pom' -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
         $FIND * -name '*.pom' -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
     fi
-    
+
+    # TODO only rebuild Nexus metadata for new artifacts
+
     ask y "Rebuild Nexus metadata" REBUILD_NEXUS_METADATA
     if [ $REBUILD_NEXUS_METADATA == "y" ] ; then
         $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/thirdparty/routing 2>&1 \; | grep 'DELETE\|HTTP'"
@@ -199,11 +208,18 @@ if [ $MODIFY_NEXUS == "y" ] ; then
 fi
 $ECHO ""
 
-ask y "Build new pom with central disabled" BUILD_TEST
+$ECHO "If you want to build with central disabled, you should probably wait a few minutes for Nexus to update its checksums."
+
+ask y "Build with central disabled" BUILD_TEST
 if [ $BUILD_TEST == "y" ] ; then
     cd ../
-    $ECHO "$MVN -Dmaven.repo.local=$HOME/repository-test clean verify -Prelease,central-disabled -DskipTests -f pom.new.xml"
-    $MVN -Dmaven.repo.local=$HOME/repository-test clean verify -Prelease,central-disabled -DskipTests -f pom.new.xml
+    if [ -e pom.new.xml ] ; then
+        $ECHO "$MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests -f pom.new.xml"
+        $MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests -f pom.new.xml
+    else 
+        $ECHO "$MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests"
+        $MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests
+    fi
 fi
 $ECHO ""
 
