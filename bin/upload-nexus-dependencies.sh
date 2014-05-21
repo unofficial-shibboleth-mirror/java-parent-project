@@ -169,8 +169,8 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     
     ask y "Write files to upload to log file" LOG_UPLOADED_FILES
     if [ $LOG_UPLOADED_FILES == "y" ] ; then
-         $ECHO "$FIND * -name '*.pom' -fprintf "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n""
-         $FIND * -name '*.pom' -fprintf "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt" "%f\n"
+         $ECHO "$FIND * -type f -printf "%f\n" | sort > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt""
+         $FIND * -type f -printf "%f\n" | sort > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt"
     fi
     $ECHO ""
     
