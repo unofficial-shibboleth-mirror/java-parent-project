@@ -23,12 +23,12 @@
         <maven.compiler.target>1.7</maven.compiler.target>
 
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
-        <httpclient.version>4.3.3</httpclient.version>
+        <httpclient.version>4.3.4</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.0.7.v20131107</jetty.version>
-        <logback.version>1.1.1</logback.version>
+        <logback.version>1.1.2</logback.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.7.6</slf4j.version>
+        <slf4j.version>1.7.7</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>4.0.5.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
@@ -166,7 +166,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>16.0.1</version>
+                <version>17.0</version>
             </dependency>
             <dependency>
                 <groupId>${httpclient.groupId}</groupId>
@@ -272,7 +272,7 @@
             <dependency>
                 <groupId>org.ldaptive</groupId>
                 <artifactId>ldaptive</artifactId>
-                <version>1.0.2</version>
+                <version>1.0.3</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.velocity</groupId>
