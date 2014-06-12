@@ -117,9 +117,9 @@ $ECHO ""
 ask y "Create repository-diff" CREATE_REPO_DIFF
 if [ $CREATE_REPO_DIFF == "y" ] ; then
     if [ -e pom.new.xml ] ; then
-        $RSYNC -rcmv --include='*.jar' --include='*.pom' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
     else
-        $RSYNC -rcmv --include='*.jar' --include='*.pom' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
     fi
 fi
 $ECHO ""
@@ -140,20 +140,21 @@ $ECHO ""
 
 ask y "Download signatures" DOWNLOAD_SIGNATURES
 if [ $DOWNLOAD_SIGNATURES == "y" ] ; then
-    $FIND * -name '*.jar' -exec $CURL -v -f -o {}.asc http://repo1.maven.org/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'
-    $FIND * -name '*.pom' -exec $CURL -v -f -o {}.asc http://repo1.maven.org/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'
+    $ECHO "$FIND * -type f -exec $CURL -v -f -o {}.asc http://repo1.maven.org/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'"
+    $FIND * -type f -exec $CURL -v -f -o {}.asc http://repo1.maven.org/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'
+ 
 fi
 $ECHO ""
 
 ask y "Print unsigned artifacts" PRINT_UNSIGNED_ARTIFACTS
 if [ $PRINT_UNSIGNED_ARTIFACTS == "y" ] ; then
-    $FIND * -name '*.jar' '!' -exec test -e "{}.asc" \; -print
-    $FIND * -name '*.pom' '!' -exec test -e "{}.asc" \; -print
+    $FIND * -type f '!' -name '*.asc' '!' -exec test -e "{}.asc" \; -print
 fi
 $ECHO ""
 
 ask y "Validate signatures and retrieve keys automatically" SIGS
 if [ $SIGS == "y" ] ; then
+    $ECHO "$FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \;"
     $FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \;
 fi
 $ECHO ""
@@ -164,6 +165,12 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     ask y "Print repository-diff before upload" PRINT_REPO_DIFF_AGAIN
     if [ $PRINT_REPO_DIFF_AGAIN == "y" ] ; then
         $FIND *
+    fi
+    $ECHO ""
+    
+    ask y "Print repository-diff files before upload" PRINT_REPO_DIFF_FILES
+    if [ $PRINT_REPO_DIFF_FILES == "y" ] ; then
+        $FIND * -type f
     fi
     $ECHO ""
     
@@ -182,14 +189,8 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     
     ask y "Upload to Nexus" UPLOAD_TO_NEXUS
     if [ $UPLOAD_TO_NEXUS == "y" ] ; then
-        $ECHO "$FIND * -name '*.asc' -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
-        $FIND * -name '*.asc' -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
-    
-        $ECHO "$FIND * -name '*.jar' -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
-        $FIND * -name '*.jar' -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
-    
-        $ECHO "$FIND * -name '*.pom' -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
-        $FIND * -name '*.pom' -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
+    	$ECHO "$FIND * -type f -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
+        $FIND * -type f -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
     fi
 
     # TODO only rebuild Nexus metadata for new artifacts
