@@ -450,7 +450,7 @@
                             <link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</link>
                             <link>http://joda-time.sourceforge.net/api-release</link>
                             <link>http://javamail.kenai.com/nonav/javadocs</link>
-                            <link>http://docs.spring.io/spring/docs/3.2.x/javadoc-api</link>
+                            <link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</link>
                             <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs</link>
                             <link>http://santuario.apache.org/Java/api</link>
                             <link>http://docs.oracle.com/javaee/5/api</link>
