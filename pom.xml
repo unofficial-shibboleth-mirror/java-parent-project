@@ -275,6 +275,11 @@
                 <version>1.50</version>
             </dependency>
             <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcpkix-jdk15on</artifactId>
+                <version>1.50</version>
+            </dependency>
+            <dependency>
                 <groupId>org.ldaptive</groupId>
                 <artifactId>ldaptive</artifactId>
                 <version>1.0.3</version>
