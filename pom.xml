@@ -282,12 +282,7 @@
             <dependency>
                 <groupId>org.ldaptive</groupId>
                 <artifactId>ldaptive</artifactId>
-                <!--
-                    The API changes in 1.0.4 (ConnectionStrategy changes
-                    from an enum to an interface) so do not upgrade this
-                    until we have changed dependent code.
-                -->
-                <version>1.0.3</version>
+                <version>1.0.4</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.velocity</groupId>
