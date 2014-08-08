@@ -117,9 +117,9 @@ $ECHO ""
 ask y "Create repository-diff" CREATE_REPO_DIFF
 if [ $CREATE_REPO_DIFF == "y" ] ; then
     if [ -e pom.new.xml ] ; then
-        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
     else
-        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
     fi
 fi
 $ECHO ""
