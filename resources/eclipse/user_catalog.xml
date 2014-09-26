@@ -16,7 +16,7 @@
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-metadata.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-metadata.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-relying-party.xsd"/>
   <system systemId="http://shibboleth.net/schema/idp/shibboleth-relying-party-saml.xsd" uri="platform:/resource/idp-schema/src/main/resources/schema/shibboleth-relying-party-saml.xsd"/>
-  <system systemId="http://www.oasis-open.org/committees/download.php/3408/oasis-sstc-saml-schema-assertion-1.1.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/cs-sstc-schema-assertion-1.1.xsd"/>
+  <system systemId="http://www.oasis-open.org/committees/download.php/3408/oasis-sstc-saml-schema-assertion-1.1.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/oasis-sstc-saml-schema-assertion-1.1.xsd"/>
   <system systemId="http://docs.oasis-open.org/security/saml/v2.0/saml-schema-assertion-2.0.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/saml-schema-assertion-2.0.xsd"/>
   <system systemId="http://docs.oasis-open.org/security/saml/v2.0/saml-schema-protocol-2.0.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/saml-schema-protocol-2.0.xsd"/>
   <system systemId="http://docs.oasis-open.org/security/saml/v2.0/saml-schema-metadata-2.0.xsd" uri="platform:/resource/opensaml-saml-api/src/main/resources/schema/saml-schema-metadata-2.0.xsd"/>
