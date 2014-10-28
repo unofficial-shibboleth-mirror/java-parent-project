@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent-v3</artifactId>
-    <version>TRUNK-SNAPSHOT</version>
+    <version>5</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project V3 Super POM</name>
@@ -42,7 +42,7 @@
 
         <checkstyle.version>2.10</checkstyle.version>
         <checkstyle.configLocation>
-            https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk/resources/checkstyle/checkstyle.xml
+            https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/tags/5/resources/checkstyle/checkstyle.xml
         </checkstyle.configLocation>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
