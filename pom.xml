@@ -33,12 +33,6 @@
         <spring.version>4.1.3.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.4.1.RELEASE</spring-webflow.version>
-        <xalan.groupId>xalan</xalan.groupId>
-        <xalan.version>2.7.1</xalan.version>
-        <xerces.groupId>org.apache.xerces</xerces.groupId>
-        <xerces.version>2.11.0</xerces.version>
-        <xmlresolver.groupId>xml-resolver</xmlresolver.groupId>
-        <xmlresolver.version>1.2</xmlresolver.version>
 
         <checkstyle.version>2.10</checkstyle.version>
         <checkstyle.configLocation>
