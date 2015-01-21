@@ -74,7 +74,6 @@
     <module name="ExplicitInitialization"/>
     <module name="FallThrough"/>
     <module name="IllegalThrows"/>
-    <module name="JUnitTestCase"/>
     <module name="MultipleVariableDeclarations"/>
     <module name="PackageDeclaration"/>
     <module name="ParameterAssignment"/>
