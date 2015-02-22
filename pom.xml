@@ -25,10 +25,10 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.3.6</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
-        <jetty.version>9.2.6.v20141205</jetty.version>
+        <jetty.version>9.2.8.v20150217</jetty.version>
         <logback.version>1.1.2</logback.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.7.7</slf4j.version>
+        <slf4j.version>1.7.10</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>4.1.5.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
@@ -190,12 +190,12 @@
                 <!-- needed for logback SMTP appender -->
                 <groupId>org.codehaus.janino</groupId>
                 <artifactId>janino</artifactId>
-                <version>2.7.7</version>
+                <version>2.7.8</version>
             </dependency>
             <dependency>
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
-                <version>2.6</version>
+                <version>2.7</version>
             </dependency>
             <dependency>
                 <!-- needed for logback SMTP appender -->
@@ -294,12 +294,12 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>2.0.2</version>
+                <version>2.0.3</version>
             </dependency>
             <dependency>
                 <groupId>com.beust</groupId>
                 <artifactId>jcommander</artifactId>
-                <version>1.35</version>
+                <version>1.47</version>
             </dependency>
             <dependency>
                 <groupId>jargs</groupId>
