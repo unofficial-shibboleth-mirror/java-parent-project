@@ -193,16 +193,19 @@ if [ $MODIFY_NEXUS == "y" ] ; then
         $FIND * -type f -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
     fi
 
-    # TODO only rebuild Nexus metadata for new artifacts
-
     ask y "Rebuild Nexus metadata" REBUILD_NEXUS_METADATA
     if [ $REBUILD_NEXUS_METADATA == "y" ] ; then
+        $ECHO "Rebuilding Nexus metadata for uploaded artifacts..."
+        $FIND * -type d -links 2 | while read -r ARTIFACT; do
+            $ECHO "Rebuilding Nexus metadata for $ARTIFACT"
+            $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'"
+                   $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'
+        done
+        $ECHO "Done rebuilding Nexus metadata for uploaded artifacts."
+
         $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/thirdparty/routing 2>&1 \; | grep 'DELETE\|HTTP'"
         $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/thirdparty/routing 2>&1 \; | grep 'DELETE\|HTTP'
-        
-        $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'"
-        $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'
-        
+
         $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'"
         $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'
     fi
