@@ -1,7 +1,6 @@
 #! /bin/bash
 
 # Adjusts the references to the reference to the super POM in the parent module
-# and the checkstyle configuration for each project module
 # such that it points to static, tagged parent project information.
 
 if [ $# != 2 ] ; then
@@ -20,8 +19,6 @@ for module in `ls "$2"` ; do
     if [ -d "$2/$module" ] ; then
         if [ ${module##*-} = "parent" ] ; then
             lock_pom $1 $2/$module
-        else
-            lock_checkstyle $1 $2/$module
         fi
     fi
 done

@@ -1,7 +1,7 @@
 #! /bin/bash
 
-# Adjusts the reference to the eclipse project POM, and project 
-# checkstyle configuration such that it points to static, tagged parent project
+# Adjusts the reference to the eclipse project POM
+# such that it points to static, tagged parent project
 # information.
 
 if [ $# != 2 ] ; then
@@ -17,4 +17,3 @@ LOCATION=${LOCATION%/*}
 source $LOCATION/lock-version-common.sh
 
 lock_pom $1 $2
-lock_checkstyle $1 $2
