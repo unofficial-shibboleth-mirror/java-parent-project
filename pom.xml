@@ -25,12 +25,12 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.3.6</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
-        <jetty.version>9.2.9.v20150224</jetty.version>
+        <jetty.version>9.2.11.v20150529</jetty.version>
         <logback.version>1.1.2</logback.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.10</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>4.1.5.RELEASE</spring.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.4.1.RELEASE</spring-webflow.version>
 
