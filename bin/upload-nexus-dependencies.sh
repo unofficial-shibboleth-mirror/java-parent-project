@@ -72,16 +72,16 @@ $ECHO ""
 
 ask y "Create directories" CREATE_DIRS
 if [ $CREATE_DIRS == "y" ] ; then
-    $MKDIR -v "repository-old"
+    $MKDIR -pv "repository-old"
     check_retval $? "Unable to create repository-old"
     
-    $MKDIR -v "repository-new"
+    $MKDIR -pv "repository-new"
     check_retval $? "Unable to create repository-new"
     
-    $MKDIR -v "repository-diff"
+    $MKDIR -pv "repository-diff"
     check_retval $? "Unable to create repository-diff"
     
-    $MKDIR -v "repository-test"
+    $MKDIR -pv "repository-test"
     check_retval $? "Unable to create repository-test"
 fi
 $ECHO ""
