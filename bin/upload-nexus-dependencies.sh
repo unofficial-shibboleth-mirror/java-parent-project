@@ -86,7 +86,12 @@ if [ $CREATE_DIRS == "y" ] ; then
 fi
 $ECHO ""
 
-ask y "Build with old pom" BUILD_OLD_POM
+$ECHO "There are 3 (really only 2) choices :"
+$ECHO " 1. Run Maven verify goal."
+$ECHO " 2. Run a Maven plugin."
+$ECHO ""
+
+ask y "1. Run verify goal ?" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests"
     $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests
@@ -111,6 +116,18 @@ if [ -e pom.new.xml ] ; then
         $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-new verify site -Prelease -DskipTests -f pom.new.xml"
         $MVN --strict-checksums -Dmaven.repo.local=repository-new verify site -Prelease -DskipTests -f pom.new.xml
     fi
+fi
+$ECHO ""
+
+ask y "2. Run a Maven plugin ?" RUN_MAVEN_PLUGIN
+if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
+    DEFAULT_MAVEN_PLUGIN="versions:display-dependency-updates"
+    ask $DEFAULT_MAVEN_PLUGIN " Which plugin ?" MAVEN_PLUGIN
+    $ECHO "MAVEN_PLUGIN is : $MAVEN_PLUGIN"
+    $ECHO "DEFAULT_MAVEN_PLUGIN is : $DEFAULT_MAVEN_PLUGIN"
+    $ECHO ""
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN
 fi
 $ECHO ""
 
