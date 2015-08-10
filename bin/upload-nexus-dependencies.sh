@@ -35,7 +35,7 @@ function ask {
     local RESULT="$1"
 
     if [ $YES_TO_ALL == "y" ] ; then
-	RESULT="y"
+       RESULT="y"
     else
 		read -p "$2 (y/n) ? [$1] : " -e REPLY
 		if [ -n "$REPLY" ] ; then
@@ -86,15 +86,18 @@ if [ $CREATE_DIRS == "y" ] ; then
 fi
 $ECHO ""
 
-$ECHO "There are 3 (really only 2) choices :"
-$ECHO " 1. Run Maven verify goal."
-$ECHO " 2. Run a Maven plugin."
+$ECHO "There are 4 (really only 3) choices :"
+$ECHO " 1. Run verify goal"
+$ECHO " 2. Run a Maven plugin"
+$ECHO " 3. Upload an artifact"
+$ECHO " You will be prompted for each."
 $ECHO ""
 
 ask y "1. Run verify goal ?" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
-    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests"
-    $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests
+    read -p "Command line options ? " BUILD_OLD_POM_COMMAND_LINE_OPTIONS
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests $BUILD_OLD_POM_COMMAND_LINE_OPTIONS"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests $BUILD_OLD_POM_COMMAND_LINE_OPTIONS
 fi
 $ECHO ""
 
@@ -121,13 +124,30 @@ $ECHO ""
 
 ask y "2. Run a Maven plugin ?" RUN_MAVEN_PLUGIN
 if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
-    DEFAULT_MAVEN_PLUGIN="versions:display-dependency-updates"
+    read -p "Command line options ? " RUN_MAVEN_PLUGIN_COMMAND_LINE_OPTIONS
+    DEFAULT_MAVEN_PLUGIN="dependency:resolve"
     ask $DEFAULT_MAVEN_PLUGIN " Which plugin ?" MAVEN_PLUGIN
     $ECHO "MAVEN_PLUGIN is : $MAVEN_PLUGIN"
     $ECHO "DEFAULT_MAVEN_PLUGIN is : $DEFAULT_MAVEN_PLUGIN"
     $ECHO ""
-    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN"
-    $MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN $RUN_MAVEN_PLUGIN_COMMAND_LINE_OPTIONS"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old $MAVEN_PLUGIN $RUN_MAVEN_PLUGIN_COMMAND_LINE_OPTIONS
+fi
+$ECHO ""
+
+ask y "***3. Upload an artifact ?" UPLOAD_ARTIFACT
+if [ $UPLOAD_ARTIFACT == "y" ] ; then
+    DEFAULT_ARTIFACT_TO_UPLOAD="org.eclipse.jetty:jetty-distribution:9.3.2.v20150730:tar.gz"
+    ask $DEFAULT_ARTIFACT_TO_UPLOAD " Which artifact in form groupId:artifactId:version[:packaging][:classifier] ?" ARTIFACT_TO_UPLOAD
+    $ECHO " ARTIFACT_TO_UPLOAD is : $ARTIFACT_TO_UPLOAD"
+    $ECHO ""
+    DEFAULT_COMMAND_LINE_OPTIONS="-Dtransitive=true"
+    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options, for example -Dtransitive=false ?" COMMAND_LINE_OPTIONS
+    $ECHO " COMMAND_LINE_OPTIONS is : $COMMAND_LINE_OPTIONS"
+    $ECHO ""
+    
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS
 fi
 $ECHO ""
 
@@ -231,7 +251,7 @@ $ECHO ""
 
 $ECHO "If you want to build with central disabled, you should probably wait a few minutes for Nexus to update its checksums."
 
-ask y "Build with central disabled" BUILD_TEST
+ask n "Build with central disabled" BUILD_TEST
 if [ $BUILD_TEST == "y" ] ; then
     cd ../
     if [ -e pom.new.xml ] ; then
