@@ -30,9 +30,9 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.10</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>4.2.0.RELEASE</spring.version>
+        <spring.version>4.2.1.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
-        <spring-webflow.version>2.4.1.RELEASE</spring-webflow.version>
+        <spring-webflow.version>2.4.2.RELEASE</spring-webflow.version>
 
         <checkstyle.version>2.10</checkstyle.version>
         <checkstyle.configLocation>
