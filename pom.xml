@@ -844,6 +844,18 @@
                 </plugins>
             </build>
         </profile>
+        <profile>
+            <id>enable-release-snapshots</id>
+            <repositories>
+                <repository>
+                    <id>shib-release</id>
+                    <url>https://build.shibboleth.net/nexus/content/groups/public</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
     </profiles>
 
 
