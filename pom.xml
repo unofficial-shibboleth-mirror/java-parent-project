@@ -557,6 +557,9 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <skipIfEmpty>true</skipIfEmpty>
+                    <excludes>
+                        <exclude>**/.gitkeep</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
