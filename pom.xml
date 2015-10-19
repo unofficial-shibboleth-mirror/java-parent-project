@@ -35,9 +35,7 @@
         <spring-webflow.version>2.4.2.RELEASE</spring-webflow.version>
 
         <checkstyle.version>2.10</checkstyle.version>
-        <checkstyle.configLocation>
-            https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk/resources/checkstyle/checkstyle.xml
-        </checkstyle.configLocation>
+        <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
     </properties>
