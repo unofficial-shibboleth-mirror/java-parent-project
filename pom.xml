@@ -40,6 +40,11 @@
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
     </properties>
 
+    <!-- The Maven version prerequisite applies to the maven-versions-plugin:display-plugin-updates goal only. -->
+    <prerequisites>
+        <maven>3.3.1</maven>
+    </prerequisites>
+
     <repositories>
         <repository>
             <id>shib-release</id>
