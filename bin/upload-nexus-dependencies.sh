@@ -95,9 +95,11 @@ $ECHO ""
 
 ask y "1. Run verify goal ?" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
-    read -p "Command line options ? " BUILD_OLD_POM_COMMAND_LINE_OPTIONS
-    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests $BUILD_OLD_POM_COMMAND_LINE_OPTIONS"
-    $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease -DskipTests $BUILD_OLD_POM_COMMAND_LINE_OPTIONS
+    DEFAULT_COMMAND_LINE_OPTIONS="-DskipTests=true"
+    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options ?" COMMAND_LINE_OPTIONS
+
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease $COMMAND_LINE_OPTIONS"
+    $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease  $COMMAND_LINE_OPTIONS
 fi
 $ECHO ""
 
