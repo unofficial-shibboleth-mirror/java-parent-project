@@ -577,10 +577,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <!--
-                        Change the bytecode verifier so that Cobertura will work.
-                    -->
-                    <argLine>-XX:-UseSplitVerifier</argLine>
                 </configuration>
             </plugin>
         </plugins>
@@ -847,6 +843,21 @@
                             <additionalparam>-Xdoclint:none</additionalparam>
                         </configuration>
                     </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <configuration>
+                            <reportPlugins>
+                                <plugin>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-javadoc-plugin</artifactId>
+                                    <configuration>
+                                        <additionalparam>-Xdoclint:none</additionalparam>
+                                    </configuration>
+                                </plugin>
+                            </reportPlugins>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
@@ -862,6 +873,25 @@
                 </repository>
             </repositories>
         </profile>
+    <profile>
+        <id>jdk7-use-split-verifier</id>
+        <activation>
+            <jdk>1.7</jdk>
+        </activation>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        <!-- Change the bytecode verifier so that Cobertura will work. -->
+                        <argLine>-XX:-UseSplitVerifier</argLine>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
     </profiles>
 
 
