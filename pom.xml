@@ -34,7 +34,7 @@
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.4.2.RELEASE</spring-webflow.version>
 
-        <checkstyle.version>2.10</checkstyle.version>
+        <checkstyle.version>2.17</checkstyle.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
