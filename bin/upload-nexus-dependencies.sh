@@ -137,7 +137,7 @@ if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
 fi
 $ECHO ""
 
-ask y "***3. Upload an artifact ?" UPLOAD_ARTIFACT
+ask y "3. Upload an artifact ?" UPLOAD_ARTIFACT
 if [ $UPLOAD_ARTIFACT == "y" ] ; then
     DEFAULT_ARTIFACT_TO_UPLOAD="org.eclipse.jetty:jetty-distribution:9.3.2.v20150730:tar.gz"
     ask $DEFAULT_ARTIFACT_TO_UPLOAD " Which artifact in form groupId:artifactId:version[:packaging][:classifier] ?" ARTIFACT_TO_UPLOAD
@@ -215,8 +215,8 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     
     ask y "Write files to upload to log file" LOG_UPLOADED_FILES
     if [ $LOG_UPLOADED_FILES == "y" ] ; then
-         $ECHO "$FIND * -type f -printf "%f\n" | sort > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt""
-         $FIND * -type f -printf "%f\n" | sort > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt"
+         $ECHO "$FIND * -type f -print | sort | grep -v "\.asc" > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt""
+         $FIND * -type f -print | sort | grep -v "\.asc"> "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt"
     fi
     $ECHO ""
     
