@@ -93,7 +93,7 @@ $ECHO " 3. Upload an artifact"
 $ECHO " You will be prompted for each."
 $ECHO ""
 
-ask y "1. Run verify goal" BUILD_OLD_POM
+ask n "1. Run verify goal" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
     DEFAULT_COMMAND_LINE_OPTIONS="-DskipTests=true"
     ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options ?" COMMAND_LINE_OPTIONS
@@ -124,7 +124,7 @@ if [ -e pom.new.xml ] ; then
 fi
 $ECHO ""
 
-ask y "2. Run a Maven plugin" RUN_MAVEN_PLUGIN
+ask n "2. Run a Maven plugin" RUN_MAVEN_PLUGIN
 if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
     read -p "Command line options ? " RUN_MAVEN_PLUGIN_COMMAND_LINE_OPTIONS
     DEFAULT_MAVEN_PLUGIN="dependency:resolve"
@@ -137,7 +137,7 @@ if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
 fi
 $ECHO ""
 
-ask y "3. Upload an artifact" UPLOAD_ARTIFACT
+ask n "3. Upload an artifact" UPLOAD_ARTIFACT
 if [ $UPLOAD_ARTIFACT == "y" ] ; then
     DEFAULT_ARTIFACT_TO_UPLOAD="groupId:artifactId:version"
     $ECHO " Specify artifact in format : groupId:artifactId:version[:packaging][:classifier]"
