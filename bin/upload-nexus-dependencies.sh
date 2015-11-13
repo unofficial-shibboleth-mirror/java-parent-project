@@ -96,7 +96,7 @@ $ECHO ""
 ask n "1. Run verify goal" BUILD_OLD_POM
 if [ $BUILD_OLD_POM == "y" ] ; then
     DEFAULT_COMMAND_LINE_OPTIONS="-DskipTests=true"
-    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options ?" COMMAND_LINE_OPTIONS
+    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options" COMMAND_LINE_OPTIONS
 
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease $COMMAND_LINE_OPTIONS"
     $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease  $COMMAND_LINE_OPTIONS
@@ -128,7 +128,7 @@ ask n "2. Run a Maven plugin" RUN_MAVEN_PLUGIN
 if [ $RUN_MAVEN_PLUGIN == "y" ] ; then
     read -p "Command line options ? " RUN_MAVEN_PLUGIN_COMMAND_LINE_OPTIONS
     DEFAULT_MAVEN_PLUGIN="dependency:resolve"
-    ask $DEFAULT_MAVEN_PLUGIN " Which plugin ?" MAVEN_PLUGIN
+    ask $DEFAULT_MAVEN_PLUGIN " Which plugin" MAVEN_PLUGIN
     $ECHO "MAVEN_PLUGIN is : $MAVEN_PLUGIN"
     $ECHO "DEFAULT_MAVEN_PLUGIN is : $DEFAULT_MAVEN_PLUGIN"
     $ECHO ""
@@ -142,11 +142,11 @@ if [ $UPLOAD_ARTIFACT == "y" ] ; then
     DEFAULT_ARTIFACT_TO_UPLOAD="groupId:artifactId:version"
     $ECHO " Specify artifact in format : groupId:artifactId:version[:packaging][:classifier]"
     $ECHO " For example : org.eclipse.jetty:jetty-distribution:9.3.2.v20150730:tar.gz"
-    ask $DEFAULT_ARTIFACT_TO_UPLOAD " Which artifact ?" ARTIFACT_TO_UPLOAD
+    ask $DEFAULT_ARTIFACT_TO_UPLOAD " Which artifact" ARTIFACT_TO_UPLOAD
     $ECHO " ARTIFACT_TO_UPLOAD is : $ARTIFACT_TO_UPLOAD"
     $ECHO ""
     DEFAULT_COMMAND_LINE_OPTIONS="-Dtransitive=true"
-    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options, for example -Dtransitive=false ?" COMMAND_LINE_OPTIONS
+    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options, for example -Dtransitive=false" COMMAND_LINE_OPTIONS
     $ECHO " COMMAND_LINE_OPTIONS is : $COMMAND_LINE_OPTIONS"
     $ECHO ""
     
@@ -184,7 +184,7 @@ if [ $DOWNLOAD_SIGNATURES == "y" ] ; then
     $ECHO " Signatures are downloaded using cURL from Maven Central by default."
     $ECHO " An alternative repository may be provided, for example, http://repo.spring.io/snapshot."
     DEFAULT_DOWNLOAD_ASC_URL="http://repo1.maven.org/maven2"
-    ask $DEFAULT_DOWNLOAD_ASC_URL " Download signatures from  ?" DOWNLOAD_ASC_URL
+    ask $DEFAULT_DOWNLOAD_ASC_URL " Download signatures from" DOWNLOAD_ASC_URL
     $ECHO " DOWNLOAD_ASC_URL is : $DOWNLOAD_ASC_URL"
     $ECHO ""
     $ECHO "$FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'"
