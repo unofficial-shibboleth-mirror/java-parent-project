@@ -49,8 +49,13 @@
         <repository>
             <id>shib-release</id>
             <url>https://build.shibboleth.net/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
             <snapshots>
                 <enabled>false</enabled>
+                <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
         <repository>
@@ -58,7 +63,12 @@
             <url>https://build.shibboleth.net/nexus/content/repositories/snapshots</url>
             <releases>
                 <enabled>false</enabled>
+                <checksumPolicy>fail</checksumPolicy>
             </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </repository>
         <repository>
             <id>shib-thirdparty-snapshot</id>
