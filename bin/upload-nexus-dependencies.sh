@@ -101,7 +101,6 @@ if [ $BUILD_OLD_POM == "y" ] ; then
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease $COMMAND_LINE_OPTIONS"
     $MVN --strict-checksums -Dmaven.repo.local=repository-old clean verify site -Prelease  $COMMAND_LINE_OPTIONS
 fi
-$ECHO ""
 
 if [ -e pom.new.xml ] ; then
     ask y "Copy repository-old to repository-new" COPY_REPO_OLD_TO_REPO_NEW
