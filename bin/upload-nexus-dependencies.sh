@@ -157,9 +157,9 @@ $ECHO ""
 ask y "Create repository-diff" CREATE_REPO_DIFF
 if [ $CREATE_REPO_DIFF == "y" ] ; then
     if [ -e pom.new.xml ] ; then
-        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty-snapshots/ --compare-dest=$PWD/repository-old/ repository-new/ repository-diff/
     else
-        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ repository-old/ repository-diff/
+        $RSYNC -rcmv --include='*.pom' --include='*.jar' --include='*.war' --include='*.zip' --include='*.tar.gz' --exclude='net/shibboleth' --exclude='org/opensaml' --exclude='edu/internet2/middleware' -f 'hide,! */' --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty/ --compare-dest=$NEXUS_HOME/sonatype-work/nexus/storage/thirdparty-snapshots/ repository-old/ repository-diff/
     fi
 fi
 $ECHO ""
@@ -178,15 +178,27 @@ if [ $PRINT_REPO_DIFF == "y" ] ; then
 fi
 $ECHO ""
 
+ask n "Delete '*-SNAPSHOT*' files" DEL_SNAPSHOT_FILES
+if [ $DEL_SNAPSHOT_FILES == "y" ] ; then
+    $FIND * -type f -name '*-SNAPSHOT*' -exec rm {} \;
+    
+    ask y "Print repository-diff again" PRINT_REPO_DIFF_AGAIN
+    if [ $PRINT_REPO_DIFF_AGAIN == "y" ] ; then
+        $FIND *
+    fi
+$ECHO ""
+fi
+$ECHO ""
+
 ask y "Download signatures" DOWNLOAD_SIGNATURES
 if [ $DOWNLOAD_SIGNATURES == "y" ] ; then
     $ECHO " Signatures are downloaded using cURL from Maven Central by default."
-    $ECHO " An alternative repository may be provided, for example, http://repo.spring.io/snapshot."
+    $ECHO " An alternative repository may be provided, for example, https://repo.spring.io/snapshot"
     DEFAULT_DOWNLOAD_ASC_URL="http://repo1.maven.org/maven2"
     ask $DEFAULT_DOWNLOAD_ASC_URL " Download signatures from" DOWNLOAD_ASC_URL
     $ECHO " DOWNLOAD_ASC_URL is : $DOWNLOAD_ASC_URL"
     $ECHO ""
-    $ECHO "$FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/maven2/{}.asc 2>&1 \; | grep 'GET\|HTTP'"
+    $ECHO "$FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/{}.asc 2>&1 \; | grep 'GET\|HTTP'"
     $FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/{}.asc 2>&1 \; | grep 'GET\|HTTP'
  
 fi
@@ -227,6 +239,13 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     fi
     $ECHO ""
     
+    THIRD_PARTY_REPOSITORY_ID="thirdparty"
+    ask n "Are the artifacts being uploaded snapshots" UPLOAD_SNAPSHOTS
+    if [ $UPLOAD_SNAPSHOTS == "y" ] ; then
+        THIRD_PARTY_REPOSITORY_ID="thirdparty-snapshots"
+    fi
+    $ECHO ""
+    
     ask $USER "Nexus username" USERNAME
     $ECHO ""
     
@@ -235,8 +254,8 @@ if [ $MODIFY_NEXUS == "y" ] ; then
     
     ask y "Upload to Nexus" UPLOAD_TO_NEXUS
     if [ $UPLOAD_TO_NEXUS == "y" ] ; then
-    	$ECHO "$FIND * -type f -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
-        $FIND * -type f -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/thirdparty/{} 2>&1 \; | grep 'PUT\|HTTP'
+        $ECHO "$FIND * -type f -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/$THIRD_PARTY_REPOSITORY_ID/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
+        $FIND * -type f -exec $CURL -v -u $USERNAME:$PASSWORD --upload-file {} $NEXUS_URL/content/repositories/$THIRD_PARTY_REPOSITORY_ID/{} 2>&1 \; | grep 'PUT\|HTTP'
     fi
 
     ask y "Rebuild Nexus metadata" REBUILD_NEXUS_METADATA
@@ -244,16 +263,16 @@ if [ $MODIFY_NEXUS == "y" ] ; then
         $ECHO "Rebuilding Nexus metadata for uploaded artifacts..."
         $FIND * -type d -links 2 | while read -r ARTIFACT; do
             $ECHO "Rebuilding Nexus metadata for $ARTIFACT"
-            $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'"
-                   $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/thirdparty/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'
+            $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/$THIRD_PARTY_REPOSITORY_ID/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'"
+                   $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/metadata/repositories/$THIRD_PARTY_REPOSITORY_ID/content/$ARTIFACT 2>&1 \; | grep 'DELETE\|HTTP'
         done
         $ECHO "Done rebuilding Nexus metadata for uploaded artifacts."
 
-        $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/thirdparty/routing 2>&1 \; | grep 'DELETE\|HTTP'"
-        $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/thirdparty/routing 2>&1 \; | grep 'DELETE\|HTTP'
+        $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/$THIRD_PARTY_REPOSITORY_ID/routing 2>&1 \; | grep 'DELETE\|HTTP'"
+        $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/repositories/$THIRD_PARTY_REPOSITORY_ID/routing 2>&1 \; | grep 'DELETE\|HTTP'
 
-        $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'"
-        $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/thirdparty/content 2>&1 \; | grep 'DELETE\|HTTP'
+        $ECHO "$CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/$THIRD_PARTY_REPOSITORY_ID/content 2>&1 \; | grep 'DELETE\|HTTP'"
+        $CURL -v -u $USERNAME:$PASSWORD -X DELETE $NEXUS_URL/service/local/data_index/repositories/$THIRD_PARTY_REPOSITORY_ID/content 2>&1 \; | grep 'DELETE\|HTTP'
     fi
 fi
 $ECHO ""
