@@ -61,6 +61,18 @@
             </releases>
         </repository>
         <repository>
+            <id>shib-thirdparty-snapshot</id>
+            <url>https://build.shibboleth.net/nexus/content/repositories/thirdparty-snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
             <id>central</id>
             <url>${maven.central.url}</url>
             <releases>
