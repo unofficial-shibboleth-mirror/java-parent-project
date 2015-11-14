@@ -86,10 +86,11 @@ if [ $CREATE_DIRS == "y" ] ; then
 fi
 $ECHO ""
 
-$ECHO "There are 4 (really only 3) choices :"
+$ECHO "There are 4 choices :"
 $ECHO " 1. Run verify goal"
 $ECHO " 2. Run a Maven plugin"
 $ECHO " 3. Upload an artifact"
+$ECHO " 4. Upload Jetty distribution"
 $ECHO " You will be prompted for each."
 $ECHO ""
 
@@ -151,6 +152,28 @@ if [ $UPLOAD_ARTIFACT == "y" ] ; then
     
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS"
     $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS
+fi
+$ECHO ""
+
+ask n "4. Upload Jetty distribution" UPLOAD_JETTY_DISTRIBUTION
+if [ $UPLOAD_JETTY_DISTRIBUTION == "y" ] ; then
+    DEFAULT_JETTY_VERSION="9.2.14.v20151106"
+    ask $DEFAULT_JETTY_VERSION " Which version" JETTY_VERSION
+    $ECHO " JETTY_VERSION is : $JETTY_VERSION"
+    $ECHO ""
+    DEFAULT_COMMAND_LINE_OPTIONS="-Dtransitive=false"
+    ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options" COMMAND_LINE_OPTIONS
+    $ECHO " COMMAND_LINE_OPTIONS is : $COMMAND_LINE_OPTIONS"
+    $ECHO ""
+    
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:pom"
+           $MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:pom 
+           
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:tar.gz"
+           $MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:tar.gz
+
+    $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:zip"
+           $MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:zip
 fi
 $ECHO ""
 
