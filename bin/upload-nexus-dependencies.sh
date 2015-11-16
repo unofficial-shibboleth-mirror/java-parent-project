@@ -189,6 +189,12 @@ $ECHO ""
 
 cd repository-diff
 
+ask y "Delete '*-SNAPSHOT*' files" DEL_SNAPSHOT_FILES
+if [ $DEL_SNAPSHOT_FILES == "y" ] ; then
+    $FIND * -type f -name '*-SNAPSHOT*' -exec rm {} \;
+fi
+$ECHO ""
+
 ask y "Delete empty directories from repository-diff" DEL_EMPTY_REPO_DIFF
 if [ $DEL_EMPTY_REPO_DIFF == "y" ] ; then
     $FIND * -type d -empty -delete
@@ -198,18 +204,6 @@ $ECHO ""
 ask y "Print repository-diff" PRINT_REPO_DIFF
 if [ $PRINT_REPO_DIFF == "y" ] ; then
     $FIND *
-fi
-$ECHO ""
-
-ask n "Delete '*-SNAPSHOT*' files" DEL_SNAPSHOT_FILES
-if [ $DEL_SNAPSHOT_FILES == "y" ] ; then
-    $FIND * -type f -name '*-SNAPSHOT*' -exec rm {} \;
-    
-    ask y "Print repository-diff again" PRINT_REPO_DIFF_AGAIN
-    if [ $PRINT_REPO_DIFF_AGAIN == "y" ] ; then
-        $FIND *
-    fi
-$ECHO ""
 fi
 $ECHO ""
 
