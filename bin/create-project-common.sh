@@ -16,7 +16,7 @@ declare -r FIND=${FIND:-"/usr/bin/find"}
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
 # we do a release in order to lock this project to a specific parent project version
-declare -r PARENT_PROJ_URL="https://svn.shibboleth.net/java-parent-projects/java-parent-project-v3/trunk"
+declare -r PARENT_PROJ_URL="https://git.shibboleth.net/view/?p=java-parent-project-v3.git;a=blob_plain;hb=HEAD;f="
 
 # Checks that the given return value was 0 and, if not, prints a given error messages and exits
 #
@@ -75,7 +75,7 @@ function create_src {
     $MKDIR -p "$1/src/main/java" "$1/src/main/resources" "$1/src/test/java" "$1/src/test/resources"
     check_retval $? "Unable to create Maven src directories"
     
-    download_file "$PARENT_PROJ_URL/resources/logback/logback-test.xml" "$1/src/test/resources/logback-test.xml"
+    download_file $PARENT_PROJ_URL"resources/logback/logback-test.xml" "$1/src/test/resources/logback-test.xml"
     check_retval $? "Unable to download logback-text.xml into src/test/resources"
 }
 
@@ -86,7 +86,7 @@ function create_assembly {
     $MKDIR -p "$1/src/main/assembly"
     check_retval $? "Unable to create src/main/assembly directory"
 
-    download_file "$PARENT_PROJ_URL/resources/maven/assembly-bin.xml" "$1/src/main/assembly/bin.xml"
+    download_file $PARENT_PROJ_URL"resources/maven/assembly-bin.xml" "$1/src/main/assembly/bin.xml"
 }
 
 # Creates the doc directory with an empty RELEASE-NOTES.txt file and Apache 2 license
@@ -96,7 +96,7 @@ function create_doc {
     $MKDIR "$1/doc"
     check_retval $? "Unable to create doc directory"
 
-    download_file "$PARENT_PROJ_URL/resources/doc/LICENSE.txt" "$1/doc/LICENSE.txt"
+    download_file $PARENT_PROJ_URL"resources/doc/LICENSE.txt" "$1/doc/LICENSE.txt"
 
     $TOUCH "$1/doc/RELEASE-NOTES.txt"
     check_retval $? "Unable to create empty RELEASE-NOTES.txt"
@@ -107,9 +107,9 @@ function create_doc {
 # $1 directory in which the Eclipse settings files will be placed
 # $2 project/artifact ID
 function create_eclipse_files {
-    download_file "$PARENT_PROJ_URL/resources/eclipse/checkstyle" "$1/.checkstyle"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/classpath" "$1/.classpath"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/project.tmpl" "$1/.project"
+    download_file $PARENT_PROJ_URL"resources/eclipse/checkstyle" "$1/.checkstyle"
+    download_file $PARENT_PROJ_URL"resources/eclipse/classpath" "$1/.classpath"
+    download_file $PARENT_PROJ_URL"resources/eclipse/project.tmpl" "$1/.project"
 
     expand_macro $1/.project "MVN_ARTF_ID" $2
 }
@@ -127,10 +127,10 @@ function create_eclipse_settings_files {
 #
 # $1 directory in which the Eclipse settings files will be placed
 function download_eclipse_settings_files {
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/.settings/org.eclipse.jdt.ui.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/.settings/org.eclipse.core.resources.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/.settings/org.eclipse.jdt.core.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/.settings/org.eclipse.jdt.ui.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/.settings/org.eclipse.m2e.core.prefs"
 }
 
 # Creates Eclipse defaults in multi-module parent
@@ -143,10 +143,10 @@ function create_eclipse_defaults {
 	check_retval $? "Unable to create project directory $1/resources/eclipse"
     $MKDIR $1/resources/eclipse/settings
 	check_retval $? "Unable to create project directory $1/resources/eclipse/settings"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/resources/eclipse/settings/org.eclipse.core.resources.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.core.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.ui.prefs"
-    download_file "$PARENT_PROJ_URL/resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/resources/eclipse/settings/org.eclipse.m2e.core.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.core.resources.prefs" "$1/resources/eclipse/settings/org.eclipse.core.resources.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.jdt.core.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.core.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.jdt.ui.prefs" "$1/resources/eclipse/settings/org.eclipse.jdt.ui.prefs"
+    download_file $PARENT_PROJ_URL"resources/eclipse/settings/org.eclipse.m2e.core.prefs" "$1/resources/eclipse/settings/org.eclipse.m2e.core.prefs"
 }
 
 # Fetchs the template POM file and populates its macros.
@@ -168,7 +168,7 @@ function create_site_file {
     $MKDIR -p "$1/src/site"
     check_retval $? "Unable to create site source directory"
 
-    download_file "$PARENT_PROJ_URL/resources/maven/site.xml" "$1/src/site/site.xml"
+    download_file $PARENT_PROJ_URL"resources/maven/site.xml" "$1/src/site/site.xml"
     check_retval $? "Unable to download site descriptor"
 }
 
