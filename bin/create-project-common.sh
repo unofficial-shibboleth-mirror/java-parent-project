@@ -103,6 +103,7 @@ function create_doc {
 }
 
 # Creates the .checkstyle, .classpath, and .project Eclipse settings files
+# Downloads checkstyle.xml
 #
 # $1 directory in which the Eclipse settings files will be placed
 # $2 project/artifact ID
@@ -110,6 +111,8 @@ function create_eclipse_files {
     download_file $PARENT_PROJ_URL"resources/eclipse/checkstyle" "$1/.checkstyle"
     download_file $PARENT_PROJ_URL"resources/eclipse/classpath" "$1/.classpath"
     download_file $PARENT_PROJ_URL"resources/eclipse/project.tmpl" "$1/.project"
+
+    download_file $PARENT_PROJ_URL"resources/checkstyle/checkstyle.xml" "$1/checkstyle.xml"
 
     expand_macro $1/.project "MVN_ARTF_ID" $2
 }
