@@ -29,5 +29,7 @@ check_retval $? "Unable to copy module POM template to $MODULE_DIR"
 
 expand_macro $MODULE_DIR/pom.xml "MVN_ARTF_ID" $MVN_ARTF_ID
 
+download_file $PARENT_PROJ_URL"resources/git/gitignore" "$MODULE_DIR/.gitignore"
+
 $ECHO "Creation of module $MVN_ARTF_ID completed."
 exit 0
