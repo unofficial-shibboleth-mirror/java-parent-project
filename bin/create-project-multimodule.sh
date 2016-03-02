@@ -37,14 +37,14 @@ check_retval $? "Unable to create project parent module directory"
 
 create_eclipse_defaults $PROJ_PARENT_DIR
 
-create_pom_file $PROJ_PARENT_DIR $PARENT_PROJ_URL/resources/maven/pom.xml.tmpl $MVN_GROUP_ID $PROJ_ID-parent
+create_pom_file $PROJ_PARENT_DIR "$PARENT_PROJ_URL"resources/maven/pom.xml.tmpl $MVN_GROUP_ID $PROJ_ID-parent
 
-download_file $PARENT_PROJ_URL/resources/eclipse/parent-project.tmpl $PROJ_PARENT_DIR/.project
+download_file "$PARENT_PROJ_URL"resources/eclipse/parent-project.tmpl $PROJ_PARENT_DIR/.project
 expand_macro $PROJ_PARENT_DIR/.project "MVN_ARTF_ID" $PROJ_ID-parent
 
 create_site_file $PROJ_PARENT_DIR
 
-download_file $PARENT_PROJ_URL/resources/maven/module-pom.xml.tmpl $PROJ_PARENT_DIR/module-pom.xml.tmpl
+download_file "$PARENT_PROJ_URL"resources/maven/module-pom.xml.tmpl $PROJ_PARENT_DIR/module-pom.xml.tmpl
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "MVN_GROUP_ID" $MVN_GROUP_ID
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "MVN_PARENT_ARTF_ID" $PROJ_ID-parent
 expand_macro $PROJ_PARENT_DIR/module-pom.xml.tmpl "PROJ_PARENT_DIR" ${PROJ_PARENT_DIR##*/}
