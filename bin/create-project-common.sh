@@ -64,7 +64,7 @@ function create_svn_structure {
 # $3 expanded value; note this will be used in a regular expression so escape it properly
 function expand_macro {
     $PERL -p -i -e "s/$2/$3/g" "$1"
-    check_retval $? "Unable to replace MVN_GROUP_ID macro in $1 with value $2"
+    check_retval $? "Unable to replace $2 macro in $1 with value $3"
 }
 
 # Creates the ./src directory structure within a given directory and places a logback-text.xml
