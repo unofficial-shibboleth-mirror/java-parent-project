@@ -12,6 +12,7 @@ declare -r RM=${RM:-"/bin/rm"}
 declare -r SVN=${SVN:-"/usr/bin/svn"}
 declare -r TOUCH=${TOUCH:-"/usr/bin/touch"}
 declare -r FIND=${FIND:-"/usr/bin/find"}
+declare -r GIT=${GIT:-"/usr/bin/git"}
 
 # URL to the java parent project from which everything inherits
 # we start with the trunk version and then use the *-lock-version commands before
@@ -202,4 +203,17 @@ function set_svn_properties_commit_and_update {
     
     $SVN commit -q -m "Committing svn.ignore" "$1"
     check_retval $? "Unable to commit svn:ignore of $1."
+}
+
+# Start git repository
+#
+# $1 Project directory
+# TODO Maybe we shouldn't commit or add the remote, not sure.
+function git_start_project {
+    cd $1
+    $GIT init
+    $GIT add .
+    $GIT commit -m "First commit"
+    $GIT remote add origin git@git.shibboleth.net:$1
+    cd ..
 }
