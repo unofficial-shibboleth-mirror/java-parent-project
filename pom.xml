@@ -523,6 +523,26 @@
                         <windowtitle>${project.name} ${project.version} API</windowtitle>
                         <tags>
                             <tag>
+                                <name>parent</name>
+                                <placement>t</placement>
+                                <head>Parent:</head>
+                            </tag>
+                            <tag>
+                                <name>child</name>
+                                <placement>t</placement>
+                                <head>Child:</head>
+                            </tag>
+                            <tag>
+                                <name>added</name>
+                                <placement>t</placement>
+                                <head>Added:</head>
+                            </tag>
+                            <tag>
+                                <name>removed</name>
+                                <placement>t</placement>
+                                <head>Removed:</head>
+                            </tag>
+                            <tag>
                                 <name>event</name>
                                 <placement>t</placement>
                                 <head>Event:</head>
