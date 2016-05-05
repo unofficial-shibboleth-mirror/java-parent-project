@@ -904,32 +904,9 @@
             <activation>
                 <jdk>[1.8,)</jdk>
             </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-site-plugin</artifactId>
-                        <configuration>
-                            <reportPlugins>
-                                <plugin>
-                                    <groupId>org.apache.maven.plugins</groupId>
-                                    <artifactId>maven-javadoc-plugin</artifactId>
-                                    <configuration>
-                                        <additionalparam>-Xdoclint:none</additionalparam>
-                                    </configuration>
-                                </plugin>
-                            </reportPlugins>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <additionalparam>-Xdoclint:none</additionalparam>
+            </properties>
         </profile>
         <profile>
             <id>enable-release-snapshots</id>
