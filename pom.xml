@@ -1048,4 +1048,9 @@
         </contributor>
     </contributors>
 
+    <organization>
+        <name>Shibboleth Consortium</name>
+        <url>https://shibboleth.net</url>
+    </organization>
+
 </project>
