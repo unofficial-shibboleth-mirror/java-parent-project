@@ -39,6 +39,7 @@
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
+        <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
     </properties>
 
     <!-- The Maven version prerequisite applies to the maven-versions-plugin:display-plugin-updates goal only. -->
@@ -446,6 +447,10 @@
             <id>snapshot</id>
             <url>https://build.shibboleth.net/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
+        <site>
+            <id>site</id>
+            <url>dav:${shibboleth.site.url}</url>
+        </site>
     </distributionManagement>
 
     <build>
