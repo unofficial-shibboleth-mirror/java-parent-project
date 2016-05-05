@@ -776,6 +776,7 @@
                             <report>mailing-list</report>
                             <report>issue-tracking</report>
                             <report>scm</report>
+                            <report>cim</report>
                             <report>project-team</report>
                             <report>dependencies</report>
                             <report>dependency-management</report>
@@ -987,6 +988,11 @@
         <system>JIRA</system>
         <url>http://issues.shibboleth.net/</url>
     </issueManagement>
+
+    <ciManagement>
+        <system>Jenkins</system>
+        <url>https://build.shibboleth.net/jenkins/</url>
+    </ciManagement>
 
     <scm>
         <!-- The property svn.relative.location is set by the project that inherits from this super POM -->
