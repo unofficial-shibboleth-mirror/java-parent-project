@@ -967,6 +967,7 @@
             <name>Shibboleth Announce</name>
             <subscribe>mailto:announce-subscribe@shibboleth.net</subscribe>
             <unsubscribe>mailto:announce-unsubscribe@shibboleth.net</unsubscribe>
+            <archive>http://marc.info/?l=shibboleth-announce</archive>
         </mailingList>
         <mailingList>
             <name>Shibboleth Users</name>
