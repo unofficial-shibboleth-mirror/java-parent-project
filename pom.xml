@@ -974,9 +974,6 @@
             <unsubscribe>mailto:users-unsubscribe@shibboleth.net</unsubscribe>
             <post>users@shibboleth.net</post>
             <archive>http://marc.info/?l=shibboleth-users</archive>
-            <otherArchives>
-                <otherArchive>http://groups.google.com/group/shibboleth-users/topics</otherArchive>
-            </otherArchives>
         </mailingList>
         <mailingList>
             <name>Shibboleth Development</name>
@@ -984,9 +981,6 @@
             <unsubscribe>mailto:dev-unsubscribe@shibboleth.net</unsubscribe>
             <post>dev@shibboleth.net</post>
             <archive>http://marc.info/?l=shibboleth-dev</archive>
-            <otherArchives>
-                <otherArchive>http://groups.google.com/group/shibboleth-dev/topics</otherArchive>
-            </otherArchives>
         </mailingList>
     </mailingLists>
 
