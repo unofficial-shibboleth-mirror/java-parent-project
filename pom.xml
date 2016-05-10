@@ -26,7 +26,7 @@
         <httpclient.version>4.3.6</httpclient.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.2.14.v20151106</jetty.version>
-        <ldaptive.version>1.0.7</ldaptive.version>
+        <ldaptive.version>1.0.8-SNAPSHOT</ldaptive.version>
         <logback.version>1.1.3</logback.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.12</slf4j.version>
