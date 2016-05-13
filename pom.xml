@@ -653,7 +653,12 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.7</version>
+                <!--
+                    Upgrading to 2.6 may cause the 'site' target to fail for java-support, and
+                    probably other projects, due to clashing dependencies on versions of
+                    xerces and xalan. For now, just hold at a version that works for us.
+                -->
+                <version>2.6</version>
                 <configuration>
                     <aggregate>true</aggregate>
                     <quiet>true</quiet>
