@@ -650,37 +650,6 @@
                     <configLocation>${checkstyle.configLocation}</configLocation>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>cobertura-maven-plugin</artifactId>
-                <!--
-                    Upgrading to 2.6 will cause the 'site' target to fail for java-support, and
-                    probably other projects, due to clashing dependencies on versions of
-                    xerces and xalan. For now, just hold at a version that works for us.
-                -->
-                <version>2.5.2</version>
-                <configuration>
-                    <aggregate>true</aggregate>
-                    <quiet>true</quiet>
-                    <omitGplFiles>true</omitGplFiles>
-                    <instrumentation>
-                        <excludes>
-                            <exclude>**/*Exception.class</exclude>
-                            <!-- Exclude directive doesn't support \d so lets just assume no class will have more than 9 
-                                anonymous inner classes -->
-                            <exclude>**/*$1.class</exclude>
-                            <exclude>**/*$2.class</exclude>
-                            <exclude>**/*$3.class</exclude>
-                            <exclude>**/*$4.class</exclude>
-                            <exclude>**/*$5.class</exclude>
-                            <exclude>**/*$6.class</exclude>
-                            <exclude>**/*$7.class</exclude>
-                            <exclude>**/*$8.class</exclude>
-                            <exclude>**/*$9.class</exclude>
-                        </excludes>
-                    </instrumentation>
-                </configuration>
-            </plugin>
             <!-- 2013-04-10 tz Disabled JavaNCSS plugin because it does not support Java 7 syntax.
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -958,6 +927,47 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>jdk7-cobertura</id>
+            <activation>
+                <jdk>1.7</jdk>
+            </activation>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                        <!--
+                            Upgrading to 2.6 will cause the 'site' target to fail for java-support, and
+                            probably other projects, due to clashing dependencies on versions of
+                            xerces and xalan. For now, just hold at a version that works for us.
+                        -->
+                        <version>2.5.2</version>
+                        <configuration>
+                            <aggregate>true</aggregate>
+                            <quiet>true</quiet>
+                            <omitGplFiles>true</omitGplFiles>
+                            <instrumentation>
+                                <excludes>
+                                    <exclude>**/*Exception.class</exclude>
+                                    <!-- Exclude directive doesn't support \d so lets just assume no class will have more than 9 
+                                        anonymous inner classes -->
+                                    <exclude>**/*$1.class</exclude>
+                                    <exclude>**/*$2.class</exclude>
+                                    <exclude>**/*$3.class</exclude>
+                                    <exclude>**/*$4.class</exclude>
+                                    <exclude>**/*$5.class</exclude>
+                                    <exclude>**/*$6.class</exclude>
+                                    <exclude>**/*$7.class</exclude>
+                                    <exclude>**/*$8.class</exclude>
+                                    <exclude>**/*$9.class</exclude>
+                                </excludes>
+                            </instrumentation>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
         </profile>
     </profiles>
 
