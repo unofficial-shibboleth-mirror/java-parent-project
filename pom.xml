@@ -34,6 +34,7 @@
         <spring.version>4.2.3.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.4.2.RELEASE</spring-webflow.version>
+        <xmlsec.version>2.0.5</xmlsec.version>
 
         <checkstyle.version>2.17</checkstyle.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
@@ -320,7 +321,7 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>2.0.5</version>
+                <version>${xmlsec.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.beust</groupId>
