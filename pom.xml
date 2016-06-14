@@ -526,6 +526,7 @@
                             <link>http://docs.oracle.com/javaee/5/api</link>
                             <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
                             <link>http://logback.qos.ch/apidocs/</link>
+                            <link>http://www.ldaptive.org/javadocs</link>
                         </links>
                         <quiet>true</quiet>
                         <author>false</author>
@@ -686,6 +687,7 @@
                         <link>http://docs.oracle.com/javaee/5/api</link>
                         <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
                         <link>http://logback.qos.ch/apidocs/</link>
+                        <link>http://www.ldaptive.org/javadocs</link>
                     </links>
                     <quiet>true</quiet>
                     <author>false</author>
