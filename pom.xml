@@ -527,6 +527,9 @@
                             <link>http://www.ldaptive.org/javadocs/</link>
                             <link>http://www.slf4j.org/apidocs/</link>
                             <link>http://xmlunit.sourceforge.net/api/</link>
+                            <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
+                            <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
+                            <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
                         </links>
                         <quiet>true</quiet>
                         <author>false</author>
@@ -688,6 +691,9 @@
                         <link>http://www.ldaptive.org/javadocs/</link>
                         <link>http://www.slf4j.org/apidocs/</link>
                         <link>http://xmlunit.sourceforge.net/api/</link>
+                        <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
+                        <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
+                        <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
                     </links>
                     <quiet>true</quiet>
                     <author>false</author>
