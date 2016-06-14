@@ -24,6 +24,7 @@
 
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.3.6</httpclient.version>
+        <guava.version>18.0</guava.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.2.14.v20151106</jetty.version>
         <ldaptive.version>1.0.7</ldaptive.version>
@@ -184,7 +185,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>18.0</version>
+                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.mchange</groupId>
@@ -523,6 +524,7 @@
                             <link>http://santuario.apache.org/Java/api</link>
                             <link>http://docs.oracle.com/javaee/5/api</link>
                             <link>http://docs.mockito.googlecode.com/hg/latest/</link>
+                            <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
                         </links>
                         <quiet>true</quiet>
                         <author>false</author>
@@ -681,6 +683,7 @@
                         <link>http://santuario.apache.org/Java/api</link>
                         <link>http://docs.oracle.com/javaee/5/api</link>
                         <link>http://docs.mockito.googlecode.com/hg/latest/</link>
+                        <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
                     </links>
                     <quiet>true</quiet>
                     <author>false</author>
