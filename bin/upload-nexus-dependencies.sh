@@ -148,10 +148,20 @@ if [ $UPLOAD_ARTIFACT == "y" ] ; then
     DEFAULT_COMMAND_LINE_OPTIONS="-Dtransitive=true"
     ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options, for example -Dtransitive=false" COMMAND_LINE_OPTIONS
     $ECHO " COMMAND_LINE_OPTIONS is : $COMMAND_LINE_OPTIONS"
+    ask n " Upload Javadoc" UPLOAD_JAVADOC
+    ask n " Upload sources" UPLOAD_SOURCES
     $ECHO ""
-    
+
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS"
-    $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS
+           $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD $COMMAND_LINE_OPTIONS
+    if [ $UPLOAD_JAVADOC == "y" ] ; then
+        $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD:jar:javadoc $COMMAND_LINE_OPTIONS"
+               $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD:jar:javadoc $COMMAND_LINE_OPTIONS
+    fi
+    if [ $UPLOAD_SOURCES == "y" ] ; then
+        $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD:jar:sources $COMMAND_LINE_OPTIONS"
+               $MVN --strict-checksums -Dmaven.repo.local=repository-old org.apache.maven.plugins:maven-dependency-plugin:RELEASE:get -Dartifact=$ARTIFACT_TO_UPLOAD:jar:sources $COMMAND_LINE_OPTIONS
+    fi
 fi
 $ECHO ""
 
