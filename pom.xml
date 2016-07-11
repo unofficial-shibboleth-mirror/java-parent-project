@@ -37,7 +37,8 @@
         <spring-webflow.version>2.4.2.RELEASE</spring-webflow.version>
         <xmlsec.version>2.0.5</xmlsec.version>
 
-        <checkstyle.version>2.17</checkstyle.version>
+        <checkstyle.version>6.18</checkstyle.version>
+        <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven-javadoc-plugin.version>2.10.3</maven-javadoc-plugin.version>
@@ -468,7 +469,14 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${checkstyle.version}</version>
+                    <version>${checkstyle-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>${checkstyle.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -655,7 +663,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${checkstyle.version}</version>
+                <version>${checkstyle-plugin.version}</version>
                 <configuration>
                     <configLocation>${checkstyle.configLocation}</configLocation>
                 </configuration>
