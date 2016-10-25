@@ -1087,7 +1087,7 @@
 
     <issueManagement>
         <system>JIRA</system>
-        <url>http://issues.shibboleth.net/</url>
+        <url>https://issues.shibboleth.net/</url>
     </issueManagement>
 
     <ciManagement>
