@@ -24,8 +24,10 @@
 
         <bouncycastle.version>1.54</bouncycastle.version>
         <cryptacular.version>1.1.1</cryptacular.version>
+        <!-- IMPORTANT: httpclient and httpcore versions need to be updated together.  -->
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.3.6</httpclient.version>
+        <httpclient.httpcore.version>4.3.3</httpclient.httpcore.version>
         <guava.version>19.0</guava.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.2.14.v20151106</jetty.version>
@@ -206,6 +208,17 @@
                 <groupId>io.dropwizard.metrics</groupId>
                 <artifactId>metrics-json</artifactId>
                 <version>${metrics.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${httpclient.groupId}</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpclient.httpcore.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>${httpclient.groupId}</groupId>
