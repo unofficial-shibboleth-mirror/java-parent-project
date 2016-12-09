@@ -41,7 +41,7 @@
         <spring.version>4.3.2.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.4.4.RELEASE</spring-webflow.version>
-        <xmlsec.version>2.0.5</xmlsec.version>
+        <xmlsec.version>2.0.8</xmlsec.version>
 
         <checkstyle.version>6.18</checkstyle.version>
         <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
