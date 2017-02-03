@@ -31,7 +31,7 @@
         <guava.version>19.0</guava.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.2.14.v20151106</jetty.version>
-        <ldaptive.version>1.0.9</ldaptive.version>
+        <ldaptive.version>1.0.10</ldaptive.version>
         <logback.version>1.1.9</logback.version>
         <metrics.version>3.1.2</metrics.version>
         <jackson.version>2.8.3</jackson.version>
@@ -464,7 +464,7 @@
             <dependency>
                 <groupId>com.unboundid</groupId>
                 <artifactId>unboundid-ldapsdk</artifactId>
-                <version>2.3.8</version>
+                <version>3.2.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
