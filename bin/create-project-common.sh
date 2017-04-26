@@ -69,15 +69,28 @@ function expand_macro {
 }
 
 # Creates the ./src directory structure within a given directory and places a logback-text.xml
-# configuration file in the src/test/resources directory
+# configuration file in the src/test/resources directory.
+#
+# .gitkeep files are created in all new empty directories so that they will be committed to
+# the Git repository. These placeholder files can be deleted once these directories are
+# populated (for those that are populated later; some may never be but Eclipse likes them
+# to be present nevertheless).
 #
 # $1 directory within which the ./src directory structure will be created
 function create_src {
     $MKDIR -p "$1/src/main/java" "$1/src/main/resources" "$1/src/test/java" "$1/src/test/resources"
     check_retval $? "Unable to create Maven src directories"
-    
+
     download_file $PARENT_PROJ_URL"resources/logback/logback-test.xml" "$1/src/test/resources/logback-test.xml"
     check_retval $? "Unable to download logback-text.xml into src/test/resources"
+
+    # Create .gitkeep files in newly created empty directories.
+    $TOUCH $1/src/main/java/.gitkeep
+    check_retval $? "Unable to create .gitkeep file in $1/src/main/java"
+    $TOUCH $1/src/main/resources/.gitkeep
+    check_retval $? "Unable to create .gitkeep file in $1/src/main/resources"
+    $TOUCH $1/src/test/java/.gitkeep
+    check_retval $? "Unable to create .gitkeep file in $1/src/test/java"
 }
 
 # Creates the src/main/assembly directory and places an initial assembly descriptor in it

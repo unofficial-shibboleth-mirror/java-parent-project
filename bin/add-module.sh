@@ -29,15 +29,14 @@ check_retval $? "Unable to copy module POM template to $MODULE_DIR"
 
 expand_macro $MODULE_DIR/pom.xml "MVN_ARTF_ID" $MVN_ARTF_ID
 
+download_file $PARENT_PROJ_URL"resources/git/gitignore" "$MODULE_DIR/.gitignore"
+
 $ECHO "Committing module structure"
-$SVN add -q $MODULE_DIR
+$GIT add $MODULE_DIR
 check_retval $? "Error adding $MODULE_DIR to SVN control"
 
-$SVN commit -q -m "Add module $MVN_ARTF_ID to project" $MODULE_DIR
+$GIT commit -q -m "Add module $MVN_ARTF_ID to project" $MODULE_DIR
 check_retval $? "Unable to commit $MODULE_DIR"
-
-$ECHO "Setting SVN properties on $MODULE_DIR"
-set_svn_properties_commit_and_update "$MODULE_DIR"
 
 $ECHO "Creation of module $MVN_ARTF_ID completed."
 exit 0
