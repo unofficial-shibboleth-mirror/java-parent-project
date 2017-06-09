@@ -49,9 +49,9 @@
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
         
-        <scm.connection>scm:git:https://git.shibboleth.net/git/</scm.connection>
-        <scm.developerConnection>scm:git:git@git.shibboleth.net:</scm.developerConnection>
-        <scm.url>https://git.shibboleth.net/view/?p=</scm.url>
+        <shibboleth.scm.connection>scm:git:https://git.shibboleth.net/git/</shibboleth.scm.connection>
+        <shibboleth.scm.developerConnection>scm:git:git@git.shibboleth.net:</shibboleth.scm.developerConnection>
+        <shibboleth.scm.url>https://git.shibboleth.net/view/?p=</shibboleth.scm.url>
 
     </properties>
 
@@ -1103,9 +1103,9 @@
     </ciManagement>
 
     <scm>
-        <connection>${scm.connection}java-parent-project-v3</connection>
-        <developerConnection>${scm.developerConnection}java-parent-project-v3</developerConnection>
-        <url>${scm.url}java-parent-project-v3.git</url>
+        <connection>${shibboleth.scm.connection}java-parent-project-v3</connection>
+        <developerConnection>${shibboleth.scm.developerConnection}java-parent-project-v3</developerConnection>
+        <url>${shibboleth.scm.url}java-parent-project-v3.git</url>
     </scm>
 
     <developers>
