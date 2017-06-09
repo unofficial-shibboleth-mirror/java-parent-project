@@ -16,7 +16,7 @@
 
     <properties>
         <!-- Projects which inherit this POM must set this property -->
-        <!-- <svn.relative.location /> -->
+        <!-- <scm.relative.location /> -->
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
@@ -1101,11 +1101,11 @@
     </ciManagement>
 
     <scm>
-        <!-- The property svn.relative.location is set by the project that inherits from this super POM -->
-        <connection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}</connection>
-        <developerConnection>scm:svn:https://svn.shibboleth.net/${svn.relative.location}</developerConnection>
+        <!-- The property scm.relative.location is set by the project that inherits from this super POM -->
+        <connection>scm:git:https://git.shibboleth.net/${scm.relative.location}</connection>
+        <developerConnection>scm:git:ssh://git.shibboleth.net/${scm.relative.location}</developerConnection>
         <tag>HEAD</tag>
-        <url>http://svn.shibboleth.net/view/${svn.relative.location}</url>
+        <url>https://git.shibboleth.net/view/${scm.relative.location}</url>
     </scm>
 
     <developers>
