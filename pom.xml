@@ -48,6 +48,11 @@
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
+        
+        <scm.connection>scm:git:https://git.shibboleth.net/git/</scm.connection>
+        <scm.developerConnection>scm:git:git@git.shibboleth.net:</scm.developerConnection>
+        <scm.url>https://git.shibboleth.net/view/?p=</scm.url>
+
     </properties>
 
     <!-- The Maven version prerequisite applies to the maven-versions-plugin:display-plugin-updates goal only. -->
@@ -1098,9 +1103,9 @@
     </ciManagement>
 
     <scm>
-        <connection>scm:git:https://git.shibboleth.net/git/${project.artifactId}</connection>
-        <developerConnection>scm:git:git@git.shibboleth.net:${project.artifactId}</developerConnection>
-        <url>https://git.shibboleth.net/view/?p=${project.artifactId}.git</url>
+        <connection>${scm.connection}java-parent-project-v3</connection>
+        <developerConnection>${scm.developerConnection}java-parent-project-v3</developerConnection>
+        <url>${scm.url}java-parent-project-v3.git</url>
     </scm>
 
     <developers>
