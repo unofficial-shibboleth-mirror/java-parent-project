@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.shibboleth</groupId>
-    <artifactId>parent-v3</artifactId>
-    <version>TRUNK-SNAPSHOT</version>
+    <artifactId>parent</artifactId>
+    <version>7.11.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project V3 Super POM</name>
@@ -48,7 +48,7 @@
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
-        
+
         <shibboleth.scm.connection>scm:git:https://git.shibboleth.net/git/</shibboleth.scm.connection>
         <shibboleth.scm.developerConnection>scm:git:git@git.shibboleth.net:</shibboleth.scm.developerConnection>
         <shibboleth.scm.url>https://git.shibboleth.net/view/?p=</shibboleth.scm.url>
@@ -168,7 +168,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <!-- This isn't really needed by every single project but it is used by the vast majority and having it on the 
+            <!-- This isn't really needed by every single project but it is used by the vast majority and having it on the
                 test classpath, even if it's not used, doesn't hurt anything. -->
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
@@ -290,7 +290,7 @@
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-joda</artifactId>
                 <version>${jackson.version}</version>
-            </dependency>    
+            </dependency>
             <dependency>
               <groupId>com.github.jasminb</groupId>
               <artifactId>jsonapi-converter</artifactId>
@@ -402,7 +402,7 @@
                     Licensing constraints mean that this dependency should
                     always be marked <optional>true</optional> in any of
                     our projects which use it.
-                    
+
                     Note that the <optional> flag is not propagated from
                     managed dependencies, so there is no point setting it
                     here: it's only a managed dependency to control the
@@ -739,7 +739,7 @@
                 <version>2.0</version>
             </plugin>
              -->
-            <!-- We use the aggregate reports for the javadoc and jxr reports because even if the project isn't a multi-module 
+            <!-- We use the aggregate reports for the javadoc and jxr reports because even if the project isn't a multi-module
                 project the plugin still does the right thing. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -1040,7 +1040,7 @@
                             <instrumentation>
                                 <excludes>
                                     <exclude>**/*Exception.class</exclude>
-                                    <!-- Exclude directive doesn't support \d so lets just assume no class will have more than 9 
+                                    <!-- Exclude directive doesn't support \d so lets just assume no class will have more than 9
                                         anonymous inner classes -->
                                     <exclude>**/*$1.class</exclude>
                                     <exclude>**/*$2.class</exclude>
