@@ -1102,11 +1102,6 @@
         <url>https://issues.shibboleth.net/</url>
     </issueManagement>
 
-    <ciManagement>
-        <system>Jenkins</system>
-        <url>https://build.shibboleth.net/jenkins/</url>
-    </ciManagement>
-
     <scm>
         <connection>${shibboleth.scm.connection}java-parent-project-v3</connection>
         <developerConnection>${shibboleth.scm.developerConnection}java-parent-project-v3</developerConnection>
