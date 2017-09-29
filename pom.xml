@@ -755,7 +755,7 @@
                         <link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</link>
                         <link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</link>
                         <link>http://javamail.kenai.com/nonav/javadocs/</link>
-                        <link>http://joda-time.sourceforge.net/api-release/</link>
+                        <link>http://www.joda.org/joda-time/apidocs/</link>
                         <link>http://logback.qos.ch/apidocs/</link>
                         <link>http://santuario.apache.org/Java/api/</link>
                         <link>http://testng.org/javadocs/</link>
