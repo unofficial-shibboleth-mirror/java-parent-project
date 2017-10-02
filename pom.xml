@@ -598,7 +598,6 @@
                             <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
                             <link>http://www.ldaptive.org/javadocs/</link>
                             <link>http://www.slf4j.org/apidocs/</link>
-                            <link>http://xmlunit.sourceforge.net/api/</link>
                             <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
                             <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
                             <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
@@ -762,7 +761,6 @@
                         <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
                         <link>http://www.ldaptive.org/javadocs/</link>
                         <link>http://www.slf4j.org/apidocs/</link>
-                        <link>http://xmlunit.sourceforge.net/api/</link>
                         <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
                         <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
                         <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
