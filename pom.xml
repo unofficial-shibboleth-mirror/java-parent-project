@@ -1073,6 +1073,41 @@
                 </plugins>
             </reporting>
         </profile>
+
+        <!--
+            The following profile allows tests to run under Java 9 by
+            sidestepping an issue in the Surefire plugin in which it
+            always explicitly adds the java.se.ee module. This
+            conflicts with other modules, as described here:
+
+            https://issues.apache.org/jira/browse/SUREFIRE-1424
+
+            The workround is to provide an explicit add-modules option so that
+            Surefire's default is not put in place.
+
+            In addition, some of our dependencies do currently require the
+            java.xml.bind module. This is something we will need to address
+            long term in a better way, as that module is deprecated and
+            will be removed from the JRE at some future time.
+        -->
+        <profile>
+            <id>jdk9-surefire-modules</id>
+            <activation>
+                <jdk>9</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <argLine>--add-modules java.xml.bind</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 
 
