@@ -40,7 +40,7 @@
         <spring-webflow.version>2.4.7.RELEASE</spring-webflow.version>
         <xmlsec.version>2.0.8</xmlsec.version>
 
-        <checkstyle.version>6.19</checkstyle.version>
+        <checkstyle.version>8.7</checkstyle.version>
         <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
