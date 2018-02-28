@@ -546,7 +546,7 @@
                             <link>http://www.joda.org/joda-time/apidocs/</link>
                             <link>http://logback.qos.ch/apidocs/</link>
                             <link>http://santuario.apache.org/Java/api/</link>
-                            <link>http://testng.org/javadocs/</link>
+                            <link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</link>
                             <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
                             <link>http://www.ldaptive.org/javadocs/</link>
                             <link>http://www.slf4j.org/apidocs/</link>
@@ -709,7 +709,7 @@
                         <link>http://www.joda.org/joda-time/apidocs/</link>
                         <link>http://logback.qos.ch/apidocs/</link>
                         <link>http://santuario.apache.org/Java/api/</link>
-                        <link>http://testng.org/javadocs/</link>
+                        <link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</link>
                         <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
                         <link>http://www.ldaptive.org/javadocs/</link>
                         <link>http://www.slf4j.org/apidocs/</link>
