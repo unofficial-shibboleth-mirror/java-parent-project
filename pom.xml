@@ -168,13 +168,6 @@
             <artifactId>log4j-over-slf4j</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <!-- This isn't really needed by every single project but it is used by the vast majority and having it on the
-                test classpath, even if it's not used, doesn't hurt anything. -->
-            <groupId>org.xmlunit</groupId>
-            <artifactId>xmlunit-legacy</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <!-- Dependencies with fixed versions and excludes that may be used by projects. -->
