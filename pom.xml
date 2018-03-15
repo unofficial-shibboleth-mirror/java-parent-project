@@ -1070,11 +1070,14 @@
             java.xml.bind module. This is something we will need to address
             long term in a better way, as that module is deprecated and
             will be removed from the JRE in Java 11.
+
+            The profile is NOT applied for Java 11 and later, as the
+            add-modules option would break the surefire plugin.
         -->
         <profile>
             <id>jdk9-surefire-modules</id>
             <activation>
-                <jdk>[9,)</jdk>
+                <jdk>[9,11)</jdk>
             </activation>
             <build>
                 <plugins>
