@@ -544,6 +544,13 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.commons</groupId>
+                            <artifactId>commons-lang3</artifactId>
+                            <version>3.7</version>
+                        </dependency>
+                    </dependencies>
                     <configuration>
                         <links>
                             <link>http://docs.oracle.com/javaee/5/api/</link>
@@ -618,7 +625,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.6</version>
+                    <version>3.7</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.wagon</groupId>
@@ -635,7 +642,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.20.1</version>
+                    <version>2.21.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -982,25 +989,17 @@
         </profile>
 
         <!--
-            The following profile allows tests to run under Java 9 by
-            sidestepping an issue in the Surefire plugin in which it
-            always explicitly adds the java.se.ee module. This
-            conflicts with other modules, as described here:
+            The following profile allows tests to run under Java 9 and 10.
 
-            https://issues.apache.org/jira/browse/SUREFIRE-1424
-
-            The workround is to provide an explicit add-modules option so that
-            Surefire's default is not put in place.
-
-            In addition, some of our dependencies do currently require the
+            At present, some of our dependencies require the
             java.xml.bind module. This is something we will need to address
             long term in a better way, as that module is deprecated and
-            will be removed from the JRE at some future time.
+            will be removed from the JRE in Java 11.
         -->
         <profile>
             <id>jdk9-surefire-modules</id>
             <activation>
-                <jdk>9</jdk>
+                <jdk>[9,)</jdk>
             </activation>
             <build>
                 <plugins>
