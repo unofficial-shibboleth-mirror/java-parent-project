@@ -825,7 +825,7 @@
                 <version>2.9</version>
                 <configuration>
                     <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
-                    <dependencyLocationEnabled>false</dependencyLocationEnabled>
+                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
                 </configuration>
                 <reportSets>
                     <reportSet>
