@@ -805,8 +805,8 @@
                     <reportSet>
                         <id>non-aggregate</id>
                         <reports>
-                            <report>javadoc</report>
-                            <report>test-javadoc</report>
+                            <report>javadoc-no-fork</report>
+                            <report>test-javadoc-no-fork</report>
                         </reports>
                     </reportSet>
                 </reportSets>
