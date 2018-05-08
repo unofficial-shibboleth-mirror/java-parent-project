@@ -250,7 +250,6 @@ if [ $DOWNLOAD_SIGNATURES == "y" ] ; then
     $ECHO ""
     $ECHO "$FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/{}.asc 2>&1 \; | grep 'GET\|HTTP'"
     $FIND * -type f -exec $CURL -v -f -o {}.asc $DOWNLOAD_ASC_URL/{}.asc 2>&1 \; | grep 'GET\|HTTP'
- 
 fi
 $ECHO ""
 
@@ -262,10 +261,43 @@ $ECHO ""
 
 ask y "Validate signatures and retrieve keys automatically" SIGS
 if [ $SIGS == "y" ] ; then
-    $ECHO "$FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \;"
-    $FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \;
+    $ECHO "$FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt"
+    $FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt
 fi
 $ECHO ""
+
+if [ $UPLOAD_JETTY_DISTRIBUTION == "y" ] ; then
+    ask y "Check that artifacts are signed with an authoritative Jetty fingerprint" CHECK_JETTY_FINGERPRINT
+    if [ $CHECK_JETTY_FINGERPRINT == "y" ] ; then
+        # Get authoritative fingerprints for Jetty
+
+        # TODO Jetty 9.3
+
+        $ECHO "CURL -o ../KEYS-JETTY-9.4.txt https://raw.githubusercontent.com/eclipse/jetty.project/jetty-9.4.x/KEYS.txt"
+        $CURL -o ../KEYS-JETTY-9.4.txt https://raw.githubusercontent.com/eclipse/jetty.project/jetty-9.4.x/KEYS.txt
+        $ECHO ""
+
+        # Get the fingerprint(s) of the artifacts
+        $ECHO "grep fingerprint GPG-VERIFY.txt | sort | uniq | cut -d":" -f2"
+        JETTY_FINGERPRINT=`grep fingerprint ../GPG-VERIFY.txt | sort | uniq | cut -d":" -f2`
+        $ECHO "Jetty artifacts fingerprint : $JETTY_FINGERPRINT"
+        $ECHO ""
+
+        # Make sure the fingerprint of the artifacts is in the list of authoritative fingerprints
+        $ECHO "grep -H "$JETTY_FINGERPRINT" ../KEYS-JETTY-9.4.txt"
+        grep -H "$JETTY_FINGERPRINT" ../KEYS-JETTY-9.4.txt
+        JETTY_FINGERPRINT_FOUND="$?"
+        $ECHO ""
+
+        $ECHO "JETTY_FINGERPRINT_FOUND $JETTY_FINGERPRINT_FOUND"
+        if [ $JETTY_FINGERPRINT_FOUND == "0" ] ; then
+            $ECHO "Trusted Jetty fingerprint was found."
+        else
+            $ECHO "WARNING Trusted Jetty fingerprint NOT found !!!"
+        fi
+        $ECHO ""
+    fi
+fi
 
 ask y "Make changes to Nexus" MODIFY_NEXUS
 if [ $MODIFY_NEXUS == "y" ] ; then
