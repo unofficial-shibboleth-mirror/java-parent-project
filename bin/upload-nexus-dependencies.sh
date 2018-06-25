@@ -26,6 +26,9 @@ declare -r SHIB_NEXUS_HOME="/home/nexus"
 
 declare YES_TO_ALL=n
 
+# TODO For Java 7 only
+export MAVEN_OPTS=-Dhttps.protocols=TLSv1.2
+
 # Prompts and returns user input.
 function ask {
     # $1 = default y or n 
