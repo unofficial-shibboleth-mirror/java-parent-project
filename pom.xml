@@ -569,7 +569,6 @@
                     <configuration>
                         <links>
                             <link>http://docs.oracle.com/javaee/5/api/</link>
-                            <link>http://docs.oracle.com/javase/7/docs/api/</link>
                             <link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</link>
                             <link>http://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</link>
                             <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
@@ -732,7 +731,6 @@
                 <configuration>
                     <links>
                         <link>http://docs.oracle.com/javaee/5/api/</link>
-                        <link>http://docs.oracle.com/javase/7/docs/api/</link>
                         <link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</link>
                         <link>http://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</link>
                         <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
