@@ -37,7 +37,7 @@
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>5.1.2.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
-        <spring-webflow.version>2.4.8.RELEASE</spring-webflow.version>
+        <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <xmlsec.version>2.0.10</xmlsec.version>
         <xmlunit.version>2.5.1</xmlunit.version>
 
