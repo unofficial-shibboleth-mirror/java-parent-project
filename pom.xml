@@ -31,7 +31,7 @@
         <ldaptive.version>1.0.13</ldaptive.version>
         <logback.version>1.2.3</logback.version>
         <metrics.version>3.1.2</metrics.version>
-        <jackson.version>2.8.3</jackson.version>
+        <jackson.version>2.9.7</jackson.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.25</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
@@ -365,7 +365,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.0.1</version>
+                <version>3.1.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
