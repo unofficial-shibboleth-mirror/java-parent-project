@@ -1,0 +1,1 @@
+V	381206150703Z		1000	unknown	/C=US/ST=Ohio/O=Shibboleth Consortium/CN=Shibboleth Project Intermediate CA
