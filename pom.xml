@@ -155,11 +155,6 @@
         </dependency>
         <dependency>
             <groupId>${slf4j.groupId}</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>${slf4j.groupId}</groupId>
             <artifactId>jul-to-slf4j</artifactId>
             <scope>test</scope>
         </dependency>
@@ -435,12 +430,6 @@
                 <groupId>com.unboundid</groupId>
                 <artifactId>unboundid-ldapsdk</artifactId>
                 <version>3.2.0</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>${slf4j.groupId}</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
