@@ -54,6 +54,40 @@
         <shibboleth.scm.developerConnection>scm:git:git@git.shibboleth.net:</shibboleth.scm.developerConnection>
         <shibboleth.scm.url>https://git.shibboleth.net/view/?p=</shibboleth.scm.url>
 
+        <!--
+            The following properties describe the locations of API indexes
+            for our dependencies.
+
+            Ordered alphabetically by property name.
+        -->
+        <guava.link>http://google.github.io/guava/releases/${guava.version}/api/docs/</guava.link>
+        <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</httpclient.link>
+        <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</httpclient-cache.link>
+        <javaee.link>http://docs.oracle.com/javaee/5/api/</javaee.link>
+        <javamail.link>http://javamail.kenai.com/nonav/javadocs/</javamail.link>
+        <joda-time.link>http://www.joda.org/joda-time/apidocs/</joda-time.link>
+        <ldaptive.link>http://www.ldaptive.org/javadocs/</ldaptive.link>
+        <logback.link>http://logback.qos.ch/apidocs/</logback.link>
+        <slf4j.link>http://www.slf4j.org/apidocs/</slf4j.link>
+        <spring-framework.link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</spring-framework.link>
+        <spring-webflow.link>http://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</spring-webflow.link>
+        <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</testng.link>
+        <velocity.link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</velocity.link>
+        <xmlsec.link>http://santuario.apache.org/Java/api/</xmlsec.link>
+
+        <!--
+            These properties describe the locations of API indexes for
+            Shibboleth projects.
+
+            Note that the corresponding ".version" properties are not defined
+            here as they are specific to each project using this parent POM.
+            This causes issues as described in JPAR-122 which will be addressed
+            in a future revision.
+        -->
+        <java-support.link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</java-support.link>
+        <spring-extensions.link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</spring-extensions.link>
+        <java-opensaml.link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</java-opensaml.link>
+
     </properties>
 
     <!-- The Maven version prerequisite applies to the maven-versions-plugin:display-plugin-updates goal only. -->
@@ -554,23 +588,23 @@
                     </dependencies>
                     <configuration>
                         <links>
-                            <link>http://docs.oracle.com/javaee/5/api/</link>
-                            <link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</link>
-                            <link>http://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</link>
-                            <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
-                            <link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</link>
-                            <link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</link>
-                            <link>http://javamail.kenai.com/nonav/javadocs/</link>
-                            <link>http://www.joda.org/joda-time/apidocs/</link>
-                            <link>http://logback.qos.ch/apidocs/</link>
-                            <link>http://santuario.apache.org/Java/api/</link>
-                            <link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</link>
-                            <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
-                            <link>http://www.ldaptive.org/javadocs/</link>
-                            <link>http://www.slf4j.org/apidocs/</link>
-                            <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
-                            <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
-                            <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
+                            <link>${javaee.link}</link>
+                            <link>${spring-framework.link}</link>
+                            <link>${spring-webflow.link}</link>
+                            <link>${guava.link}</link>
+                            <link>${httpclient-cache.link}</link>
+                            <link>${httpclient.link}</link>
+                            <link>${javamail.link}</link>
+                            <link>${joda-time.link}</link>
+                            <link>${logback.link}</link>
+                            <link>${xmlsec.link}</link>
+                            <link>${testng.link}</link>
+                            <link>${velocity.link}</link>
+                            <link>${ldaptive.link}</link>
+                            <link>${slf4j.link}</link>
+                            <link>${java-support.link}</link>
+                            <link>${java-opensaml.link}</link>
+                            <link>${spring-extensions.link}</link>
                         </links>
                         <quiet>true</quiet>
                         <author>false</author>
@@ -716,23 +750,23 @@
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
                     <links>
-                        <link>http://docs.oracle.com/javaee/5/api/</link>
-                        <link>http://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</link>
-                        <link>http://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</link>
-                        <link>http://google.github.io/guava/releases/${guava.version}/api/docs/</link>
-                        <link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</link>
-                        <link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</link>
-                        <link>http://javamail.kenai.com/nonav/javadocs/</link>
-                        <link>http://www.joda.org/joda-time/apidocs/</link>
-                        <link>http://logback.qos.ch/apidocs/</link>
-                        <link>http://santuario.apache.org/Java/api/</link>
-                        <link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</link>
-                        <link>http://velocity.apache.org/engine/releases/velocity-1.7/apidocs/</link>
-                        <link>http://www.ldaptive.org/javadocs/</link>
-                        <link>http://www.slf4j.org/apidocs/</link>
-                        <link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</link>
-                        <link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs/</link>
-                        <link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</link>
+                        <link>${javaee.link}</link>
+                        <link>${spring-framework.link}</link>
+                        <link>${spring-webflow.link}</link>
+                        <link>${guava.link}</link>
+                        <link>${httpclient-cache.link}</link>
+                        <link>${httpclient.link}</link>
+                        <link>${javamail.link}</link>
+                        <link>${joda-time.link}</link>
+                        <link>${logback.link}</link>
+                        <link>${xmlsec.link}</link>
+                        <link>${testng.link}</link>
+                        <link>${velocity.link}</link>
+                        <link>${ldaptive.link}</link>
+                        <link>${slf4j.link}</link>
+                        <link>${java-support.link}</link>
+                        <link>${java-opensaml.link}</link>
+                        <link>${spring-extensions.link}</link>
                     </links>
                     <quiet>true</quiet>
                     <author>false</author>
