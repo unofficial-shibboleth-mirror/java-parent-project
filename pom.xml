@@ -65,7 +65,6 @@
         <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</httpclient.link>
         <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</httpclient-cache.link>
         <javaee.link>http://docs.oracle.com/javaee/5/api/</javaee.link>
-        <javamail.link>http://javamail.kenai.com/nonav/javadocs/</javamail.link>
         <joda-time.link>http://www.joda.org/joda-time/apidocs/</joda-time.link>
         <ldaptive.link>http://www.ldaptive.org/javadocs/</ldaptive.link>
         <logback.link>http://logback.qos.ch/apidocs/</logback.link>
@@ -601,7 +600,6 @@
                             <link>${guava.link}</link>
                             <link>${httpclient-cache.link}</link>
                             <link>${httpclient.link}</link>
-                            <link>${javamail.link}</link>
                             <link>${joda-time.link}</link>
                             <link>${logback.link}</link>
                             <link>${xmlsec.link}</link>
@@ -763,7 +761,6 @@
                         <link>${guava.link}</link>
                         <link>${httpclient-cache.link}</link>
                         <link>${httpclient.link}</link>
-                        <link>${javamail.link}</link>
                         <link>${joda-time.link}</link>
                         <link>${logback.link}</link>
                         <link>${xmlsec.link}</link>
