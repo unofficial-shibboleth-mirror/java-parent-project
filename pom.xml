@@ -39,6 +39,7 @@
         <spring.version>5.1.4.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
+        <velocity.version>1.7</velocity.version>
         <xmlsec.version>2.1.2</xmlsec.version>
         <xmlunit.version>2.5.1</xmlunit.version>
 
@@ -72,7 +73,7 @@
         <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</spring-framework.link>
         <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</spring-webflow.link>
         <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</testng.link>
-        <velocity.link>http://velocity.apache.org/engine/1.7/apidocs/</velocity.link>
+        <velocity.link>http://velocity.apache.org/engine/${velocity.version}/apidocs/</velocity.link>
         <xmlsec.link>http://santuario.apache.org/Java/api/</xmlsec.link>
 
         <!--
@@ -360,7 +361,7 @@
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity</artifactId>
-                <version>1.7</version>
+                <version>${velocity.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>oro</groupId>
