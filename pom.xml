@@ -77,13 +77,24 @@
         <xmlsec.link>http://santuario.apache.org/Java/api/</xmlsec.link>
 
         <!--
+            Dummy *but real* version strings for our own components.
+
+            These are provided solely for the benefit of the Javadoc
+            link templates that follow; this allows those links to
+            resolve even for projects which have no actual dependency on
+            the component. This satisfies the Javadoc processor for projects
+            which do *not* have a dependency on those APIs (see JPAR-116).
+
+            These properties MUST be overridden in any projects which have
+            an actual dependency.
+        -->
+        <java-support.version>8.0.0-SNAPSHOT</java-support.version>
+        <opensaml.version>4.0.0-SNAPSHOT</opensaml.version>
+        <spring-extensions.version>6.0.0-SNAPSHOT</spring-extensions.version>
+
+        <!--
             These properties describe the locations of API indexes for
             Shibboleth projects.
-
-            Note that the corresponding ".version" properties are not defined
-            here as they are specific to each project using this parent POM.
-            This causes issues as described in JPAR-122 which will be addressed
-            in a future revision.
         -->
         <java-support.link>${shibboleth.site.url}java-support/${java-support.version}/apidocs/</java-support.link>
         <spring-extensions.link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs/</spring-extensions.link>
