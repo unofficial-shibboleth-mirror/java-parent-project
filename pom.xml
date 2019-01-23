@@ -39,7 +39,7 @@
         <spring.version>5.1.4.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
-        <velocity.version>1.7</velocity.version>
+        <velocity.version>2.0</velocity.version>
         <xmlsec.version>2.1.2</xmlsec.version>
         <xmlunit.version>2.5.1</xmlunit.version>
 
@@ -360,14 +360,8 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.velocity</groupId>
-                <artifactId>velocity</artifactId>
+                <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>oro</groupId>
-                        <artifactId>oro</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.apache.santuario</groupId>
