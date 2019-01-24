@@ -47,7 +47,7 @@
         <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
-        <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
@@ -62,20 +62,21 @@
 
             Ordered alphabetically by property name.
         -->
-        <guava.link>https://google.github.io/guava/releases/${guava.version}/api/docs/</guava.link>
-        <httpclient.httpcore.link>https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/</httpclient.httpcore.link>
-        <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/</httpclient.link>
-        <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs/</httpclient-cache.link>
+        <guava.link>https://google.github.io/guava/releases/${guava.version}/api/docs</guava.link>
+        <httpclient.httpcore.link>https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs</httpclient.httpcore.link>
+        <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs</httpclient.link>
+        <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</httpclient-cache.link>
+        <!-- Do not remove the trailing '/' from the following line without reading JPAR-129. -->
         <javaee.link>https://docs.oracle.com/javaee/5/api/</javaee.link>
-        <joda-time.link>https://www.joda.org/joda-time/apidocs/</joda-time.link>
-        <ldaptive.link>http://www.ldaptive.org/javadocs/</ldaptive.link>
-        <logback.link>http://logback.qos.ch/apidocs/</logback.link>
-        <slf4j.link>https://www.slf4j.org/apidocs/</slf4j.link>
-        <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api/</spring-framework.link>
-        <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api/</spring-webflow.link>
-        <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc/</testng.link>
-        <velocity.link>http://velocity.apache.org/engine/${velocity.version}/apidocs/</velocity.link>
-        <xmlsec.link>http://santuario.apache.org/Java/api/</xmlsec.link>
+        <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
+        <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
+        <logback.link>http://logback.qos.ch/apidocs</logback.link>
+        <slf4j.link>https://www.slf4j.org/apidocs</slf4j.link>
+        <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api</spring-framework.link>
+        <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api</spring-webflow.link>
+        <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc</testng.link>
+        <velocity.link>http://velocity.apache.org/engine/${velocity.version}/apidocs</velocity.link>
+        <xmlsec.link>http://santuario.apache.org/Java/api</xmlsec.link>
 
         <!--
             Dummy *but real* version strings for our own components.
@@ -592,13 +593,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.commons</groupId>
-                            <artifactId>commons-lang3</artifactId>
-                            <version>3.7</version>
-                        </dependency>
-                    </dependencies>
                     <configuration>
                         <links>
                             <link>${javaee.link}</link>
