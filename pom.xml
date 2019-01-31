@@ -6,18 +6,18 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>8.0.0-SNAPSHOT</version>
+    <version>11.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Shibboleth Project Java 8 Super POM</name>
+    <name>Shibboleth Project Java 11 Super POM</name>
     <description>
         A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth V3 projects.
     </description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
         <bouncycastle.version>1.59</bouncycastle.version>
         <cryptacular.version>1.1.3</cryptacular.version>
@@ -747,13 +747,6 @@
                     <configLocation>${checkstyle.configLocation}</configLocation>
                 </configuration>
             </plugin>
-            <!-- 2013-04-10 tz Disabled JavaNCSS plugin because it does not support Java 7 syntax.
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>javancss-maven-plugin</artifactId>
-                <version>2.0</version>
-            </plugin>
-             -->
             <!-- We use the aggregate reports for the javadoc and jxr reports because even if the project isn't a multi-module
                 project the plugin still does the right thing. -->
             <plugin>
@@ -1027,35 +1020,6 @@
                             <showWarnings>true</showWarnings>
                             <debug>true</debug>
                             <compilerArgument>-Xlint:unchecked</compilerArgument>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <!--
-            The following profile allows tests to run under Java 9 and 10.
-
-            At present, some of our dependencies require the
-            java.xml.bind module. This is something we will need to address
-            long term in a better way, as that module is deprecated and
-            will be removed from the JRE in Java 11.
-
-            The profile is NOT applied for Java 11 and later, as the
-            add-modules option would break the surefire plugin.
-        -->
-        <profile>
-            <id>jdk9-surefire-modules</id>
-            <activation>
-                <jdk>[9,11)</jdk>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <configuration>
-                            <argLine>--add-modules java.xml.bind</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
