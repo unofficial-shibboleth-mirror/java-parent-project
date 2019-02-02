@@ -68,6 +68,7 @@
         <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</httpclient-cache.link>
         <!-- Do not remove the trailing '/' from the following line without reading JPAR-129. -->
         <javaee.link>https://docs.oracle.com/javaee/5/api/</javaee.link>
+        <javase.link>https://docs.oracle.com/en/java/javase/11/docs/api</javase.link>
         <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
         <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
         <logback.link>http://logback.qos.ch/apidocs</logback.link>
@@ -601,6 +602,7 @@
                     <configuration>
                         <links>
                             <link>${javaee.link}</link>
+                            <link>${javase.link}</link>
                             <link>${spring-framework.link}</link>
                             <link>${spring-webflow.link}</link>
                             <link>${guava.link}</link>
@@ -756,6 +758,7 @@
                 <configuration>
                     <links>
                         <link>${javaee.link}</link>
+                        <link>${javase.link}</link>
                         <link>${spring-framework.link}</link>
                         <link>${spring-webflow.link}</link>
                         <link>${guava.link}</link>
