@@ -48,7 +48,7 @@
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.1.0</maven-javadoc-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>http://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
@@ -67,7 +67,7 @@
         <httpclient.httpcore.link>https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs</httpclient.httpcore.link>
         <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs</httpclient.link>
         <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</httpclient-cache.link>
-        <!-- Do not remove the trailing '/' from the following line without reading JPAR-129. -->
+        <!-- JPAR-129 - The following is currently unused; this is intentional. -->
         <javaee.link>https://docs.oracle.com/javaee/5/api/</javaee.link>
         <javase.link>https://docs.oracle.com/en/java/javase/11/docs/api</javase.link>
         <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
@@ -622,7 +622,6 @@
                     <version>${maven-javadoc-plugin.version}</version>
                     <configuration>
                         <links>
-                            <link>${javaee.link}</link>
                             <link>${javase.link}</link>
                             <link>${spring-framework.link}</link>
                             <link>${spring-webflow.link}</link>
@@ -778,7 +777,6 @@
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
                     <links>
-                        <link>${javaee.link}</link>
                         <link>${javase.link}</link>
                         <link>${spring-framework.link}</link>
                         <link>${spring-webflow.link}</link>
