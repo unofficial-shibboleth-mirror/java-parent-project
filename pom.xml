@@ -48,7 +48,7 @@
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-        <maven-javadoc-plugin.version>3.1.0</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>http://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
