@@ -74,7 +74,7 @@
         <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
         <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
         <logback.link>http://logback.qos.ch/apidocs</logback.link>
-        <slf4j.link>https://www.slf4j.org/apidocs</slf4j.link>
+        <slf4j.link>http://www.slf4j.org/apidocs</slf4j.link>
         <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api</spring-framework.link>
         <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api</spring-webflow.link>
         <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc</testng.link>
