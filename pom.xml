@@ -29,7 +29,7 @@
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.4.19.v20190610</jetty.version>
         <ldaptive.version>1.0.13</ldaptive.version>
-        <unboundid.version>4.0.9</unboundid.version>
+        <unboundid.version>4.0.12</unboundid.version>
         <logback.version>1.2.3</logback.version>
         <metrics.version>3.1.2</metrics.version>
         <jackson.version>2.9.7</jackson.version>
