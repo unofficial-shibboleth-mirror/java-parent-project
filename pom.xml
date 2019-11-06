@@ -43,7 +43,7 @@
         <xmlsec.version>2.1.2</xmlsec.version>
         <xmlunit.version>2.6.2</xmlunit.version>
 
-        <checkstyle.version>8.7</checkstyle.version>
+        <checkstyle.version>8.18</checkstyle.version>
         <checkstyle-plugin.version>2.17</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
