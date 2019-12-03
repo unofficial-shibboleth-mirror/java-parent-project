@@ -52,7 +52,7 @@
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
-        <maven-war-plugin.version>3.1.2</maven-war-plugin.version>
+        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>http://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
