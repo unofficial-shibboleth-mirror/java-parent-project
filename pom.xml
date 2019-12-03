@@ -47,9 +47,12 @@
         <checkstyle-plugin.version>3.1.0</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
+        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+        <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-war-plugin.version>3.1.2</maven-war-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>http://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
@@ -556,7 +559,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${maven-assembly-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -615,7 +618,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${maven-jar-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -716,7 +719,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${maven-war-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
