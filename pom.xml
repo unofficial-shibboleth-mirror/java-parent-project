@@ -55,7 +55,7 @@
         <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
 
         <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
-        <shibboleth.site.url>http://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
+        <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
 
         <shibboleth.scm.connection>scm:git:https://git.shibboleth.net/git/</shibboleth.scm.connection>
         <shibboleth.scm.developerConnection>scm:git:git@git.shibboleth.net:</shibboleth.scm.developerConnection>
