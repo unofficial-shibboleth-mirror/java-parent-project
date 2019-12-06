@@ -32,15 +32,15 @@
         <unboundid.version>4.0.13</unboundid.version>
         <logback.version>1.2.3</logback.version>
         <metrics.version>3.1.2</metrics.version>
-        <jackson.version>2.9.7</jackson.version>
+        <jackson.version>2.10.1</jackson.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.7.25</slf4j.version>
+        <slf4j.version>1.7.28</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>5.2.2.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <velocity.version>2.1</velocity.version>
-        <xmlsec.version>2.1.2</xmlsec.version>
+        <xmlsec.version>2.1.4</xmlsec.version>
         <xmlunit.version>2.6.2</xmlunit.version>
 
         <checkstyle.version>8.26</checkstyle.version>
