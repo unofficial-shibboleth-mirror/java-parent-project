@@ -31,7 +31,7 @@
         <ldaptive.version>1.3.0-SNAPSHOT</ldaptive.version>
         <unboundid.version>4.0.13</unboundid.version>
         <logback.version>1.2.3</logback.version>
-        <metrics.version>3.1.2</metrics.version>
+        <metrics.version>4.1.1</metrics.version>
         <jackson.version>2.10.1</jackson.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.28</slf4j.version>
@@ -241,8 +241,10 @@
             </dependency>
             <dependency>
                 <groupId>io.dropwizard.metrics</groupId>
-                <artifactId>metrics-core</artifactId>
+                <artifactId>metrics-bom</artifactId>
                 <version>${metrics.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>io.dropwizard.metrics</groupId>
