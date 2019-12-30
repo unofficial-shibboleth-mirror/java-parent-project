@@ -1031,19 +1031,6 @@
             </pluginRepositories>
         </profile>
         <profile>
-            <id>disable-javadoc-doclint</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-            <properties>
-                <!--
-                    The doclint property sets the doclint configuration
-                    element for the maven-javadoc-plugin from v3.0.0.
-                -->
-                <doclint>none</doclint>
-            </properties>
-        </profile>
-        <profile>
             <id>enable-release-snapshots</id>
             <repositories>
                 <repository>
