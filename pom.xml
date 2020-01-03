@@ -25,7 +25,7 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.5.10</httpclient.version>
         <httpclient.httpcore.version>4.4.12</httpclient.httpcore.version>
-        <guava.version>28.1-jre</guava.version>
+        <guava.version>28.2-jre</guava.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.4.19.v20190610</jetty.version>
         <ldaptive.version>1.3.0-SNAPSHOT</ldaptive.version>
