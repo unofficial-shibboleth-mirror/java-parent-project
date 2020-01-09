@@ -34,7 +34,7 @@
         <metrics.version>4.1.2</metrics.version>
         <jackson.version>2.10.2</jackson.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.7.28</slf4j.version>
+        <slf4j.version>1.7.30</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>5.2.2.RELEASE</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
