@@ -74,7 +74,7 @@
         <httpclient.link>http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs</httpclient.link>
         <httpclient-cache.link>http://hc.apache.org/httpcomponents-client-ga/httpclient-cache/apidocs</httpclient-cache.link>
         <!-- JPAR-129 - The following is currently unused; this is intentional. -->
-        <javaee.link>https://docs.oracle.com/javaee/5/api/</javaee.link>
+        <javaee.link>https://docs.oracle.com/javaee/7/api</javaee.link>
         <javase.link>https://docs.oracle.com/en/java/javase/11/docs/api</javase.link>
         <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
         <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
