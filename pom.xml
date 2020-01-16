@@ -47,7 +47,7 @@
 
         <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
 
-        <maven.central.url>http://repo1.maven.org/maven2</maven.central.url>
+        <maven.central.url>https://repo1.maven.org/maven2</maven.central.url>
         <shibboleth.site.url>https://build.shibboleth.net/nexus/content/sites/site/</shibboleth.site.url>
 
         <shibboleth.scm.connection>scm:git:https://git.shibboleth.net/git/</shibboleth.scm.connection>
