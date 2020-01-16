@@ -247,7 +247,7 @@ ask y "Download signatures" DOWNLOAD_SIGNATURES
 if [ $DOWNLOAD_SIGNATURES == "y" ] ; then
     $ECHO " Signatures are downloaded using cURL from Maven Central by default."
     $ECHO " An alternative repository may be provided, for example, https://repo.spring.io/snapshot"
-    DEFAULT_DOWNLOAD_ASC_URL="http://repo1.maven.org/maven2"
+    DEFAULT_DOWNLOAD_ASC_URL="https://repo1.maven.org/maven2"
     ask $DEFAULT_DOWNLOAD_ASC_URL " Download signatures from" DOWNLOAD_ASC_URL
     $ECHO " DOWNLOAD_ASC_URL is : $DOWNLOAD_ASC_URL"
     $ECHO ""
