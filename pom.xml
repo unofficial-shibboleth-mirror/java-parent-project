@@ -923,6 +923,19 @@
     </reporting>
 
     <profiles>
+
+        <!--
+            The "release" profile:
+
+            * builds tar assemblies, if specified
+            * builds Javadoc artifacts
+            * builds source artifacts
+
+            It also:
+
+            * Invokes the dependency plugin without a goal
+            * Enables deprecations and warnings during compilation
+        -->
         <profile>
             <id>release</id>
             <build>
@@ -986,6 +999,11 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+            The "sign" profile gpg-signs resulting artifacts. Normally used
+            only when building products for publication.
+        -->
         <profile>
             <id>sign</id>
             <build>
@@ -1006,6 +1024,14 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+            The "central-disabled" profile prevents the use of the
+            Maven Central repository. This must be used used on all builds
+            used to generate published artifacts, including Jenkins nightly
+            jobs, so that products are built on our trusted collection of
+            artifacts.
+        -->
         <profile>
             <id>central-disabled</id>
             <repositories>
@@ -1033,6 +1059,11 @@
                 </pluginRepository>
             </pluginRepositories>
         </profile>
+
+        <!--
+            The "enable-release-snapshots" profile enables the deploy of
+            snapshot artifacts to the shib-release repository.
+        -->
         <profile>
             <id>enable-release-snapshots</id>
             <repositories>
@@ -1045,6 +1076,11 @@
                 </repository>
             </repositories>
         </profile>
+
+        <!--
+            The "lint" profile adds more warnings to compilation. In particular,
+            it enables checking for unsafe or unchecked operations.
+        -->
         <profile>
             <id>lint</id>
             <build>
