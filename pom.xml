@@ -1077,23 +1077,6 @@
         </profile>
 
         <!--
-            The "enable-release-snapshots" profile enables the deploy of
-            snapshot artifacts to the shib-release repository.
-        -->
-        <profile>
-            <id>enable-release-snapshots</id>
-            <repositories>
-                <repository>
-                    <id>shib-release</id>
-                    <url>https://build.shibboleth.net/nexus/content/groups/public</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-        </profile>
-
-        <!--
             The "lint" profile adds more warnings to compilation. In particular,
             it enables checking for unsafe or unchecked operations.
         -->
