@@ -414,6 +414,11 @@
                 <version>${ldaptive.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.unboundid</groupId>
+                <artifactId>unboundid-ldapsdk</artifactId>
+                <version>${unboundid.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-engine-core</artifactId>
                 <version>${velocity.version}</version>
@@ -514,12 +519,6 @@
                 <groupId>org.xmlunit</groupId>
                 <artifactId>xmlunit-legacy</artifactId>
                 <version>${xmlunit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.unboundid</groupId>
-                <artifactId>unboundid-ldapsdk</artifactId>
-                <version>${unboundid.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
