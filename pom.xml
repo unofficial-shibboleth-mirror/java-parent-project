@@ -366,18 +366,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>${spring.groupId}</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-                <!-- Spring Framework's logging dependencies are centralised in spring-core. -->
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
                 <groupId>org.cryptacular</groupId>
                 <artifactId>cryptacular</artifactId>
                 <version>${cryptacular.version}</version>
@@ -458,6 +446,18 @@
                 <version>1.2</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!--
+                Logging bridge for commons logging.
+
+                If the application is based on Spring Framework, this function
+                will be provided by the spring-jcl artifact which is a dependency
+                of spring-core.
+
+                If the application is NOT Spring-based, it should have a
+                dependency on jcl-over-slf4j instead, with "runtime" scope,
+                overriding the "provided" below.
+            -->
 	        <dependency>
 	            <groupId>${slf4j.groupId}</groupId>
 	            <artifactId>jcl-over-slf4j</artifactId>
