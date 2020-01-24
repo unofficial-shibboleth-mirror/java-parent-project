@@ -26,8 +26,9 @@
         <httpclient.version>4.5.11</httpclient.version>
         <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
         <guava.version>28.2-jre</guava.version>
-        <jakarta.mail.version>1.6.4</jakarta.mail.version>
         <jakarta.activation.version>1.2.1</jakarta.activation.version>
+        <jakarta.json.version>1.1.6</jakarta.json.version>
+        <jakarta.mail.version>1.6.4</jakarta.mail.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <jetty.version>9.4.19.v20190610</jetty.version>
         <ldaptive.version>1.3.0-SNAPSHOT</ldaptive.version>
@@ -306,11 +307,6 @@
                 <artifactId>joda-time</artifactId>
                 <version>2.10.5</version>
             </dependency>
-            <dependency>
-                <groupId>javax.json</groupId>
-                <artifactId>javax.json-api</artifactId>
-                <version>1.0</version>
-            </dependency>
 
             <!-- Needed for JAXB support. -->
             <dependency>
@@ -431,6 +427,12 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
+                <groupId>jakarta.json</groupId>
+                <artifactId>jakarta.json-api</artifactId>
+                <version>${jakarta.json.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
                 <groupId>jakarta.mail</groupId>
                 <artifactId>jakarta.mail-api</artifactId>
                 <version>${jakarta.mail.version}</version>
@@ -524,8 +526,8 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0.4</version>
+                <artifactId>jakarta.json</artifactId>
+                <version>${jakarta.json.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
