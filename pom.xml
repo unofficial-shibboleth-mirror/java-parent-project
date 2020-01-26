@@ -966,13 +966,13 @@
                     <reportSet>
                         <reports>
                             <report>index</report>
-                            <report>license</report>
+                            <report>licenses</report>
                             <report>distribution-management</report>
-                            <report>mailing-list</report>
-                            <report>issue-tracking</report>
+                            <report>mailing-lists</report>
+                            <report>issue-management</report>
                             <report>scm</report>
-                            <report>cim</report>
-                            <report>project-team</report>
+                            <report>ci-management</report>
+                            <report>team</report>
                             <report>dependencies</report>
                             <report>dependency-management</report>
                             <report>plugins</report>
