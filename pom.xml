@@ -36,7 +36,7 @@
         <ldaptive.version>1.3.0</ldaptive.version>
         <unboundid.version>4.0.14</unboundid.version>
         <logback.version>1.2.3</logback.version>
-        <metrics.version>4.1.2</metrics.version>
+        <metrics.version>4.1.3</metrics.version>
         <jackson.version>2.10.2</jackson.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.30</slf4j.version>
