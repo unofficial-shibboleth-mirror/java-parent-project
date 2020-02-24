@@ -18,7 +18,7 @@ $ECHO "If pom.new.xml is present it should contain the new dependencies to be ad
 $ECHO ""
 
 declare -r DIFF=${DIFF:-"/usr/bin/diff"}
-declare -r MVN=${MVN:-"/opt/maven/bin/mvn"}
+declare -r MVN=${MVN:-"/opt/maven_home/bin/mvn"}
 declare -r RSYNC=${RSYNC:-"/usr/bin/rsync"}
 
 declare -r SHIB_NEXUS_URL="https://build.shibboleth.net/nexus"
