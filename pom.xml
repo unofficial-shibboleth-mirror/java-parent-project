@@ -38,6 +38,7 @@
         <logback.version>1.2.3</logback.version>
         <metrics.version>4.1.3</metrics.version>
         <jackson.version>2.10.2</jackson.version>
+        <rhino.version>1.7.12</rhino.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.30</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
@@ -526,6 +527,12 @@
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${jakarta.jaxb.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mozilla</groupId>
+                <artifactId>rhino</artifactId>
+                <version>${rhino.version}</version>
                 <scope>runtime</scope>
             </dependency>
 
