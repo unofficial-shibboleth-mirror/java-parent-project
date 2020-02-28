@@ -535,6 +535,12 @@
                 <version>${rhino.version}</version>
                 <scope>runtime</scope>
             </dependency>
+            <dependency>
+                <groupId>org.mozilla</groupId>
+                <artifactId>rhino-runtime</artifactId>
+                <version>${rhino.version}</version>
+                <scope>runtime</scope>
+            </dependency>
 
             <!-- Test dependencies -->
             <dependency>
