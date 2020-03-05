@@ -26,6 +26,7 @@
         <httpclient.version>4.5.11</httpclient.version>
         <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
         <guava.version>28.2-jre</guava.version>
+        <jackson.version>2.10.3</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
         <jakarta.jaxb.version>2.3.2</jakarta.jaxb.version>
         <jakarta.json.version>1.1.6</jakarta.json.version>
@@ -37,7 +38,6 @@
         <unboundid.version>4.0.14</unboundid.version>
         <logback.version>1.2.3</logback.version>
         <metrics.version>4.1.4</metrics.version>
-        <jackson.version>2.10.2</jackson.version>
         <rhino.version>1.7.12</rhino.version>
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.30</slf4j.version>
