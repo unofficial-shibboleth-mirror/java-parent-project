@@ -25,6 +25,7 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.5.12</httpclient.version>
         <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
+        <graalvm.version>20.0.0</graalvm.version>
         <guava.version>28.2-jre</guava.version>
         <jackson.version>2.10.3</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
