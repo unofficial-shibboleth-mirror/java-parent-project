@@ -568,17 +568,6 @@
                 <version>${xmlunit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!--
-                xmlunit-legacy implements part of the XMLUnit 1.6 API but is
-                deprecated. It should be removed at some point, once we have
-                migrated to the 2.x API.
-            -->
-            <dependency>
-                <groupId>org.xmlunit</groupId>
-                <artifactId>xmlunit-legacy</artifactId>
-                <version>${xmlunit.version}</version>
-                <scope>test</scope>
-            </dependency>
             <dependency>
                 <groupId>${slf4j.groupId}</groupId>
                 <artifactId>jul-to-slf4j</artifactId>
