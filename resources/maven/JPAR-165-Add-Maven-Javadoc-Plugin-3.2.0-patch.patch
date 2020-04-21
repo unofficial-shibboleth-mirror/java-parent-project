@@ -1,0 +1,115 @@
+From 057b3ec1ae328d249638a0be205ba9314a90d3d8 Mon Sep 17 00:00:00 2001
+From: Phil Smart <philip.smart@jisc.ac.uk>
+Date: Thu, 9 Apr 2020 16:50:49 +0100
+Subject: [PATCH 1/2] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
+
+Patch the modulesForAggregatedProject to normalise module
+file paths.
+
+https://issues.shibboleth.net/jira/browse/JPAR-165
+---
+ .../org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+index 83c3bd0..44d4fd8 100644
+--- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
++++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+@@ -2405,7 +2405,7 @@ public abstract class AbstractJavadocMojo
+         List<Path> modulePaths = new LinkedList<>();
+         for ( String module :  aggregatedProject.getModules() )
+         {
+-            modulePaths.add( new File( aggregatedProject.getBasedir(), module ).toPath() );
++            modulePaths.add( new File( aggregatedProject.getBasedir(), module ).toPath().normalize() );
+         }
+ 
+         Set<MavenProject> aggregatedModules = new LinkedHashSet<>();
+-- 
+2.21.0 (Apple Git-122.2)
+
+
+From 10bd31d76d020a2fa206e106fb9bb59c1183690b Mon Sep 17 00:00:00 2001
+From: Phil Smart <philip.smart@jisc.ac.uk>
+Date: Thu, 16 Apr 2020 16:56:05 +0100
+Subject: [PATCH 2/2] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
+
+ - Add log statement to the start of plugin execution
+ - Change POM for internal project use
+
+https://issues.shibboleth.net/jira/browse/JPAR-165
+---
+ pom.xml                                       | 31 +++++++------------
+ .../plugins/javadoc/AbstractJavadocMojo.java  |  1 +
+ 2 files changed, 12 insertions(+), 20 deletions(-)
+
+diff --git a/pom.xml b/pom.xml
+index 465e4ae..dff54fa 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -29,13 +29,14 @@ under the License.
+     <relativePath />
+   </parent>
+ 
++  <groupId>net.shibboleth.maven.plugins</groupId>
+   <artifactId>maven-javadoc-plugin</artifactId>
+   <version>3.2.0</version>
+   <packaging>maven-plugin</packaging>
+ 
+   <name>Apache Maven Javadoc Plugin</name>
+   <description>
+-    The Apache Maven Javadoc Plugin is a plugin that uses the javadoc tool for
++    Patched version of The Apache Maven Javadoc Plugin which supports flat maven mulit-module projects. The Apache Maven Javadoc Plugin is a plugin that uses the javadoc tool for
+     generating javadocs for the specified project.
+   </description>
+   <inceptionYear>2004</inceptionYear>
+@@ -44,26 +45,16 @@ under the License.
+     <maven>${mavenVersion}</maven>
+   </prerequisites>
+ 
+-  <scm>
+-    <connection>scm:git:https://gitbox.apache.org/repos/asf/maven-javadoc-plugin.git</connection>
+-    <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/maven-javadoc-plugin.git</developerConnection>
+-    <url>https://github.com/apache/maven-javadoc-plugin/tree/${project.scm.tag}</url>
+-    <tag>maven-javadoc-plugin-3.2.0</tag>
+-  </scm>
+-  <issueManagement>
+-    <system>jira</system>
+-    <url>https://issues.apache.org/jira/browse/MJAVADOC</url>
+-  </issueManagement>
+-  <ciManagement>
+-    <system>Jenkins</system>
+-    <url>https://builds.apache.org/job/maven-box/job/maven-javadoc-plugin/</url>
+-  </ciManagement>
+   <distributionManagement>
+-    <site>
+-      <id>apache.website</id>
+-      <url>scm:svn:https://svn.apache.org/repos/asf/maven/website/components/${maven.site.path}</url>
+-    </site>
+-  </distributionManagement>
++        <repository>
++            <id>release</id>
++            <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
++        </repository>
++        <snapshotRepository>
++            <id>snapshot</id>
++            <url>https://build.shibboleth.net/nexus/content/repositories/snapshots</url>
++        </snapshotRepository>
++    </distributionManagement>
+ 
+   <properties>
+     <javaVersion>7</javaVersion>
+diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+index 44d4fd8..df07e47 100644
+--- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
++++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+@@ -5801,6 +5801,7 @@ public abstract class AbstractJavadocMojo
+     private void doExecuteJavadocCommandLine( Commandline cmd, File javadocOutputDirectory )
+         throws MavenReportException
+     {
++        getLog().info( "Running patched (for flat multi-module projects) maven javadoc plugin" );
+         if ( getLog().isDebugEnabled() )
+         {
+             // no quoted arguments
+-- 
+2.21.0 (Apple Git-122.2)
+
