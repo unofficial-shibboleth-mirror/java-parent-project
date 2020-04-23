@@ -872,7 +872,7 @@
             <!-- We use the aggregate reports for the javadoc and jxr reports because even if the project isn't a multi-module
                 project the plugin still does the right thing. -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>net.shibboleth.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
@@ -1038,7 +1038,7 @@
                         <artifactId>maven-dependency-plugin</artifactId>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
+                        <groupId>net.shibboleth.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <executions>
                             <execution>
