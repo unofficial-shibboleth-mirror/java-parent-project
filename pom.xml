@@ -1037,7 +1037,11 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
                     </plugin>
-                    <plugin>
+                   <!--  
+                   
+                   Removed temporarily while JPAR-164 is being worked on.
+                   
+                   <plugin>
                         <groupId>net.shibboleth.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <executions>
@@ -1049,7 +1053,7 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin> -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
