@@ -1,7 +1,7 @@
-From 057b3ec1ae328d249638a0be205ba9314a90d3d8 Mon Sep 17 00:00:00 2001
+From aac7956462ef219ed1be028097ce63e0ae05f026 Mon Sep 17 00:00:00 2001
 From: Phil Smart <philip.smart@jisc.ac.uk>
 Date: Thu, 9 Apr 2020 16:50:49 +0100
-Subject: [PATCH 1/2] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
+Subject: [PATCH 1/3] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
 
 Patch the modulesForAggregatedProject to normalise module
 file paths.
@@ -12,7 +12,7 @@ https://issues.shibboleth.net/jira/browse/JPAR-165
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
-index 83c3bd0..44d4fd8 100644
+index 83c3bd0..250690e 100644
 --- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 +++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 @@ -2405,7 +2405,7 @@ public abstract class AbstractJavadocMojo
@@ -28,10 +28,10 @@ index 83c3bd0..44d4fd8 100644
 2.21.0 (Apple Git-122.2)
 
 
-From 10bd31d76d020a2fa206e106fb9bb59c1183690b Mon Sep 17 00:00:00 2001
+From 74f4d47db33f679c0ea1fa637818d16b72c1cb20 Mon Sep 17 00:00:00 2001
 From: Phil Smart <philip.smart@jisc.ac.uk>
 Date: Thu, 16 Apr 2020 16:56:05 +0100
-Subject: [PATCH 2/2] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
+Subject: [PATCH 2/3] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
 
  - Add log statement to the start of plugin execution
  - Change POM for internal project use
@@ -99,7 +99,7 @@ index 465e4ae..dff54fa 100644
    <properties>
      <javaVersion>7</javaVersion>
 diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
-index 44d4fd8..df07e47 100644
+index 250690e..351d642 100644
 --- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 +++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 @@ -5801,6 +5801,7 @@ public abstract class AbstractJavadocMojo
@@ -110,6 +110,51 @@ index 44d4fd8..df07e47 100644
          if ( getLog().isDebugEnabled() )
          {
              // no quoted arguments
+-- 
+2.21.0 (Apple Git-122.2)
+
+
+From 6bd376aae6466395a9049a8a535303312e9f61f0 Mon Sep 17 00:00:00 2001
+From: Phil Smart <philip.smart@jisc.ac.uk>
+Date: Tue, 28 Apr 2020 13:53:53 +0100
+Subject: [PATCH 3/3] JPAR-165 Add Maven Javadoc Plugin 3.2.0 patch
+
+     - Prevent the generation of module path arguments to
+       Javadoc. Instead always using the classpath
+       argument.
+
+    https://issues.shibboleth.net/jira/browse/JPAR-165
+---
+ .../maven/plugins/javadoc/AbstractJavadocMojo.java       | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+index 351d642..925b471 100644
+--- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
++++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
+@@ -4943,9 +4943,11 @@ public abstract class AbstractJavadocMojo
+ 
+         Map<String, JavaModuleDescriptor> allModuleDescriptors = new HashMap<>();
+ 
+-        boolean supportModulePath = javadocRuntimeVersion.isAtLeast( "9" )
+-            && ( source == null || JavaVersion.parse( source ).isAtLeast( "9" ) )
+-            && ( release == null || JavaVersion.parse( release ).isAtLeast( "9" ) );
++        // always use -classpath for javadoc, never use module-paths.
++        boolean supportModulePath = false;
++            //javadocRuntimeVersion.isAtLeast( "9" )
++            //&& ( source == null || JavaVersion.parse( source ).isAtLeast( "9" ) )
++            //&& ( release == null || JavaVersion.parse( release ).isAtLeast( "9" ) );
+ 
+         if ( supportModulePath )
+         {
+@@ -5218,6 +5220,7 @@ public abstract class AbstractJavadocMojo
+         }
+         else
+         {
++            getLog().info( " Building classpath javadoc argument" );
+             String classpath = StringUtils.join( getPathElements().iterator(), File.pathSeparator );
+             addArgIfNotEmpty( arguments, "-classpath", JavadocUtil.quotedPathArgument( classpath ) , false, false );
+         }
 -- 
 2.21.0 (Apple Git-122.2)
 
