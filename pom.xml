@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>11.0.2-SNAPSHOT</version>
+    <version>11.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project Java 11 Super POM</name>
@@ -102,9 +102,9 @@
             These properties MUST be overridden in any projects which have
             an actual dependency.
         -->
-        <java-support.version>8.0.0</java-support.version>
-        <opensaml.version>4.0.0</opensaml.version>
-        <spring-extensions.version>6.0.0</spring-extensions.version>
+        <java-support.version>8.1.0</java-support.version>
+        <opensaml.version>4.1.0</opensaml.version>
+        <spring-extensions.version>6.1.0</spring-extensions.version>
 
         <!--
             These properties describe the locations of API indexes for
