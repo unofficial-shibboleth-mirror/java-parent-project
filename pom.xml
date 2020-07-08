@@ -208,16 +208,6 @@
             <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>${slf4j.groupId}</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>${slf4j.groupId}</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <!-- Dependencies with fixed versions and excludes that may be used by projects. -->
