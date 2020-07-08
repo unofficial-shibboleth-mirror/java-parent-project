@@ -1228,6 +1228,18 @@
             <organizationUrl>http://www.vt.edu</organizationUrl>
             <timezone>-5</timezone>
         </developer>
+        <developer>
+            <id>philsmart</id>
+            <name>Phil Smart</name>
+            <organization>Jisc</organization>
+            <organizationUrl>https://www.jisc.ac.uk</organizationUrl>
+            <timezone>0</timezone>
+        </developer>        
+        <developer>
+            <id>mikkonen</id>
+            <name>Henri Mikkonen</name>
+            <timezone>3</timezone>
+        </developer>        
     </developers>
 
     <contributors>
