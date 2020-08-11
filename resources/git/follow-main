@@ -1,0 +1,65 @@
+#!/bin/bash
+
+#
+# This script performs the operations required to move a local
+# repository's HEAD branch from "master" to "main".
+#
+# See: https://issues.shibboleth.net/jira/browse/GEN-264
+#
+# This should be run by the owner of a clone of the repository
+# in Gitolite to follow the change, not to initiate it.
+#
+
+#
+# Exit on a failed command.
+#
+set -e
+
+#
+# Figure out name of repository.
+#
+REPO=$(basename -- `pwd`)
+
+#
+# We must be in a repository.
+#
+if [ ! -d .git ]; then
+  echo "Not in a git repository!"
+  exit 1
+fi
+
+#
+# We must have a "master" branch to rename.
+#
+if ! git show-ref --quiet refs/heads/master ; then
+  echo "master branch does not exist; repository already converted?"
+  exit 1
+fi
+
+#
+# We must not already have a "main" branch or rename will fail.
+#
+if git show-ref --quiet refs/heads/main ; then
+  echo "main branch already exists; repository already converted?"
+  exit 1;
+fi
+
+#
+# The actual migration starts here.
+#
+
+echo "Pruning remote refs..."
+git fetch --prune origin
+
+echo "Checking out main branch..."
+git checkout main
+
+echo "Setting remote HEAD for origin remote..."
+git remote set-head origin -a
+
+echo "Deleting local master branch..."
+git branch -d master
+
+#
+# End.
+#
