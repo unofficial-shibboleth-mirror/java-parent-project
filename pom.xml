@@ -54,7 +54,7 @@
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
-        <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
+        <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
