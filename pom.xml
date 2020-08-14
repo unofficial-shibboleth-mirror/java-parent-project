@@ -51,7 +51,7 @@
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <velocity.version>2.2</velocity.version>
         <xmlsec.version>2.1.4</xmlsec.version>
-        <xmlunit.version>2.6.3</xmlunit.version>
+        <xmlunit.version>2.7.0</xmlunit.version>
 
         <checkstyle.version>8.30</checkstyle.version>
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
