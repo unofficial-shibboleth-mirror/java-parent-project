@@ -31,19 +31,19 @@ export MAVEN_OPTS=-Dhttps.protocols=TLSv1.2
 
 # Prompts and returns user input.
 function ask {
-    # $1 = default y or n 
+    # $1 = default y or n
     # $2 = message text
-    # $3 = return variable 
+    # $3 = return variable
     local _RESULTVAR=$3
     local RESULT="$1"
 
     if [ $YES_TO_ALL == "y" ] ; then
-       RESULT="y"
+        RESULT="y"
     else
-		read -p "$2 ? [$1] : " -e REPLY
-		if [ -n "$REPLY" ] ; then
+        read -p "$2 ? [$1] : " -e REPLY
+        if [ -n "$REPLY" ] ; then
             RESULT=$REPLY
-		fi
+        fi
     fi
 
     eval $_RESULTVAR="'$RESULT'"
@@ -61,13 +61,13 @@ ask n "Delete repository directories from previous attempt" CLEANUP
 if [ $CLEANUP == "y" ] ; then
     $RM -rf "repository-old"
     check_retval $? "Unable to delete repository-old"
-    
+
     $RM -rf "repository-new"
     check_retval $? "Unable to delete repository-new"
-    
+
     $RM -rf "repository-diff"
     check_retval $? "Unable to delete repository-diff"
-    
+
     $RM -rf "repository-test"
     check_retval $? "Unable to delete repository-test"
 fi
@@ -77,13 +77,13 @@ ask y "Create directories" CREATE_DIRS
 if [ $CREATE_DIRS == "y" ] ; then
     $MKDIR -pv "repository-old"
     check_retval $? "Unable to create repository-old"
-    
+
     $MKDIR -pv "repository-new"
     check_retval $? "Unable to create repository-new"
-    
+
     $MKDIR -pv "repository-diff"
     check_retval $? "Unable to create repository-diff"
-    
+
     $MKDIR -pv "repository-test"
     check_retval $? "Unable to create repository-test"
 fi
@@ -179,10 +179,10 @@ if [ $UPLOAD_JETTY_DISTRIBUTION == "y" ] ; then
     ask $DEFAULT_COMMAND_LINE_OPTIONS " Command line options" COMMAND_LINE_OPTIONS
     $ECHO " COMMAND_LINE_OPTIONS is : $COMMAND_LINE_OPTIONS"
     $ECHO ""
-    
+
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:pom"
            $MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:pom 
-           
+
     $ECHO "$MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:tar.gz"
            $MVN --strict-checksums -Dmaven.repo.local=repository-old dependency:get $COMMAND_LINE_OPTIONS -Dartifact=org.eclipse.jetty:jetty-distribution:$JETTY_VERSION:tar.gz
 
@@ -304,39 +304,39 @@ fi
 
 ask y "Make changes to Nexus" MODIFY_NEXUS
 if [ $MODIFY_NEXUS == "y" ] ; then
-    
+
     ask y "Print repository-diff before upload" PRINT_REPO_DIFF_AGAIN
     if [ $PRINT_REPO_DIFF_AGAIN == "y" ] ; then
         $FIND *
     fi
     $ECHO ""
-    
+
     ask y "Print repository-diff files before upload" PRINT_REPO_DIFF_FILES
     if [ $PRINT_REPO_DIFF_FILES == "y" ] ; then
         $FIND * -type f
     fi
     $ECHO ""
-    
+
     ask y "Write files to upload to log file" LOG_UPLOADED_FILES
     if [ $LOG_UPLOADED_FILES == "y" ] ; then
          $ECHO "$FIND * -type f -print | sort | grep -v "\.asc" > "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt""
          $FIND * -type f -print | sort | grep -v "\.asc"> "../uploaded-to-nexus-$(date +%Y-%m-%d_%H-%M-%S).txt"
     fi
     $ECHO ""
-    
+
     THIRD_PARTY_REPOSITORY_ID="thirdparty"
     ask n "Are the artifacts being uploaded snapshots" UPLOAD_SNAPSHOTS
     if [ $UPLOAD_SNAPSHOTS == "y" ] ; then
         THIRD_PARTY_REPOSITORY_ID="thirdparty-snapshots"
     fi
     $ECHO ""
-    
+
     ask $USER "Nexus username" USERNAME
     $ECHO ""
-    
+
     read -s -p "Enter Nexus password : " -e PASSWORD
     $ECHO ""
-    
+
     ask y "Upload to Nexus" UPLOAD_TO_NEXUS
     if [ $UPLOAD_TO_NEXUS == "y" ] ; then
         $ECHO "$FIND * -type f -exec $CURL -v -u $USERNAME:<pwd> --upload-file {} $NEXUS_URL/content/repositories/$THIRD_PARTY_REPOSITORY_ID/{} \; 2>&1 \; | grep 'PUT\|HTTP'"
@@ -370,7 +370,7 @@ if [ $BUILD_TEST == "y" ] ; then
     if [ -e pom.new.xml ] ; then
         $ECHO "$MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests -f pom.new.xml"
         $MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests -f pom.new.xml
-    else 
+    else
         $ECHO "$MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests"
         $MVN --strict-checksums -Dmaven.repo.local=$HOME/repository-test clean verify site -Prelease,central-disabled -DskipTests
     fi
