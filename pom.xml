@@ -23,7 +23,7 @@
         <cryptacular.version>1.2.4</cryptacular.version>
         <!-- IMPORTANT: httpclient and httpcore versions need to be updated together.  -->
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
-        <httpclient.version>4.5.12</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
         <graalvm.version>20.0.0</graalvm.version>
         <guava.version>29.0-jre</guava.version>
