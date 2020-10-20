@@ -26,7 +26,7 @@
         <httpclient.version>4.5.13</httpclient.version>
         <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
         <graalvm.version>20.0.0</graalvm.version>
-        <guava.version>29.0-jre</guava.version>
+        <guava.version>30.0-jre</guava.version>
         <jackson.version>2.10.3</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
         <jakarta.jaxb.version>2.3.2</jakarta.jaxb.version>
