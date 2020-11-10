@@ -51,7 +51,7 @@
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <velocity.version>2.2</velocity.version>
-        <xmlsec.version>2.1.4</xmlsec.version>
+        <xmlsec.version>2.1.5</xmlsec.version>
         <xmlunit.version>2.8.0</xmlunit.version>
 
         <checkstyle.version>8.30</checkstyle.version>
