@@ -58,7 +58,7 @@
         <checkstyle-plugin.version>3.1.1</checkstyle-plugin.version>
         <checkstyle.configLocation>checkstyle.xml</checkstyle.configLocation>
 
-        <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
         <maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
