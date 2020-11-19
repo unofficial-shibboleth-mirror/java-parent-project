@@ -109,7 +109,7 @@
             These properties MUST be overridden in any projects which have
             an actual dependency.
         -->
-        <java-support.version>8.0.0</java-support.version>
+        <java-support.version>8.1.0</java-support.version>
         <opensaml.version>4.0.1</opensaml.version>
         <spring-extensions.version>6.0.0</spring-extensions.version>
 
