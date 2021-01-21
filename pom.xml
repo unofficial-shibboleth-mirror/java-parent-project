@@ -474,6 +474,20 @@
 	            <scope>provided</scope>
 	        </dependency>
 
+            <!-- Other logging bridges that may be required. -->
+            <dependency>
+                <groupId>${slf4j.groupId}</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>${slf4j.groupId}</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
             <!-- Runtime dependencies -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -577,18 +591,6 @@
                 <groupId>org.xmlunit</groupId>
                 <artifactId>xmlunit-matchers</artifactId>
                 <version>${xmlunit.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>${slf4j.groupId}</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>${slf4j.groupId}</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
