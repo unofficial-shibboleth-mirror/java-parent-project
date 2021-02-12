@@ -24,7 +24,7 @@
         <!-- IMPORTANT: httpclient and httpcore versions need to be updated together.  -->
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.5.13</httpclient.version>
-        <httpclient.httpcore.version>4.4.13</httpclient.httpcore.version>
+        <httpclient.httpcore.version>4.4.14</httpclient.httpcore.version>
         <graalvm.version>20.0.0</graalvm.version>
         <guava.version>30.1-jre</guava.version>
         <jackson.version>2.10.3</jackson.version>
