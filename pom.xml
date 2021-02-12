@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
 
-        <bouncycastle.version>1.67</bouncycastle.version>
+        <bouncycastle.version>1.68</bouncycastle.version>
         <commons.compress.version>1.20</commons.compress.version>
         <cryptacular.version>1.2.4</cryptacular.version>
         <!-- IMPORTANT: httpclient and httpcore versions need to be updated together.  -->
