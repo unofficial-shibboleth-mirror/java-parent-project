@@ -47,7 +47,7 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.30</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>5.3.3</spring.version>
+        <spring.version>5.3.5</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <velocity.version>2.2</velocity.version>
