@@ -40,7 +40,7 @@
         <testng.version>7.3.0</testng.version>
         <unboundid.version>4.0.14</unboundid.version>
         <logback.version>1.2.3</logback.version>
-        <metrics.version>4.1.17</metrics.version>
+        <metrics.version>4.1.18</metrics.version>
         <rhino.version>1.7.13</rhino.version>
         <nashorn.engine.version>0.1.0</nashorn.engine.version>
         <rhino.engine.version>0.1.0</rhino.engine.version>
