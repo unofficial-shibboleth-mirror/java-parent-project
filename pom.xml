@@ -345,6 +345,13 @@
               <groupId>com.github.jasminb</groupId>
               <artifactId>jsonapi-converter</artifactId>
               <version>0.10</version>
+              <!-- Excluded: https://issues.shibboleth.net/jira/browse/IDP-1798 -->
+	          <exclusions>
+		          <exclusion>
+			         <groupId>com.squareup.retrofit2</groupId>
+			         <artifactId>retrofit</artifactId>
+		          </exclusion>
+	          </exclusions> 
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
