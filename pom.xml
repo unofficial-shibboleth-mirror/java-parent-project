@@ -693,14 +693,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven-dependency-plugin.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.shared</groupId>
-                            <artifactId>maven-dependency-analyzer</artifactId>
-                            <version>1.11.3</version>
-                        </dependency>
-                    </dependencies>
+                    <version>${maven-dependency-plugin.version}</version>                    
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
