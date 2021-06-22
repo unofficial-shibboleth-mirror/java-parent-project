@@ -260,11 +260,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.dropwizard.metrics</groupId>
-                <artifactId>metrics-json</artifactId>
-                <version>${metrics.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>${httpclient.groupId}</groupId>
                 <artifactId>httpcore</artifactId>
                 <version>${httpclient.httpcore.version}</version>
