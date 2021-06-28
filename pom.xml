@@ -798,6 +798,11 @@
                             <artifactId>wagon-webdav-jackrabbit</artifactId>
                             <version>3.4.3</version>
                         </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.wagon</groupId>
+                            <artifactId>wagon-ssh</artifactId>
+                            <version>3.4.3</version>
+                        </dependency>
                     </dependencies>
                 </plugin>
                 <plugin>
