@@ -648,7 +648,7 @@
         </snapshotRepository>
         <site>
             <id>site</id>
-            <url>dav:${shibboleth.site.url}</url>
+            <url>scp:${shibboleth.site.deploy.url}</url>
         </site>
     </distributionManagement>
 
