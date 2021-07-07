@@ -24,6 +24,24 @@ declare -r RSYNC=${RSYNC:-"/usr/bin/rsync"}
 declare -r SHIB_NEXUS_URL="https://build.shibboleth.net/nexus"
 declare -r SHIB_NEXUS_HOME="/home/nexus"
 
+#
+# PGP/GPG Key server to use. These are not in general very stable, so change it
+# if the one we're using either stops working, or doesn't seem to have the keys
+# we expect to see in it.
+#
+# Some options:
+#    hkps://pgp.re
+#    hkps://keys.openpgp.org (lacks many user IDs, by design)
+#
+# The sks-keyserver pool no longer exists.
+#
+# Note that pgp.mit.edu still runs a per-key UI, but as of 2021-07-06
+# no longer appears to permit key server style access. It's entirely
+# possible that this was turned off to preserve services when the
+# SKS key server pool went away.
+#
+declare -r KEY_SERVER=hkps://pgp.re
+
 declare YES_TO_ALL=n
 
 # TODO For Java 7 only
@@ -264,8 +282,8 @@ $ECHO ""
 
 ask y "Validate signatures and retrieve keys automatically" SIGS
 if [ $SIGS == "y" ] ; then
-    $ECHO "$FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt"
-    $FIND * -name '*.asc' -exec gpg --keyserver hkp://pool.sks-keyservers.net --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt
+    $ECHO "$FIND * -name '*.asc' -exec gpg --keyserver $KEY_SERVER --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt"
+    $FIND * -name '*.asc' -exec gpg --keyserver $KEY_SERVER --keyserver-options "auto-key-retrieve no-include-revoked" --verify {} \; -exec echo "$?" \; 2>&1 | tee ../GPG-VERIFY.txt
 fi
 $ECHO ""
 
