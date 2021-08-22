@@ -27,7 +27,7 @@
         <httpclient.groupId>org.apache.httpcomponents</httpclient.groupId>
         <httpclient.version>4.5.13</httpclient.version>
         <httpclient.httpcore.version>4.4.14</httpclient.httpcore.version>
-        <graalvm.version>20.0.0</graalvm.version>
+        <graalvm.version>21.2.0</graalvm.version>
         <guava.version>30.1.1-jre</guava.version>
         <jackson.version>2.12.2</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
@@ -44,7 +44,7 @@
         <logback.version>1.2.3</logback.version>
         <metrics.version>4.1.18</metrics.version>
         <rhino.version>1.7.13</rhino.version>
-        <nashorn.engine.version>1.0.0</nashorn.engine.version> <!-- Test only dependency -->
+        <nashorn.jdk.version>15.3</nashorn.jdk.version> <!-- Test only dependency -->
         <rhino.engine.version>1.0.0</rhino.engine.version> <!-- Test only dependency -->
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.30</slf4j.version>
@@ -394,6 +394,10 @@
                 <artifactId>hibernate-core</artifactId>
                 <version>5.4.29.Final</version>
                 <exclusions>
+<!--                    <exclusion>
+                        <groupId>org.dom4j</groupId>
+                        <artifactId>dom4j</artifactId>
+                    </exclusion> -->
                     <exclusion>
                         <groupId>javax.activation</groupId>
                         <artifactId>javax.activation-api</artifactId>
