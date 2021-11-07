@@ -18,6 +18,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
 
+        <!-- A note about changing dependencies:
+
+         When updating the version of a dependency you *MUST*:
+
+           1) Run a build of the project you are working on with the
+           'central-disabled' profile to ensure that all the artifacts are in
+           the third part repository.
+
+           The jenkins 'nightly' builds run this profile.
+
+           2) Run the (at least) verify phase of the distribution build for
+           the project you are working on to ensure that the artefacts are
+           signed by known keys.
+        -->
+
+
         <ant.version>1.10.10</ant.version>
         <bouncycastle.version>1.68</bouncycastle.version>
         <commons.compress.version>1.20</commons.compress.version>
@@ -205,7 +221,10 @@
         <!-- Test dependencies -->
     </dependencies>
 
-    <!-- Dependencies with fixed versions and excludes that may be used by projects. -->
+    <!-- Dependencies with fixed versions and excludes that may be used by projects.
+
+         See note above about testing changes to dependencies.
+    -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -343,12 +362,12 @@
               <artifactId>jsonapi-converter</artifactId>
               <version>0.10</version>
               <!-- Excluded: https://issues.shibboleth.net/jira/browse/IDP-1798 -->
-	          <exclusions>
-		          <exclusion>
-			         <groupId>com.squareup.retrofit2</groupId>
-			         <artifactId>retrofit</artifactId>
-		          </exclusion>
-	          </exclusions> 
+              <exclusions>
+                  <exclusion>
+                      <groupId>com.squareup.retrofit2</groupId>
+                      <artifactId>retrofit</artifactId>
+                  </exclusion>
+              </exclusions>
             </dependency>
             <dependency>
                 <groupId>${spring.groupId}</groupId>
@@ -494,12 +513,12 @@
                 dependency on jcl-over-slf4j instead, with "runtime" scope,
                 overriding the "provided" below.
             -->
-	        <dependency>
-	            <groupId>${slf4j.groupId}</groupId>
-	            <artifactId>jcl-over-slf4j</artifactId>
-	            <version>${slf4j.version}</version>
-	            <scope>provided</scope>
-	        </dependency>
+                <dependency>
+                    <groupId>${slf4j.groupId}</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                    <version>${slf4j.version}</version>
+                    <scope>provided</scope>
+                </dependency>
 
             <!-- Other logging bridges that may be required. -->
             <dependency>
