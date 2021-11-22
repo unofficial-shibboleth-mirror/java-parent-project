@@ -1,4 +1,4 @@
-From 1c2892e2cc3eb8ab2d072a8fa53bf691e2950f62 Mon Sep 17 00:00:00 2001
+From 10317939d461347e1383750f53b4cfeaf8da42dc Mon Sep 17 00:00:00 2001
 From: Phil Smart <philip.smart@jisc.ac.uk>
 Date: Thu, 22 Jul 2021 16:01:30 +0100
 Subject: [PATCH] JPAR-178 - Update maven-javadoc-plugin to 3.3.0
@@ -8,12 +8,13 @@ Rebase maven-javadoc-plugin changes onto 3.3.0.
 - Prevent the generation of module path arguments to Javadoc. Instead
 always using the classpath argument.
 - Change POM for internal project use
+- Replace full javadoc goal with shib plugin groupId
 
 https://issues.shibboleth.net/jira/browse/JPAR-178
 ---
  pom.xml                                       | 28 +++++++------------
- .../plugins/javadoc/AbstractJavadocMojo.java  | 12 ++------
- 2 files changed, 13 insertions(+), 27 deletions(-)
+ .../plugins/javadoc/AbstractJavadocMojo.java  | 18 +++++-------
+ 2 files changed, 17 insertions(+), 29 deletions(-)
 
 diff --git a/pom.xml b/pom.xml
 index 7e9ab315..c0baffdf 100644
@@ -69,7 +70,7 @@ index 7e9ab315..c0baffdf 100644
  
    <properties>
 diff --git a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
-index 0655f8a1..3bb3b413 100644
+index 0655f8a1..3af0eefb 100644
 --- a/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 +++ b/src/main/java/org/apache/maven/plugins/javadoc/AbstractJavadocMojo.java
 @@ -5121,15 +5121,7 @@ public abstract class AbstractJavadocMojo
@@ -105,6 +106,33 @@ index 0655f8a1..3bb3b413 100644
          if ( getLog().isDebugEnabled() )
          {
              // no quoted arguments
+@@ -6281,7 +6275,7 @@ public abstract class AbstractJavadocMojo
+     private String getFullJavadocGoal()
+     {
+         String javadocPluginVersion = null;
+-        String resource = "META-INF/maven/org.apache.maven.plugins/maven-javadoc-plugin/pom.properties";
++        String resource = "META-INF/maven/net.shibboleth.maven.plugins/maven-javadoc-plugin/pom.properties";
+         try ( InputStream resourceAsStream 
+                         = AbstractJavadocMojo.class.getClassLoader().getResourceAsStream( resource ) )
+         {
+@@ -6302,7 +6296,7 @@ public abstract class AbstractJavadocMojo
+ 
+         StringBuilder sb = new StringBuilder();
+ 
+-        sb.append( "org.apache.maven.plugins:maven-javadoc-plugin:" );
++        sb.append( "net.shibboleth.maven.plugins:maven-javadoc-plugin:" );
+         if ( StringUtils.isNotEmpty( javadocPluginVersion ) )
+         {
+             sb.append( javadocPluginVersion ).append( ":" );
+@@ -6370,6 +6364,8 @@ public abstract class AbstractJavadocMojo
+                 getLog().info(
+                     "The goal '" + javadocGoal + "' has not been previously called for the module: '" + p.getId()
+                         + "'. Trying to invoke it..." );
++                
++                getLog().info( "External call using javadoc goal: " + javadocGoal );                
+ 
+                 File invokerDir = new File( project.getBuild().getDirectory(), "invoker" );
+                 invokerDir.mkdirs();
 -- 
 2.30.1 (Apple Git-130)
 
