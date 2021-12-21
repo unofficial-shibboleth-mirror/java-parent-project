@@ -6,17 +6,19 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>11.2.2-SNAPSHOT</version>
+    <version>17.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Shibboleth Project Java 11 Super POM</name>
+    <name>Shibboleth Project Java 17 Super POM</name>
     <description>
-        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth V3 projects.
+        A POM containing properties, profiles, plugin configurations, etc. that
+        are common across all Shibboleth projects based on the Java 17
+        platform.
     </description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
 
         <!-- A note about changing dependencies:
 
