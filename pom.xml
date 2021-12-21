@@ -67,7 +67,7 @@
         <slf4j.groupId>org.slf4j</slf4j.groupId>
         <slf4j.version>1.7.36</slf4j.version>
         <spring.groupId>org.springframework</spring.groupId>
-        <spring.version>5.3.19</spring.version>
+        <spring.version>6.0.0-M1</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
         <spring-webflow.version>2.5.1.RELEASE</spring-webflow.version>
         <velocity.version>2.3</velocity.version>
@@ -186,6 +186,16 @@
         <repository>
             <id>central</id>
             <url>${maven.central.url}</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-milestone</id>
+            <url>https://repo.spring.io/milestone</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -525,9 +535,9 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <groupId>jakarta.servlet</groupId>
+                <artifactId>jakarta.servlet-api</artifactId>
+                <version>5.0.0</version>
                 <scope>provided</scope>
             </dependency>
 
