@@ -49,7 +49,7 @@
         <guava.version>30.1.1-jre</guava.version>
         <jackson.version>2.12.2</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
-        <jakarta.jaxb.version>2.3.3</jakarta.jaxb.version>
+        <jakarta.jaxb.version>3.0.1</jakarta.jaxb.version>
         <jakarta.json.version>1.1.6</jakarta.json.version>
         <jakarta.mail.version>1.6.6</jakarta.mail.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
@@ -421,9 +421,9 @@
             </dependency>
 
             <dependency>
-                <groupId>org.hibernate</groupId>
+                <groupId>org.hibernate.orm</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.4.29.Final</version>
+                <version>6.0.0.Beta3</version>
                 <exclusions>
 <!--                    <exclusion>
                         <groupId>org.dom4j</groupId>
