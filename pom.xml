@@ -47,8 +47,8 @@
         <!-- Note: jackson-databind is version 2.13.2.2, set explicitly below. -->
         <jackson.version>2.13.2</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
-        <jakarta.jaxb-api.version>2.3.3</jakarta.jaxb-api.version>
-        <jakarta.jaxb-impl.version>2.3.6</jakarta.jaxb-impl.version>
+        <jakarta.jaxb-api.version>3.0.1</jakarta.jaxb-api.version>
+        <jakarta.jaxb-impl.version>3.0.1</jakarta.jaxb-impl.version>
         <jakarta.json.version>1.1.6</jakarta.json.version>
         <jakarta.mail.version>1.6.7</jakarta.mail.version>
         <janino.version>3.1.6</janino.version>
@@ -443,20 +443,16 @@
 
             <dependency>
                 <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-core</artifactId>
-                <version>5.4.30.Final</version>
+                <artifactId>hibernate-core-jakarta</artifactId>
+                <version>5.6.6.Final</version>
                 <exclusions>
-<!--                    <exclusion>
-                        <groupId>org.dom4j</groupId>
-                        <artifactId>dom4j</artifactId>
-                    </exclusion> -->
                     <exclusion>
-                        <groupId>javax.activation</groupId>
-                        <artifactId>javax.activation-api</artifactId>
+                        <groupId>jakarta.activation</groupId>
+                        <artifactId>jakarta.activation-api</artifactId>
                     </exclusion>
                     <exclusion>
-                        <groupId>javax.xml.bind</groupId>
-                        <artifactId>jaxb-api</artifactId>
+                        <groupId>jakarta.xml.bind</groupId>
+                        <artifactId>jakarta.xml.bind-api</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>
