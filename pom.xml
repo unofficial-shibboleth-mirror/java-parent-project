@@ -57,7 +57,7 @@
         <mockito.version>3.9.0</mockito.version>
         <testng.version>7.3.0</testng.version>
         <unboundid.version>4.0.14</unboundid.version>
-        <logback.version>1.2.9</logback.version>
+        <logback.version>1.2.10</logback.version>
         <metrics.version>4.1.18</metrics.version>
         <rhino.version>1.7.13</rhino.version>
         <nashorn.jdk.version>15.3</nashorn.jdk.version> <!-- Test only dependency -->
