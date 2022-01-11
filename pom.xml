@@ -11,7 +11,7 @@
 
     <name>Shibboleth Project Java 11 Super POM</name>
     <description>
-        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth V3 projects.
+        A POM containing properties, profiles, plugin configurations, etc. that are common across all Shibboleth V4 projects.
     </description>
 
     <properties>
@@ -29,7 +29,7 @@
            The jenkins 'nightly' builds run this profile.
 
            2) Run the (at least) verify phase of the distribution build for
-           the project you are working on to ensure that the artefacts are
+           the project you are working on to ensure that the artifacts are
            signed by known keys.
         -->
 
