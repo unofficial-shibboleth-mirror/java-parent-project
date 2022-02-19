@@ -922,7 +922,7 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.5.3</version>
+                                    <version>3.8.4</version>
                                 </requireMavenVersion>
                             </rules>
                             <fail>true</fail>
