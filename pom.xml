@@ -22,9 +22,11 @@
 
          When updating the version of a dependency you *MUST*:
 
-           1) Run a build of the project you are working on with the
-           'central-disabled' profile to ensure that all the artifacts are in
-           the third part repository.
+           1) Run a build of the project you are working on against a separate
+           repository and with "m2 checking" enabled:
+
+           mvn -Dnet.shibboleth.maven.enforcer.rules.checkM2=true \
+               -Dmaven.repo.local=$(REPO)
 
            The jenkins 'nightly' builds run this profile.
 
@@ -1168,41 +1170,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-
-        <!--
-            The "central-disabled" profile prevents the use of the
-            Maven Central repository. This must be used used on all builds
-            used to generate published artifacts, including Jenkins nightly
-            jobs, so that products are built on our trusted collection of
-            artifacts.
-        -->
-        <profile>
-            <id>central-disabled</id>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <url>${maven.central.url}</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>central</id>
-                    <url>${maven.central.url}</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                </pluginRepository>
-            </pluginRepositories>
         </profile>
 
         <!--
