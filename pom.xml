@@ -23,14 +23,9 @@
          When updating the version of a dependency you *MUST*:
 
            1) Run a build of the project you are working on against a separate
-           repository and with "m2 checking" enabled:
+           repository and with "m2 checking" enabled (the default)
 
-           mvn -Dnet.shibboleth.maven.enforcer.rules.checkM2=true \
-               -Dmaven.repo.local=$(REPO)
-
-           The jenkins 'nightly' builds run this profile.
-
-           2) Run the (at least) verify phase of the distribution build for
+           2) Run the (at least) install phase of the distribution build for
            the project you are working on to ensure that the artifacts are
            signed by known keys.
         -->
@@ -73,6 +68,9 @@
         <velocity.version>2.3</velocity.version>
         <xmlsec.version>2.1.7</xmlsec.version>
         <xmlunit.version>2.8.2</xmlunit.version>
+
+	<maven-dist-enforcer.version>3.1.1-SNAPSHOT</maven-dist-enforcer.version>
+	<maven-dist-enforcer-data.version>1.0.1-SNAPSHOT</maven-dist-enforcer-data.version>
 
         <checkstyle.version>8.41</checkstyle.version>
         <checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
@@ -1194,6 +1192,70 @@
             </build>
         </profile>
 
+        <!--
+            The check-m2 profile enables an signature check of all non test
+            non source jars in the local maven repository during the install
+            phase.  Individual projects check contents during the verify phase.
+
+            This is turned on within a project by creating a file '.check-m2'
+            alongside the pom.
+
+            This is turned OFF from the command line by specifying -D no-check-m2
+        -->
+        <profile>
+            <id>check-m2</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+                <file>
+                    <exists>.check-m2</exists>
+                </file>
+                <property>
+                    <name>!no-check-m2</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <dependencies>
+                            <dependency>
+                                <groupId>net.shibboleth.maven.enforcer.rules</groupId>
+                                <artifactId>maven-dist-enforcer</artifactId>
+                                <version>${maven-dist-enforcer.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <executions>
+                            <execution>
+                                <id>M2-enforce</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <configuration>
+                                    <rules>
+                                        <jarEnforcer implementation="net.shibboleth.mvn.enforcer.impl.JarEnforcer">
+                                            <dataGroupId>net.shibboleth.maven.enforcer.rules</dataGroupId>
+                                            <dataArtifactId>maven-dist-enforcer-data</dataArtifactId>
+                                            <dataVersion>${maven-dist-enforcer-data.version}</dataVersion>
+                                            <dataKeyRing>${basedir}/src/main/enforcer/shibbolethKeys.gpg</dataKeyRing>
+                                            <parentPomDir>${basedir}</parentPomDir>
+                                            <zipFiles/>
+                                            <tgzFiles/>
+                                            <checkSignatures>false</checkSignatures>
+                                            <checkDependencies>false</checkDependencies>
+                                            <compileRuntimeArtifactFatal>false</compileRuntimeArtifactFatal>
+                                            <listJarSources>false</listJarSources>
+                                            <checkM2>true</checkM2>
+                                        </jarEnforcer>
+                                    </rules>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
 
 
