@@ -46,7 +46,7 @@
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
         <jakarta.jaxb.version>2.3.3</jakarta.jaxb.version>
         <jakarta.json.version>1.1.6</jakarta.json.version>
-        <jakarta.mail.version>1.6.6</jakarta.mail.version>
+        <jakarta.mail.version>1.6.7</jakarta.mail.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
         <joda-time.version>2.10.13</joda-time.version>
         <jsoup.version>1.13.1</jsoup.version>
