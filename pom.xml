@@ -6,7 +6,7 @@
 
     <groupId>net.shibboleth</groupId>
     <artifactId>parent</artifactId>
-    <version>11.3.2-SNAPSHOT</version>
+    <version>11.3.2</version>
     <packaging>pom</packaging>
 
     <name>Shibboleth Project Java 11 Super POM</name>
@@ -73,7 +73,7 @@
         <xmlunit.version>2.9.0</xmlunit.version>
 
         <maven-dist-enforcer.version>3.1.1</maven-dist-enforcer.version>
-        <maven-dist-enforcer-data.version>1.0.6</maven-dist-enforcer-data.version>
+        <maven-dist-enforcer-data.version>1.0.8</maven-dist-enforcer-data.version>
 
         <checkstyle.version>8.41</checkstyle.version>
         <checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
