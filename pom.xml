@@ -72,7 +72,7 @@
         <xmlsec.version>2.3.0</xmlsec.version>
         <xmlunit.version>2.9.0</xmlunit.version>
 
-        <maven-dist-enforcer.version>3.2.0-SNAPSHOT</maven-dist-enforcer.version>
+        <maven-dist-enforcer.version>3.1.1</maven-dist-enforcer.version>
         <maven-dist-enforcer-data.version>1.0.10</maven-dist-enforcer-data.version>
 
         <checkstyle.version>8.41</checkstyle.version>
