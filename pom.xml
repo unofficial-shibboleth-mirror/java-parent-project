@@ -89,7 +89,7 @@
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
         <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
         <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
-        <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.3.0.2</maven-javadoc-plugin.version>
         <maven-jxr-plugin.version>3.2.0</maven-jxr-plugin.version>
         <maven-project-info-reports-plugin.version>3.2.2</maven-project-info-reports-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
@@ -765,8 +765,16 @@
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${maven-jar-plugin.version}</version>
                 </plugin>
+                <!--
+                      Patched version of this plugin, see:
+  
+                      https://issues.shibboleth.net/jira/browse/JPAR-164
+                      https://shibboleth.atlassian.net/browse/JPAR-207
+  
+                      Possibly replace with official version post 3.4.0
+                  -->
                 <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
+                    <groupId>net.shibboleth.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
                     <configuration>
@@ -955,7 +963,7 @@
             <!-- We use the aggregate reports for the javadoc and jxr reports because even if the project isn't a multi-module
                 project the plugin still does the right thing. -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+                <groupId>net.shibboleth.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
@@ -1121,7 +1129,7 @@
                         <artifactId>maven-dependency-plugin</artifactId>
                     </plugin>
                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
+                        <groupId>net.shibboleth.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <executions>
                             <execution>
