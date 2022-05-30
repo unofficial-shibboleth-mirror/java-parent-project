@@ -626,6 +626,12 @@
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-core</artifactId>
+                <version>${jakarta.jaxb-impl.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${jakarta.jaxb-impl.version}</version>
                 <scope>runtime</scope>
