@@ -796,7 +796,9 @@
                             <!-- The Java SE link is possibly not used (see JPAR-163) -->
                             <link>${javase.link}</link>
                             <link>${spring-framework.link}</link>
+                            <!-- not available on SNAPSHOT
                             <link>${spring-webflow.link}</link>
+                            -->
                             <link>${guava.link}</link>
                             <link>${joda-time.link}</link>
                             <link>${testng.link}</link>
@@ -985,7 +987,9 @@
                         <!-- The Java SE link is possibly not used (see JPAR-163) -->
                         <link>${javase.link}</link>
                         <link>${spring-framework.link}</link>
+                        <!-- not available on SNAPSHOT
                         <link>${spring-webflow.link}</link>
+                        -->
                         <link>${guava.link}</link>
                         <link>${joda-time.link}</link>
                         <link>${testng.link}</link>
