@@ -119,7 +119,6 @@
         <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
         <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api</spring-framework.link>
         <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api</spring-webflow.link>
-        <testng.link>https://jitpack.io/com/github/cbeust/testng/master/javadoc</testng.link>
 
         <!--
             Dummy *but real* version strings for our own components.
@@ -785,7 +784,6 @@
                             <link>${spring-webflow.link}</link>
                             <link>${guava.link}</link>
                             <link>${joda-time.link}</link>
-                            <link>${testng.link}</link>
                             <link>${ldaptive.link}</link>
                             <link>${java-support.link}</link>
                             <link>${java-opensaml.link}</link>
@@ -974,7 +972,6 @@
                         <link>${spring-webflow.link}</link>
                         <link>${guava.link}</link>
                         <link>${joda-time.link}</link>
-                        <link>${testng.link}</link>
                         <link>${ldaptive.link}</link>
                         <link>${java-support.link}</link>
                         <link>${java-opensaml.link}</link>
