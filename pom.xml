@@ -53,7 +53,6 @@
         <jakarta.mail.version>1.6.7</jakarta.mail.version>
         <janino.version>3.1.6</janino.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
-        <joda-time.version>2.10.14</joda-time.version>
         <jsoup.version>1.14.3</jsoup.version>
         <ldaptive.version>1.3.1</ldaptive.version>
         <mockito.version>3.9.0</mockito.version>
@@ -117,7 +116,6 @@
         -->
         <guava.link>https://google.github.io/guava/releases/${guava.version}/api/docs</guava.link>
         <javase.link>https://docs.oracle.com/en/java/javase/11/docs/api</javase.link>
-        <joda-time.link>https://www.joda.org/joda-time/apidocs</joda-time.link>
         <ldaptive.link>http://www.ldaptive.org/javadocs</ldaptive.link>
         <spring-framework.link>https://docs.spring.io/spring/docs/${spring.version}/javadoc-api</spring-framework.link>
         <!-- Using our temporary fork of spring-webflow for now.
@@ -342,11 +340,6 @@
                 <artifactId>janino</artifactId>
                 <version>${janino.version}</version>
             </dependency>
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda-time.version}</version>
-            </dependency>
 
             <!-- Needed for JAXB support. -->
             <dependency>
@@ -370,11 +363,6 @@
                 <artifactId>jackson-databind</artifactId>
                 <!-- Current "micro-patch" to jackson-databind. -->
                 <version>2.13.2.2</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-joda</artifactId>
-                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -779,7 +767,6 @@
                             <link>${spring-framework.link}</link>
                             <link>${spring-webflow.link}</link>
                             <link>${guava.link}</link>
-                            <link>${joda-time.link}</link>
                             <link>${ldaptive.link}</link>
                             <link>${java-support.link}</link>
                             <link>${java-opensaml.link}</link>
@@ -967,7 +954,6 @@
                         <link>${spring-framework.link}</link>
                         <link>${spring-webflow.link}</link>
                         <link>${guava.link}</link>
-                        <link>${joda-time.link}</link>
                         <link>${ldaptive.link}</link>
                         <link>${java-support.link}</link>
                         <link>${java-opensaml.link}</link>
