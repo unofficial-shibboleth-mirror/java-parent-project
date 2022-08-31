@@ -766,9 +766,8 @@
                             <link>${spring-webflow.link}</link>
                             <link>${guava.link}</link>
                             <link>${ldaptive.link}</link>
-                            <link>${java-support.link}</link>
+                            <link>${java-shib-shared.link}</link>
                             <link>${java-opensaml.link}</link>
-                            <link>${spring-extensions.link}</link>
                         </links>
                         <quiet>true</quiet>
                         <author>false</author>
