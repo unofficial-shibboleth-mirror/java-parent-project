@@ -135,16 +135,14 @@
             These properties MUST be overridden in any projects which have
             an actual dependency.
         -->
-        <java-support.version>8.1.0</java-support.version>
+        <java-shib-shared.version>9.0.0-SNAPSHOT</java-shib-shared.version>
         <opensaml.version>4.0.1</opensaml.version>
-        <spring-extensions.version>6.0.0</spring-extensions.version>
 
         <!--
             These properties describe the locations of API indexes for
             Shibboleth projects.
         -->
-        <java-support.link>${shibboleth.site.url}java-support/${java-support.version}/apidocs</java-support.link>
-        <spring-extensions.link>${shibboleth.site.url}spring-extensions/${spring-extensions.version}/apidocs</spring-extensions.link>
+        <java-shib-shared.link>${shibboleth.site.url}java-shib-shared/${java-shib-shared.version}/apidocs</java-shib-shared.link>
         <java-opensaml.link>${shibboleth.site.url}java-opensaml/${opensaml.version}/apidocs</java-opensaml.link>
 
     </properties>
@@ -955,9 +953,8 @@
                         <link>${spring-webflow.link}</link>
                         <link>${guava.link}</link>
                         <link>${ldaptive.link}</link>
-                        <link>${java-support.link}</link>
+                        <link>${java-shib-shared.link}</link>
                         <link>${java-opensaml.link}</link>
-                        <link>${spring-extensions.link}</link>
                     </links>
                     <quiet>true</quiet>
                     <author>false</author>
