@@ -68,7 +68,7 @@
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>6.0.0-M5</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
-        <spring-webflow.version>3.0.0-SNAPSHOT</spring-webflow.version>
+        <spring-webflow.version>3.0.0-M1</spring-webflow.version>
         <velocity.version>2.3</velocity.version>
         <xmlsec.version>2.3.0</xmlsec.version>
         <xmlunit.version>2.9.0</xmlunit.version>
