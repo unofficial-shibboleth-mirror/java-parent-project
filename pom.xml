@@ -121,7 +121,7 @@
         <!-- Using our temporary fork of spring-webflow for now.
         <spring-webflow.link>https://docs.spring.io/spring-webflow/docs/${spring-webflow.version}/api</spring-webflow.link>
         -->
-        <spring-webflow.link>https://shibboleth.net/sites/snapshot/spring-webflow/${spring-webflow.version}/javadoc</spring-webflow.link>
+        <spring-webflow.link>https://shibboleth.net/sites/snapshot/spring-webflow/3.0.0-SNAPSHOT/javadoc</spring-webflow.link>
 
         <!--
             Dummy *but real* version strings for our own components.
