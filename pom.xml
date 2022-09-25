@@ -60,7 +60,7 @@
         <unboundid.version>4.0.14</unboundid.version>
         <logback.version>1.2.11</logback.version>
         <metrics.version>4.2.9</metrics.version>
-        <rhino.version>1.7.13</rhino.version>
+        <rhino.version>1.7.14</rhino.version>
         <nashorn.jdk.version>15.3</nashorn.jdk.version> <!-- Test only dependency -->
         <rhino.engine.version>1.0.0</rhino.engine.version> <!-- Test only dependency -->
         <slf4j.groupId>org.slf4j</slf4j.groupId>
@@ -74,7 +74,7 @@
         <xmlunit.version>2.9.0</xmlunit.version>
 
         <maven-dist-enforcer.version>3.1.1</maven-dist-enforcer.version>
-        <maven-dist-enforcer-data.version>1.0.11</maven-dist-enforcer-data.version>
+        <maven-dist-enforcer-data.version>1.0.12-SNAPSHOT</maven-dist-enforcer-data.version>
 
         <checkstyle.version>8.41</checkstyle.version>
         <checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
