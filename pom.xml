@@ -73,8 +73,9 @@
         <xmlsec.version>2.3.0</xmlsec.version>
         <xmlunit.version>2.9.0</xmlunit.version>
 
-        <maven-dist-enforcer.version>3.1.1</maven-dist-enforcer.version>
+        <maven-dist-enforcer.version>3.2.0-SNAPSHOT</maven-dist-enforcer.version>
         <maven-dist-enforcer-data.version>1.0.12-SNAPSHOT</maven-dist-enforcer-data.version>
+        <maven-dist-enforcer-data.m2ReportPath>${basedir}/target/m2SignatureReport.txt</maven-dist-enforcer-data.m2ReportPath>
 
         <checkstyle.version>8.41</checkstyle.version>
         <checkstyle-plugin.version>3.1.2</checkstyle-plugin.version>
@@ -1234,6 +1235,7 @@
                                             <compileRuntimeArtifactFatal>false</compileRuntimeArtifactFatal>
                                             <listJarSources>false</listJarSources>
                                             <checkM2>true</checkM2>
+                                            <m2ReportPath>${maven-dist-enforcer-data.m2ReportPath}</m2ReportPath>
                                         </jarEnforcer>
                                     </rules>
                                 </configuration>
