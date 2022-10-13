@@ -53,7 +53,7 @@
         <jakarta.mail.version>1.6.7</jakarta.mail.version>
         <janino.version>3.1.6</janino.version>
         <jetty.groupId>org.eclipse.jetty</jetty.groupId>
-        <jsoup.version>1.14.3</jsoup.version>
+        <jsoup.version>1.15.3</jsoup.version>
         <ldaptive.version>2.1.1</ldaptive.version>
         <mockito.version>3.9.0</mockito.version>
         <testng.version>7.5</testng.version>
