@@ -1245,6 +1245,28 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+            Disable JaCoCo under unsupported versions of Java.
+        -->
+        <profile>
+            <id>nojacoco</id>
+            <activation>
+                <jdk>[19,</jdk>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 
 
