@@ -56,13 +56,13 @@
         <mockito.version>3.9.0</mockito.version>
         <testng.version>7.5</testng.version>
         <unboundid.version>4.0.14</unboundid.version>
-        <logback.version>1.2.11</logback.version>
         <metrics.version>4.2.9</metrics.version>
         <rhino.version>1.7.14</rhino.version>
         <nashorn.jdk.version>15.3</nashorn.jdk.version> <!-- Test only dependency -->
         <rhino.engine.version>1.0.0</rhino.engine.version> <!-- Test only dependency -->
         <slf4j.groupId>org.slf4j</slf4j.groupId>
-        <slf4j.version>1.7.36</slf4j.version>
+        <slf4j.version>2.0.3</slf4j.version>
+        <logback.version>1.4.4</logback.version>
         <spring.groupId>org.springframework</spring.groupId>
         <spring.version>5.3.23</spring.version>
         <spring-webflow.groupId>org.springframework.webflow</spring-webflow.groupId>
