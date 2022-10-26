@@ -57,7 +57,7 @@
         <ldaptive.version>2.1.1</ldaptive.version>
         <mockito.version>3.9.0</mockito.version>
         <testng.version>7.5</testng.version>
-        <unboundid.version>4.0.14</unboundid.version>
+        <unboundid.version>6.0.6</unboundid.version> <!-- Test only dependency -->
         <metrics.version>4.2.9</metrics.version>
         <rhino.version>1.7.14</rhino.version>
         <nashorn.jdk.version>15.3</nashorn.jdk.version> <!-- Test only dependency -->
@@ -433,6 +433,7 @@
                 <groupId>com.unboundid</groupId>
                 <artifactId>unboundid-ldapsdk</artifactId>
                 <version>${unboundid.version}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.velocity</groupId>
