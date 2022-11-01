@@ -43,7 +43,7 @@
         <graalvm.version>21.2.0</graalvm.version>
         <guava.version>31.1-jre</guava.version>
         <!-- Note: jackson-databind is version 2.13.2.2, set explicitly below. -->
-        <jackson.version>2.13.2</jackson.version>
+        <jackson.version>2.13.4</jackson.version>
         <jakarta.activation.version>1.2.2</jakarta.activation.version>
         <jakarta.jaxb-api.version>2.3.3</jakarta.jaxb-api.version>
         <jakarta.jaxb-impl.version>2.3.6</jakarta.jaxb-impl.version>
@@ -359,8 +359,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <!-- Current "micro-patch" to jackson-databind. -->
-                <version>2.13.2.2</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
