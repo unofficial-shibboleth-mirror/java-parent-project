@@ -55,7 +55,7 @@
         <jsoup.version>1.14.3</jsoup.version>
         <ldaptive.version>2.1.1</ldaptive.version>
         <mockito.version>3.9.0</mockito.version>
-        <testng.version>7.5</testng.version>
+        <testng.version>7.7.0</testng.version>
         <unboundid.version>6.0.6</unboundid.version> <!-- Test only dependency -->
         <metrics.version>4.2.9</metrics.version>
         <rhino.version>1.7.14</rhino.version>
